@@ -80,11 +80,14 @@
   ],
   "root_skill": {
     "name": "taotao-futures-research",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "entrypoint": "SKILL.md",
     "script": "scripts/run_sectors.py",
     "catalog": "catalog/sectors.json",
     "config": "examples/sector-demo/config.json",
-    "demo_report": "examples/sector-workbench/REPORT.md"
+    "demo_report": "examples/sector-workbench/REPORT.md",
+    "source_script": "scripts/fetch_sina.py",
+    "integrity_script": "scripts/bundle_integrity.py",
+    "review_script": "scripts/compare_reports.py"
   }
 }

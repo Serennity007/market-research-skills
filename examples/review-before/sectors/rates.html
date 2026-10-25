@@ -1,0 +1,220 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>国债</title><style>*{box-sizing:border-box}body{margin:0;background:#0a111b;color:#dfe8f5;font:15px/1.7 system-ui,"Microsoft YaHei",sans-serif}main{max-width:1260px;margin:auto;padding:30px 20px}h1{font-size:clamp(28px,5vw,40px);margin:12px 0}h2{font-size:22px}a{color:#79dfc6}p,.muted{color:#a8b7ca}.tag{font:12px monospace;color:#79dfc6;letter-spacing:2px}.summary{display:flex;gap:16px;flex-wrap:wrap;margin:22px 0}.summary article,section,details{padding:20px;background:#121e2d;border:1px solid #2b3c53;border-radius:10px;margin-bottom:18px}.summary article{flex:1;min-width:180px}.summary strong{display:block;font-size:30px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;white-space:nowrap}th,td{padding:11px 12px;border-bottom:1px solid #29394e;text-align:left}th{color:#a8b7ca;font-size:13px}tbody tr:hover{background:#192b3c}.positive{color:#79dfc6}.negative{color:#ef9b97}.thin{color:#a8b7ca}.bar{display:inline-block;vertical-align:middle;height:7px;border-radius:4px;margin-right:8px}.up{background:#79dfc6}.down{background:#ef9b97}input,select{background:#101c2b;border:1px solid #40556e;border-radius:7px;color:#e6eef8;padding:10px;margin:4px 10px 12px 0;max-width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-height:600px;overflow:auto}li{margin:7px 0}.pill{display:inline-block;margin:4px;padding:6px 12px;border:1px solid #39516d;border-radius:6px}footer{color:#a8b7ca;margin:22px 0;font-size:13px}[hidden]{display:none!important}@media print{body{background:white;color:#111}main{max-width:none}section,.summary article,details{background:white;border:1px solid #bbb}a,p,.muted,th,footer{color:#333}input,select,details{display:none}.scroll{overflow:visible}table{white-space:normal;font-size:10px}}</style><main><header><div class="tag">涛涛的期货研究 / 板块分析</div><h1>国债</h1><p>模拟练习数据 · 交易日 2024-01-09 · 截止 2024-01-09T08:00:00+00:00</p><a href="../index.html">← 返回板块总览</a> · <a href="../bundle.json">JSON</a></header><section><h2>先查这些资料</h2><ul><li>核对资金面、利率曲线和宏观数据的公布时间，区分名义与实际利率。</li><li>不同期限先看久期风险与收益率变化，不能把期货涨跌幅当同等风险。</li><li>CTD、转换因子、基差和隐含回购需具体可交割券与官方合约规则。</li></ul><h2>下一次检查</h2><ul><li>对照新的资金利率和曲线变化。</li><li>合约或可交割券改变时重新检查 CTD 与交割假设。</li></ul></section><section><h2>品种比较</h2><div class="scroll"><table><thead><tr><th>品种 / 固定合约</th><th>收盘 / 单位</th><th>固定锚点区间</th><th>ATR14</th><th>较前次观测增仓</th><th>前次观测日</th><th>量/前5根均量</th></tr></thead><tbody><tr><td>T / T_DEMO</td><td>162.926 / demo_points</td><td>+13.34%</td><td>2.1727</td><td>0</td><td>2024-01-08</td><td>1.019</td></tr><tr><td>TL / TL_DEMO</td><td>176.2917 / demo_points</td><td>+17.60%</td><td>2.4909</td><td>3</td><td>2024-01-08</td><td>1.019</td></tr></tbody></table></div><p>增仓与前一条有效日线比较，表中保留其交易日；缺日线时，差值可能跨多日。量比采用之前5条观测。量仓是手数，不据此确定谁在加多或加空。</p></section><section><h2>截止时刻已公布的产业数据</h2><p><strong>DEMO_观察指标</strong>：100 demo_units<br>观测 2024-01-05T07:00:00+00:00；公布 2024-01-08T08:00:00+00:00<br>来源：synthetic://exercise</p></section><section><h2>多周期与关键位</h2><h3>T</h3><p>D1：均线向上排列；MACD 正柱 / 绝对值缩小；末根 2024-01-09T07:00:00+00:00</p><h3>TL</h3><p>D1：均线向上排列；MACD 正柱 / 绝对值缩小；末根 2024-01-09T07:00:00+00:00</p></section><details><summary>本板块的完整计算</summary><pre>{
+  &quot;sector&quot;: {
+    &quot;id&quot;: &quot;rates&quot;,
+    &quot;name&quot;: &quot;国债&quot;,
+    &quot;windows&quot;: {
+      &quot;month&quot;: {
+        &quot;expected_products&quot;: 2,
+        &quot;observed_products&quot;: 2,
+        &quot;coverage&quot;: 1.0,
+        &quot;eligible_for_ranking&quot;: true,
+        &quot;sample_equal_weight_price_return&quot;: 0.15465840816510457,
+        &quot;advancing&quot;: 2,
+        &quot;declining&quot;: 0,
+        &quot;unchanged&quot;: 0,
+        &quot;rank&quot;: 1
+      }
+    },
+    &quot;symbols&quot;: [
+      &quot;T&quot;,
+      &quot;TL&quot;
+    ],
+    &quot;drivers&quot;: [
+      &quot;核对资金面、利率曲线和宏观数据的公布时间，区分名义与实际利率。&quot;,
+      &quot;不同期限先看久期风险与收益率变化，不能把期货涨跌幅当同等风险。&quot;,
+      &quot;CTD、转换因子、基差和隐含回购需具体可交割券与官方合约规则。&quot;
+    ],
+    &quot;next_checks&quot;: [
+      &quot;对照新的资金利率和曲线变化。&quot;,
+      &quot;合约或可交割券改变时重新检查 CTD 与交割假设。&quot;
+    ],
+    &quot;evidence&quot;: [
+      {
+        &quot;sector&quot;: &quot;rates&quot;,
+        &quot;metric&quot;: &quot;DEMO_观察指标&quot;,
+        &quot;observed_at&quot;: &quot;2024-01-05T07:00:00+00:00&quot;,
+        &quot;published_at&quot;: &quot;2024-01-08T08:00:00+00:00&quot;,
+        &quot;value&quot;: 100.0,
+        &quot;unit&quot;: &quot;demo_units&quot;,
+        &quot;source&quot;: &quot;synthetic://exercise&quot;
+      }
+    ],
+    &quot;reference&quot;: &quot;references/sectors/rates.md&quot;
+  },
+  &quot;products&quot;: [
+    {
+      &quot;symbol&quot;: &quot;T&quot;,
+      &quot;name&quot;: &quot;十年期国债&quot;,
+      &quot;sector&quot;: &quot;rates&quot;,
+      &quot;exchange&quot;: &quot;CFFEX&quot;,
+      &quot;contract&quot;: &quot;T_DEMO&quot;,
+      &quot;currency&quot;: &quot;CNY&quot;,
+      &quot;unit&quot;: &quot;demo_points&quot;,
+      &quot;volume_unit&quot;: &quot;contracts&quot;,
+      &quot;latest_close&quot;: 162.926013,
+      &quot;quote_age_hours&quot;: 1.0,
+      &quot;daily_count&quot;: 42,
+      &quot;windows&quot;: {
+        &quot;month&quot;: {
+          &quot;start_date&quot;: &quot;2023-12-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 143.754529,
+          &quot;end_price&quot;: 162.926013,
+          &quot;price_return&quot;: 0.13336264348234916,
+          &quot;unavailable_reason&quot;: null
+        }
+      },
+      &quot;atr14_simple&quot;: 2.172749785714294,
+      &quot;atr14_over_absolute_close&quot;: 0.013335806515527352,
+      &quot;flow&quot;: {
+        &quot;volume&quot;: 1606,
+        &quot;open_interest&quot;: 3000,
+        &quot;open_interest_change&quot;: 0,
+        &quot;volume_vs_prior5_mean&quot;: 1.0190355329949239,
+        &quot;previous_observation_trade_date&quot;: &quot;2024-01-08&quot;,
+        &quot;price_change_since_previous_observation&quot;: 0.7617180000000019,
+        &quot;price_oi_observation&quot;: {
+          &quot;price&quot;: &quot;up&quot;,
+          &quot;open_interest&quot;: &quot;flat&quot;
+        }
+      },
+      &quot;structures&quot;: {
+        &quot;D1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;T_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;D1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-09T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;b76843bb64a962d8044d5cda4208be6ffa13c483194fd395ad13105afb4bdc47&quot;,
+          &quot;completed_bar_count&quot;: 42,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-09T07:00:00+00:00&quot;,
+            &quot;open&quot;: 162.164295,
+            &quot;high&quot;: 163.526013,
+            &quot;low&quot;: 161.564295,
+            &quot;close&quot;: 162.926013
+          },
+          &quot;observation_age_seconds&quot;: 3600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 161.2735798,
+            &quot;ma10&quot;: 158.75152440000002,
+            &quot;ma20&quot;: 153.9566941
+          },
+          &quot;ma_ordering&quot;: &quot;ascending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: 5.709591509554656,
+            &quot;dea&quot;: 5.322053139333708,
+            &quot;histogram&quot;: 0.7750767404418966,
+            &quot;histogram_previous&quot;: 0.8513277185255532,
+            &quot;sign&quot;: &quot;positive&quot;,
+            &quot;absolute_magnitude&quot;: &quot;shrinking&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        }
+      },
+      &quot;attention&quot;: [],
+      &quot;setups&quot;: [],
+      &quot;bars_without_available_at&quot;: 42
+    },
+    {
+      &quot;symbol&quot;: &quot;TL&quot;,
+      &quot;name&quot;: &quot;三十年期国债&quot;,
+      &quot;sector&quot;: &quot;rates&quot;,
+      &quot;exchange&quot;: &quot;CFFEX&quot;,
+      &quot;contract&quot;: &quot;TL_DEMO&quot;,
+      &quot;currency&quot;: &quot;CNY&quot;,
+      &quot;unit&quot;: &quot;demo_points&quot;,
+      &quot;volume_unit&quot;: &quot;contracts&quot;,
+      &quot;latest_close&quot;: 176.291694,
+      &quot;quote_age_hours&quot;: 1.0,
+      &quot;daily_count&quot;: 42,
+      &quot;windows&quot;: {
+        &quot;month&quot;: {
+          &quot;start_date&quot;: &quot;2023-12-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 149.913745,
+          &quot;end_price&quot;: 176.291694,
+          &quot;price_return&quot;: 0.17595417284785997,
+          &quot;unavailable_reason&quot;: null
+        }
+      },
+      &quot;atr14_simple&quot;: 2.4908729285714344,
+      &quot;atr14_over_absolute_close&quot;: 0.014129269916547709,
+      &quot;flow&quot;: {
+        &quot;volume&quot;: 1613,
+        &quot;open_interest&quot;: 3123,
+        &quot;open_interest_change&quot;: 3,
+        &quot;volume_vs_prior5_mean&quot;: 1.0189513581806695,
+        &quot;previous_observation_trade_date&quot;: &quot;2024-01-08&quot;,
+        &quot;price_change_since_previous_observation&quot;: 1.0773169999999936,
+        &quot;price_oi_observation&quot;: {
+          &quot;price&quot;: &quot;up&quot;,
+          &quot;open_interest&quot;: &quot;up&quot;
+        }
+      },
+      &quot;structures&quot;: {
+        &quot;D1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;TL_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;D1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-09T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;b113afbbb840a88cf93371f3001f733250776fc799de594e86ce7d1b5ec10f21&quot;,
+          &quot;completed_bar_count&quot;: 42,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-09T07:00:00+00:00&quot;,
+            &quot;open&quot;: 175.214377,
+            &quot;high&quot;: 176.891694,
+            &quot;low&quot;: 174.614377,
+            &quot;close&quot;: 176.291694
+          },
+          &quot;observation_age_seconds&quot;: 3600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 174.1375524,
+            &quot;ma10&quot;: 171.1407677,
+            &quot;ma20&quot;: 164.51472105
+          },
+          &quot;ma_ordering&quot;: &quot;ascending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: 7.752964786973507,
+            &quot;dea&quot;: 7.338512625459625,
+            &quot;histogram&quot;: 0.8289043230277642,
+            &quot;histogram_previous&quot;: 0.946340760669182,
+            &quot;sign&quot;: &quot;positive&quot;,
+            &quot;absolute_magnitude&quot;: &quot;shrinking&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        }
+      },
+      &quot;attention&quot;: [],
+      &quot;setups&quot;: [],
+      &quot;bars_without_available_at&quot;: 42
+    }
+  ]
+}</pre></details><footer>各板块采用本次配置的代表品种；表内涨跌幅是同一合约的价格变化。产业数据按公布时间筛选，原始文件与哈希随报告保存。</footer></main></html>

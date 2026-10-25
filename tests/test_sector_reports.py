@@ -79,3 +79,13 @@ class SectorReportTests(unittest.TestCase):
         gold=next(item for item in data['products'] if item['symbol']=='AU')
         self.assertEqual(gold['structures']['H4']['reference_window']['window_state'],'expired')
         self.assertTrue(any('跨周期' in item for item in gold['attention']))
+
+    def test_predeclared_setup_lifecycle_reaches_the_sector_page(self):
+        _,_,_,first=runner.load(ROOT/'examples/sector-demo/config.json')
+        _,_,_,later=runner.load(ROOT/'examples/review-configs/after.json')
+        a=next(item for item in first['products'] if item['symbol']=='AU')['setups'][0]
+        b=next(item for item in later['products'] if item['symbol']=='AU')['setups'][0]
+        self.assertEqual(a['state'],'retest_observed')
+        self.assertEqual(b['state'],'invalidated')
+        board=next(item for item in later['sectors'] if item['id']=='precious-metals')
+        self.assertIn('已触及事先声明的失效位',reports.sector_html(board,later))

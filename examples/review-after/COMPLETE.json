@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "data_kind": "synthetic",
+  "configured_products": 30,
+  "sha256": {
+    "bundle.json": "4770b69917bc1000abae4713d67a861af9b8bc8cca1cc1961f359de4a6ecf1cd",
+    "config.snapshot.json": "d06ff0d6b20da4fba33b04abfef3624f2e82461a29a0a06371b40ab96c930f72",
+    "index.html": "54234fee4ab912093f033f254cb348ff780183db80a533a87e9d8311d1a74d37",
+    "inputs/catalog.json": "def3a934313605a234cf316370f0aa4842f390e3876f2b34776b6ccbb676543e",
+    "inputs/curves.csv": "0f10f508cbd9b9c0b2585cce71cacfd936643aef49962a5f306519463a5e92b4",
+    "inputs/evidence.csv": "a9ec55c6c8ee2e657d8f245ff33f222dfd9cc858ea018235800eb9f865404344",
+    "inputs/panel.csv": "c7cdf4775a0fa8cd95e4e24f0b4f3dd07893d9ee4bfc0954296768a0d7c654a4",
+    "products.csv": "def15f9816eabd4dd0e71a60f59ed8ece8975e78539163d6e36f17c3e748d068",
+    "REPORT.md": "257908753e1ccdd8657997fd4b136593fdbeacdc309d7329384b792ed3331284",
+    "sector_returns.csv": "b6c1d23d492f9531217a0ee0ef9dd42d7b88b3d80cef06cb2495b86c6aeda516",
+    "sectors/chemicals.html": "e9e268e0ddce495d5f98ac114f243b585ed2bc6c27e86551b0202cb2a97a2e8b",
+    "sectors/energy.html": "d5ff51b4d331050004ca07baa53aa546d57087c397d212b150139ab83395dc22",
+    "sectors/equity-index.html": "6869bc29c6a807ff626da395a212fc570fe76a661d962102cfa1c259c342e9f0",
+    "sectors/ferrous.html": "7c62db27bcbd68d382b40966cc7d889f281869c251a49ab404d8d8cde04ca9e1",
+    "sectors/grains-livestock.html": "3f56b571b98d2f91af5c88020d8fe946bcc905116c81358a4b350094711d11c9",
+    "sectors/nonferrous.html": "bcdff40e207cbf452286e966a671eedb316e687761df1d8678eb4477d97d942c",
+    "sectors/oilseeds.html": "ec156e8778a11349c752625ef9ba12a68da9d03b406f87b9ede17153124c5a5a",
+    "sectors/precious-metals.html": "fb8f99d01e9a7c86fa0a918a2b3ff974d7c3ce03723c685c1981bcf590f5aed9",
+    "sectors/rates.html": "a4562574a5ceb2b2c79fa90af3d7d6c4bbb0de94d3e20967b33a53bff30f1633",
+    "sectors/shipping.html": "6e1d02dcefa971fd334797aa0013390323234f5e6972c3773bcb8ca410b4764b",
+    "sectors/softs.html": "fc23402d04e7ea9c692f6c1d84fec3402625a11acdb8ee71c3aea7b9a603c34b"
+  }
+}

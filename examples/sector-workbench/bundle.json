@@ -19,6 +19,7 @@
     }
   },
   "minimum_sector_coverage": 1.0,
+  "max_bar_age_hours": 24,
   "configured_product_count": 30,
   "catalog_product_count": 69,
   "catalog_sector_count": 11,
@@ -783,6 +784,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.0217391304347827,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.31250199999999495,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "down"
@@ -934,12 +937,81 @@
             "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
           ],
           "input_slice": "derived OHLC slice from frozen panel.csv"
+        },
+        "M30": {
+          "schema_version": 1,
+          "instrument": "AU_DEMO",
+          "declared_timeframe": "M30",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-09T08:00:00+00:00",
+          "source_sha256": "ad7af19ef09fbb661dd34d87f8cad48a685d6c800392c332140010bf3e103759",
+          "completed_bar_count": 4,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-08T02:30:00+00:00",
+            "open": 100.3,
+            "high": 102.3,
+            "low": 100.2,
+            "close": 102.0
+          },
+          "observation_age_seconds": 106200.0,
+          "moving_averages": {
+            "ma5": null,
+            "ma10": null,
+            "ma20": null
+          },
+          "ma_ordering": "insufficient_history",
+          "macd": {
+            "ready": false,
+            "minimum_bars": 35,
+            "reason": "insufficient completed bars"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
       "attention": [
         "跨周期均线方向不一致，分别记录背景与触发。",
         "H4 参照柱窗口已过期。"
-      ]
+      ],
+      "setups": [
+        {
+          "name": "模拟支撑收复后再测试",
+          "timeframe": "M30",
+          "side": "support_reclaim",
+          "declared_at": "2024-01-08T01:00:00+00:00",
+          "anchor_time": "2024-01-08T01:00:00+00:00",
+          "level": 100,
+          "invalidation_level": 97,
+          "retest_tolerance": 0.5,
+          "validation_bars": 3,
+          "state": "retest_observed",
+          "observed_events": [
+            {
+              "event": "boundary_reclaimed",
+              "close_time": "2024-01-08T01:30:00+00:00",
+              "bars_after_anchor": 1
+            },
+            {
+              "event": "later_retest_held",
+              "close_time": "2024-01-08T02:00:00+00:00",
+              "bars_after_anchor": 2
+            }
+          ],
+          "scope": "Predeclared rule observations, not a buy/sell signal, validated edge or guaranteed stop fill.",
+          "completed_bars_after_anchor": 3,
+          "invalidation_rule": "touch of low <= invalidation_level"
+        }
+      ],
+      "bars_without_available_at": 134
     },
     {
       "symbol": "AG",
@@ -986,6 +1058,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.021629416005768,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.1857920000000064,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "flat"
@@ -1038,7 +1112,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "CU",
@@ -1085,6 +1161,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.0215208034433285,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.34916199999999264,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "up"
@@ -1137,7 +1215,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "AL",
@@ -1184,6 +1264,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.0214132762312633,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.33023399999999015,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "down"
@@ -1236,7 +1318,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "LC",
@@ -1283,6 +1367,8 @@
         "open_interest": null,
         "open_interest_change": null,
         "volume_vs_prior5_mean": null,
+        "previous_observation_trade_date": null,
+        "price_change_since_previous_observation": null,
         "price_oi_observation": null
       },
       "structures": {
@@ -1334,7 +1420,9 @@
       },
       "attention": [
         "缺少目标交易日的日线，不能用旧报价顶替。"
-      ]
+      ],
+      "setups": [],
+      "bars_without_available_at": 41
     },
     {
       "symbol": "RB",
@@ -1381,6 +1469,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.0212014134275618,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.14666800000000535,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "up"
@@ -1433,7 +1523,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "I",
@@ -1480,6 +1572,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.021097046413502,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.17872400000000255,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "down"
@@ -1532,7 +1626,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "JM",
@@ -1579,6 +1675,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.0209937018894333,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.02605599999999697,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "flat"
@@ -1631,7 +1729,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "SC",
@@ -1678,6 +1778,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.0208913649025069,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.14261199999999974,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "up"
@@ -1730,7 +1832,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "FU",
@@ -1777,6 +1881,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.0207900207900207,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.11269300000000726,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "down"
@@ -1829,7 +1935,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "PG",
@@ -1876,6 +1984,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.0206896551724138,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.34376600000000224,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "flat"
@@ -1928,7 +2038,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "TA",
@@ -1975,6 +2087,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.0205902539464653,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.037525999999999726,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "up"
@@ -2027,7 +2141,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "MA",
@@ -2074,6 +2190,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.0204918032786885,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.003966000000005465,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "down"
@@ -2126,7 +2244,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "SA",
@@ -2173,6 +2293,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.0203942895989122,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.2952049999999957,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "flat"
@@ -2225,7 +2347,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "RU",
@@ -2272,6 +2396,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.020297699594046,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.0062539999999984275,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "up"
@@ -2324,7 +2450,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "M",
@@ -2371,6 +2499,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.02020202020202,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.1915960000000041,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "down"
@@ -2423,7 +2553,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "Y",
@@ -2470,6 +2602,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.020107238605898,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.13771400000000256,
         "price_oi_observation": {
           "price": "down",
           "open_interest": "flat"
@@ -2522,7 +2656,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "P",
@@ -2569,6 +2705,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.020013342228152,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.1368530000000021,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "up"
@@ -2621,7 +2759,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "C",
@@ -2668,6 +2808,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.0199203187250996,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.220989000000003,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "down"
@@ -2720,7 +2862,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "CS",
@@ -2767,6 +2911,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.0198281559814937,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.628737000000001,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "flat"
@@ -2819,7 +2965,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "LH",
@@ -2866,6 +3014,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.019736842105263,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.32768499999998824,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "up"
@@ -2918,7 +3068,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "JD",
@@ -2965,6 +3117,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.0196463654223968,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.41997200000000134,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "down"
@@ -3017,7 +3171,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "CF",
@@ -3064,6 +3220,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.0195567144719686,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.1560880000000111,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "flat"
@@ -3116,7 +3274,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "SR",
@@ -3163,6 +3323,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.0194678780012978,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.439707999999996,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "up"
@@ -3215,7 +3377,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "AP",
@@ -3262,6 +3426,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.0193798449612403,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.3356449999999995,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "down"
@@ -3314,7 +3480,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "EC",
@@ -3361,6 +3529,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.0192926045016077,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 1.0355209999999886,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "flat"
@@ -3413,7 +3583,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "IF",
@@ -3460,6 +3632,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.0192061459667094,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.9331340000000239,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "up"
@@ -3512,7 +3686,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "IM",
@@ -3559,6 +3735,8 @@
         "open_interest": 2877,
         "open_interest_change": -3,
         "volume_vs_prior5_mean": 1.0191204588910134,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 1.1237630000000252,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "down"
@@ -3611,7 +3789,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "T",
@@ -3658,6 +3838,8 @@
         "open_interest": 3000,
         "open_interest_change": 0,
         "volume_vs_prior5_mean": 1.0190355329949239,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 0.7617180000000019,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "flat"
@@ -3710,7 +3892,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     },
     {
       "symbol": "TL",
@@ -3757,6 +3941,8 @@
         "open_interest": 3123,
         "open_interest_change": 3,
         "volume_vs_prior5_mean": 1.0189513581806695,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": 1.0773169999999936,
         "price_oi_observation": {
           "price": "up",
           "open_interest": "up"
@@ -3809,7 +3995,9 @@
           "input_slice": "derived OHLC slice from frozen panel.csv"
         }
       },
-      "attention": []
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
     }
   ],
   "curves": [
@@ -3929,14 +4117,15 @@
     }
   ],
   "source_sha256": {
-    "panel": "1c447f8ee661ec06c176406a3382164a3ac7e779ddf2c4180adf31f5c44a8bba",
+    "panel": "c7cdf4775a0fa8cd95e4e24f0b4f3dd07893d9ee4bfc0954296768a0d7c654a4",
     "evidence": "a9ec55c6c8ee2e657d8f245ff33f222dfd9cc858ea018235800eb9f865404344",
     "curves": "0f10f508cbd9b9c0b2585cce71cacfd936643aef49962a5f306519463a5e92b4"
   },
   "excluded_panel_rows": {
-    "after_cutoff": 0,
+    "after_cutoff": 31,
     "after_trade_date": 0,
-    "outside_universe_or_contract": 0
+    "outside_universe_or_contract": 0,
+    "not_available_at_cutoff": 0
   },
   "excluded_unpublished_evidence": 1,
   "excluded_future_curve_quotes": 0,
@@ -3962,6 +4151,6 @@
     }
   },
   "catalog_sha256": "def3a934313605a234cf316370f0aa4842f390e3876f2b34776b6ccbb676543e",
-  "config_sha256": "a19e86287d56738e291b09d2d4ae4d8f5d40cf9aa919905dbd7c2068759e7657",
-  "generated_at_utc": "2026-10-25T09:32:51.965132+00:00"
+  "config_sha256": "a6a0469022d46c51c0d15d5becaefb20eae4c8e99a2a62e2224cf23daaa9d6fd",
+  "generated_at_utc": "2026-10-25T10:16:28.260723+00:00"
 }

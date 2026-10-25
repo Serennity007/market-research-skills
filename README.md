@@ -18,11 +18,37 @@ python scripts/run_sectors.py --config examples/sector-demo/config.json --out ou
 
 打开终端打印的 index.html。你可以切换比较区间、筛选板块或代码，再进入各板块页面。报告同时保存 Markdown、JSON、CSV 和本次输入，重复运行会保留旧记录。
 
-先看 [已运行的模拟报告](examples/sector-workbench/REPORT.md)，或者按 [实操步骤](docs/sector-hands-on.md) 手算核对。示例全为模拟数据；目录收录69个品种标识，演示选30个代表品种，覆盖11个研究板块。
+先看 [已运行的模拟报告](examples/sector-workbench/REPORT.md)，或者按 [实操步骤](docs/sector-hands-on.md) 手算核对。这份练习为模拟数据；目录收录69个品种标识，演示选30个代表品种，覆盖11个研究板块。另有 [公开日线取数实测](examples/real-source/VERIFICATION.md) 和 [两次记录对照](examples/review-result/REVIEW.md)。
 
-下面是本地实际运行的模拟报告截图：
+[模拟板块报告截图](.github/sector-preview.jpg) 展示完整的11板块练习。
 
-![板块总览：模拟练习](.github/sector-preview.jpg)
+## 用公开日线跑一份报告
+
+```bash
+python scripts/fetch_sina.py --request examples/sina-request.json --out output/sources --analyze
+```
+
+这个命令只请求文件里明确填写的合约，一批最多6个。取数、保存原始响应、转换字段和生成报告会按顺序完成；默认的模拟报告命令仍然离线运行。
+
+2026-10-25 实测 AU2612、RB2701、M2701，分别取得225、184、183条日线，最近共同日期为2026-10-23。它们是本次选择的固定合约，不自动称为主力。原始响应、取数时间、输入和哈希已保存，可看 [真实快照报告](examples/real-workbench/REPORT.md)。
+
+这里使用的是下载时可见的历史版本。每根 K 线记录 available_at，不能把今天取到的数据回填成过去当时已知的版本。取数当日的日线会排除，日收盘时刻由请求文件声明。具体字段和源站变化的处理见 [取数说明](docs/public-data.md)。
+
+下面是本次3个固定合约的取数快照，终点为2026-10-23收盘，保留来源与版本说明：
+
+![真实取数快照：3个固定合约](.github/source-preview.jpg)
+
+## 检查快照，再做复盘
+
+```bash
+python scripts/bundle_integrity.py examples/sector-workbench
+python scripts/bundle_integrity.py examples/real-source
+python scripts/compare_reports.py --before examples/review-before --after examples/review-after --out output/reviews
+```
+
+新版报告校验输入、配置、页面与表格的 SHA-256。重跑冻结配置时会先校验，文件改动就报出。校验检查文件一致性，来源真实性仍需核对。
+
+两次记录对照按同一合约计算价格变化；换月、单位变化、窗口起点变化或样本缺失会单独说明。改过人工关键位或参照柱，也会留下条件变更记录。[模拟复盘](examples/review-result/REVIEW.md) 演示一个先满足收回/回踩观察、后来触及失效位的条件。
 
 ## 按板块查资料
 
@@ -45,7 +71,7 @@ python scripts/run_sectors.py --config examples/sector-demo/config.json --out ou
 ## 报告里看什么
 
 - **板块比较**：共同区间的等权价格变化、上涨/下跌数量、代表品种覆盖率。缺数据就显示缺口，默认样本齐全才排名。
-- **单品种**：固定合约的价格、量仓变化、前5日均量对比、ATR14。
+- **单品种**：固定合约的价格、与前次观测的量仓变化、前5根日线均量对比、ATR14，保留前次观测日。
 - **价格结构**：日线、H4、H1/M30 的均线与 MACD，人工支撑/阻力、参照柱计数和窗口到期。
 - **产业数据**：观测期、公布时点、数值、单位和来源；截止时刻之后才公布的版本不进入旧报告。
 - **跨月曲线**：按交割月比较价差，保留报价时间差，检查币种和单位。
@@ -56,9 +82,9 @@ python scripts/run_sectors.py --config examples/sector-demo/config.json --out ou
 
 [完整方法](references/price-structure.md) 整理了大周期背景、H4 边界、H1/M30 触发，以及区间边缘、跌破收回、突破回踩、时间窗口和风险预算。
 
-先写观察条件，再等收盘和后续回踩。参照柱与验证期限事先确定；到期没有发生，就在复盘里记录。脚本会计算已有结构观察，三阶段确认和风险手数仍需对应的新数据与合约参数。
+先写观察条件，再等收盘和后续回踩。参照柱与验证期限事先确定；到期没有发生，就在复盘里记录。可以为品种填写事先声明的 setups：参照柱、边界、再次测试容许范围、验证柱数和失效位。程序分别记录收回、后续测试、过期和失效，收回那一根不能同时算成后续回踩。条件的人工声明时间与来源仍需保留，观察满足不等于交易优势已验证。风险手数另需合约与成本资料。
 
-[板块比较口径](references/sector-workflow.md) · [事件传导](references/event-transmission.md) · [数据与计算格式](references/data-contract.md) · [官方入口](references/sources.md)
+[板块比较口径](references/sector-workflow.md) · [事件传导](references/event-transmission.md) · [数据与计算格式](references/data-contract.md) · [结构条件与复盘](docs/rules-and-review.md) · [官方入口](references/sources.md)
 
 ## 换自己的数据
 

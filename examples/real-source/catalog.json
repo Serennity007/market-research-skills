@@ -1,0 +1,578 @@
+{
+  "schema_version": 1,
+  "title": "涛涛的期货研究：研究用板块目录",
+  "compiled_on": "2026-10-25",
+  "classification": "Custom research taxonomy; product matching is not current tradability or contract-rule verification",
+  "sectors": [
+    {
+      "id": "precious-metals",
+      "name": "贵金属",
+      "reference": "references/sectors/precious-metals.md",
+      "drivers": [
+        "实际利率、美元与金银比使用相同可知日期，分别记录数据口径。",
+        "核对央行、基金和实物需求统计的公布时滞。",
+        "H4 边界与 H1/M30 触发分开，保留价格与宏观分歧。"
+      ],
+      "next_checks": [
+        "重新检查支撑收复或突破失败是否延续。",
+        "对照新的利率与资金需求数据，给出原判断的反证。"
+      ]
+    },
+    {
+      "id": "nonferrous",
+      "name": "有色与新能源材料",
+      "reference": "references/sectors/nonferrous.md",
+      "drivers": [
+        "分品种检查矿端、冶炼或材料产能，记录检修、投产和进口的实际时间。",
+        "库存区分社会库存、交易所库存与注册仓单，避免重复相加。",
+        "对照加工利润、下游订单与现货升贴水；锂、硅的成本和需求链另列。"
+      ],
+      "next_checks": [
+        "核对价格变化是否伴随同口径库存或现货变化。",
+        "检修和投产计划有变化时，更新供给假设。"
+      ]
+    },
+    {
+      "id": "ferrous",
+      "name": "黑色",
+      "reference": "references/sectors/ferrous.md",
+      "drivers": [
+        "把终端需求、钢厂生产、原料采购分开，核对高炉/电炉与成材库存口径。",
+        "螺纹、热卷与矿焦的加工关系需原料配比和实际价格，不能只比较绝对点位。",
+        "政策消息同时核对实施范围、日期与实际产量反应。"
+      ],
+      "next_checks": [
+        "检查去库来自需求增加还是减产。",
+        "用新产量、订单和库存信息复核钢厂利润假设。"
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "能源",
+      "reference": "references/sectors/energy.md",
+      "drivers": [
+        "原油、燃料油、LPG 和沥青各自核对供给、库存、需求和运输。",
+        "区分供给损失、物流延迟与需求变化，写出替代供应和库存缓冲。",
+        "比较固定合约的期限结构，币种、品质与交割地先对齐。"
+      ],
+      "next_checks": [
+        "按统计周与公布时点复核库存。",
+        "核对绕行、设备中断或复产是否已经落实。"
+      ]
+    },
+    {
+      "id": "chemicals",
+      "name": "化工",
+      "reference": "references/sectors/chemicals.md",
+      "drivers": [
+        "按成本路径区分油、煤、天然气和其他原料，记录装置开停与加工利润。",
+        "把聚酯、烯烃、建材、橡胶和纸浆的下游需求分别检查。",
+        "玻璃—纯碱等产业关系需核对库存位置、交割品质和采购时点。"
+      ],
+      "next_checks": [
+        "检查装置变化能否解释库存，而非只重复检修消息。",
+        "核对原料成本变化是否传导到下游价格和订单。"
+      ]
+    },
+    {
+      "id": "oilseeds",
+      "name": "油脂油料",
+      "reference": "references/sectors/oilseeds.md",
+      "drivers": [
+        "区分种植、天气、出口、到港与压榨的时间，保留作物年度。",
+        "油与粕分别检查库存和下游需求，不把压榨两个产出当同一方向。",
+        "进口成本须记录汇率、运费、税费和品质；跨品种比价先统一单位。"
+      ],
+      "next_checks": [
+        "核对船期、到港与压榨是否符合原先计划。",
+        "更新饲料、油脂消费和同口径库存。"
+      ]
+    },
+    {
+      "id": "grains-livestock",
+      "name": "谷物与养殖",
+      "reference": "references/sectors/grains-livestock.md",
+      "drivers": [
+        "谷物看产区、上市节奏、进口与饲用/加工需求，标明作物年度。",
+        "生猪、鸡蛋看供给周期、体重/存栏或产蛋群及消费，区分存量和流量。",
+        "加工与养殖利润需要配方、耗用和现货价格，不能由期货点位直接推算。"
+      ],
+      "next_checks": [
+        "核对供应兑现与季节消费的实际差异。",
+        "分开复盘成本变化和产品价格变化。"
+      ]
+    },
+    {
+      "id": "softs",
+      "name": "软商品与特色农产",
+      "reference": "references/sectors/softs.md",
+      "drivers": [
+        "先核对产季、产地、等级与可交割品质，再谈天气和产量。",
+        "棉纺看原料、纱线与订单，糖看产销年度、进口和库存。",
+        "苹果、红枣的仓储、品质和交割要求需与现货统计对应。"
+      ],
+      "next_checks": [
+        "检查天气或减产消息是否转成可交付供应变化。",
+        "核对新订单、销售和库存，更新原先需求判断。"
+      ]
+    },
+    {
+      "id": "shipping",
+      "name": "航运",
+      "reference": "references/sectors/shipping.md",
+      "drivers": [
+        "把红海/苏伊士通行、绕航周转、有效运力和货量逐段核对。",
+        "区分船司报价、SCFI 与 SCFIS 欧洲航线，按公布时刻判断历史可知信息。",
+        "目标 EC 合约月、预期变化和最终结算规则另查，不用最后一期指数代替结算。"
+      ],
+      "next_checks": [
+        "更新实际通航和运力调配，而非仅看消息标题。",
+        "对照新公布运价与合约报价，检查预期差。"
+      ]
+    },
+    {
+      "id": "equity-index",
+      "name": "股指",
+      "reference": "references/sectors/equity-index.md",
+      "drivers": [
+        "区分股指期货、现货指数和 ETF，具体月份及同一时点价格分别保存。",
+        "检查权重/等权、大小盘、行业和市场宽度，说明成分覆盖。",
+        "期现基差与套保需要分红、到期、乘数和实际风险暴露资料。"
+      ],
+      "next_checks": [
+        "核对指数上涨是否伴随成分扩散。",
+        "检查合约到期、分红和基差变化对期货表现的影响。"
+      ]
+    },
+    {
+      "id": "rates",
+      "name": "国债",
+      "reference": "references/sectors/rates.md",
+      "drivers": [
+        "核对资金面、利率曲线和宏观数据的公布时间，区分名义与实际利率。",
+        "不同期限先看久期风险与收益率变化，不能把期货涨跌幅当同等风险。",
+        "CTD、转换因子、基差和隐含回购需具体可交割券与官方合约规则。"
+      ],
+      "next_checks": [
+        "对照新的资金利率和曲线变化。",
+        "合约或可交割券改变时重新检查 CTD 与交割假设。"
+      ]
+    }
+  ],
+  "products": {
+    "AU": {
+      "name": "黄金",
+      "sector": "precious-metals",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "AG": {
+      "name": "白银",
+      "sector": "precious-metals",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "CU": {
+      "name": "铜",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "AL": {
+      "name": "铝",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "ZN": {
+      "name": "锌",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "PB": {
+      "name": "铅",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "NI": {
+      "name": "镍",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "SN": {
+      "name": "锡",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "AO": {
+      "name": "氧化铝",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "BC": {
+      "name": "国际铜",
+      "sector": "nonferrous",
+      "exchange": "INE",
+      "allow_signed": false
+    },
+    "LC": {
+      "name": "碳酸锂",
+      "sector": "nonferrous",
+      "exchange": "GFEX",
+      "allow_signed": false
+    },
+    "SI": {
+      "name": "工业硅",
+      "sector": "nonferrous",
+      "exchange": "GFEX",
+      "allow_signed": false
+    },
+    "RB": {
+      "name": "螺纹钢",
+      "sector": "ferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "HC": {
+      "name": "热轧卷板",
+      "sector": "ferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "I": {
+      "name": "铁矿石",
+      "sector": "ferrous",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "J": {
+      "name": "焦炭",
+      "sector": "ferrous",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "JM": {
+      "name": "焦煤",
+      "sector": "ferrous",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "SF": {
+      "name": "硅铁",
+      "sector": "ferrous",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "SM": {
+      "name": "锰硅",
+      "sector": "ferrous",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "SS": {
+      "name": "不锈钢",
+      "sector": "ferrous",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "SC": {
+      "name": "原油",
+      "sector": "energy",
+      "exchange": "INE",
+      "allow_signed": true
+    },
+    "FU": {
+      "name": "燃料油",
+      "sector": "energy",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "LU": {
+      "name": "低硫燃料油",
+      "sector": "energy",
+      "exchange": "INE",
+      "allow_signed": false
+    },
+    "PG": {
+      "name": "液化石油气",
+      "sector": "energy",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "BU": {
+      "name": "沥青",
+      "sector": "energy",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "TA": {
+      "name": "PTA",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "MA": {
+      "name": "甲醇",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "EG": {
+      "name": "乙二醇",
+      "sector": "chemicals",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "EB": {
+      "name": "苯乙烯",
+      "sector": "chemicals",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "L": {
+      "name": "聚乙烯",
+      "sector": "chemicals",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "PP": {
+      "name": "聚丙烯",
+      "sector": "chemicals",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "V": {
+      "name": "PVC",
+      "sector": "chemicals",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "PF": {
+      "name": "短纤",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "PX": {
+      "name": "对二甲苯",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "SH": {
+      "name": "烧碱",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "UR": {
+      "name": "尿素",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "FG": {
+      "name": "玻璃",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "SA": {
+      "name": "纯碱",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "RU": {
+      "name": "天然橡胶",
+      "sector": "chemicals",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "NR": {
+      "name": "20号胶",
+      "sector": "chemicals",
+      "exchange": "INE",
+      "allow_signed": false
+    },
+    "BR": {
+      "name": "合成橡胶",
+      "sector": "chemicals",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "SP": {
+      "name": "纸浆",
+      "sector": "chemicals",
+      "exchange": "SHFE",
+      "allow_signed": false
+    },
+    "A": {
+      "name": "豆一",
+      "sector": "oilseeds",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "B": {
+      "name": "豆二",
+      "sector": "oilseeds",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "M": {
+      "name": "豆粕",
+      "sector": "oilseeds",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "Y": {
+      "name": "豆油",
+      "sector": "oilseeds",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "P": {
+      "name": "棕榈油",
+      "sector": "oilseeds",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "OI": {
+      "name": "菜油",
+      "sector": "oilseeds",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "RM": {
+      "name": "菜粕",
+      "sector": "oilseeds",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "PK": {
+      "name": "花生",
+      "sector": "oilseeds",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "C": {
+      "name": "玉米",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "CS": {
+      "name": "玉米淀粉",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "RR": {
+      "name": "粳米",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "JD": {
+      "name": "鸡蛋",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "LH": {
+      "name": "生猪",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "allow_signed": false
+    },
+    "CF": {
+      "name": "棉花",
+      "sector": "softs",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "CY": {
+      "name": "棉纱",
+      "sector": "softs",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "SR": {
+      "name": "白糖",
+      "sector": "softs",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "AP": {
+      "name": "苹果",
+      "sector": "softs",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "CJ": {
+      "name": "红枣",
+      "sector": "softs",
+      "exchange": "CZCE",
+      "allow_signed": false
+    },
+    "EC": {
+      "name": "集运欧线",
+      "sector": "shipping",
+      "exchange": "INE",
+      "allow_signed": false
+    },
+    "IF": {
+      "name": "沪深300",
+      "sector": "equity-index",
+      "exchange": "CFFEX",
+      "allow_signed": false
+    },
+    "IH": {
+      "name": "上证50",
+      "sector": "equity-index",
+      "exchange": "CFFEX",
+      "allow_signed": false
+    },
+    "IC": {
+      "name": "中证500",
+      "sector": "equity-index",
+      "exchange": "CFFEX",
+      "allow_signed": false
+    },
+    "IM": {
+      "name": "中证1000",
+      "sector": "equity-index",
+      "exchange": "CFFEX",
+      "allow_signed": false
+    },
+    "TS": {
+      "name": "二年期国债",
+      "sector": "rates",
+      "exchange": "CFFEX",
+      "allow_signed": false
+    },
+    "TF": {
+      "name": "五年期国债",
+      "sector": "rates",
+      "exchange": "CFFEX",
+      "allow_signed": false
+    },
+    "T": {
+      "name": "十年期国债",
+      "sector": "rates",
+      "exchange": "CFFEX",
+      "allow_signed": false
+    },
+    "TL": {
+      "name": "三十年期国债",
+      "sector": "rates",
+      "exchange": "CFFEX",
+      "allow_signed": false
+    }
+  }
+}

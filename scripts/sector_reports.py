@@ -1,6 +1,7 @@
 """Readable sector report exports, with no external browser resources."""
 from html import escape
 import json
+from price_setups import STATE_LABELS
 
 
 def percent(value):
@@ -30,15 +31,18 @@ CURVE_LABELS={'contango':'远月逐段高于近月','backwardation':'近月逐�
 
 
 def page(title,body,result,nav=''):
-    return f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{text(title)}</title><style>{STYLE}</style><main><header><div class="tag">涛涛的期货研究 / 板块分析</div><h1>{text(title)}</h1><p>{text(tag(result))} · 交易日 {text(result['trade_date'])} · 截止 {text(result['as_of_utc'])}</p>{nav}</header>{body}<footer>各板块采用本次配置的代表品种；表内涨跌幅是同一合约的价格变化。产业数据按公布时间筛选，原始文件与哈希随报告保存。</footer></main></html>'''
+    policy=result.get('sources',{}).get('panel',{}).get('vintage_policy')
+    note='<p>使用本次取数时可见的历史版本，逐行可用时间记录为取数时间；不能据此还原过去当时知道的信息。</p>' if policy=='retrieval_snapshot' else ''
+    return f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{text(title)}</title><style>{STYLE}</style><main><header><div class="tag">涛涛的期货研究 / 板块分析</div><h1>{text(title)}</h1><p>{text(tag(result))} · 交易日 {text(result['trade_date'])} · 截止 {text(result['as_of_utc'])}</p>{note}{nav}</header>{body}<footer>各板块采用本次配置的代表品种；表内涨跌幅是同一合约的价格变化。产业数据按公布时间筛选，原始文件与哈希随报告保存。</footer></main></html>'''
 
 
 def overview_html(result):
+    contracts={item['symbol']:item['contract'] for item in result['products']}
     options=''.join(f'<option value="{text(key)}">{text(value["label"])}：{text(value["start_date"])} → {text(result["trade_date"])}</option>' for key,value in result['windows'].items())
     nav='<a href="REPORT.md">文字报告</a> · <a href="bundle.json">计算明细</a> · <a href="sector_returns.csv">板块 CSV</a>'
     body=f'''<div class="summary"><article><span>本次选定板块</span><strong>{result['configured_sector_count']}</strong></article><article><span>配置的代表品种</span><strong>{result['configured_product_count']}</strong></article><article><span>产业数据记录</span><strong>{sum(len(board['evidence']) for board in result['sectors'])}</strong></article></div><section><h2>板块比较</h2><p>区间相同，品种和权重按配置选取。覆盖率达到 {result['minimum_sector_coverage']*100:g}% 才列排名。即便样本齐全，也不代表覆盖了板块内所有合约。</p><label for="window">比较区间</label> <select id="window">{options}</select><label for="search">筛选板块或代码</label> <input id="search" type="search" placeholder="例如：黑色、AU、EC">'''
     for index,(key,window) in enumerate(result['windows'].items()):
-        boards=sorted(result['sectors'],key=lambda board:(board['windows'][key]['rank'] is None,board['windows'][key]['rank'] or 0,board['id']))
+        boards=sorted([board for board in result['sectors'] if board['symbols']],key=lambda board:(board['windows'][key]['rank'] is None,board['windows'][key]['rank'] or 0,board['id']))
         max_value=max([abs(board['windows'][key]['sample_equal_weight_price_return'] or 0) for board in boards]+[.00001])
         rows=[]
         for board in boards:
@@ -48,10 +52,14 @@ def overview_html(result):
             width=0 if change is None else 75*abs(change)/max_value
             bar=f'<span class="bar {"up" if (change or 0)>=0 else "down"}" style="width:{width:.1f}px"></span>'
             rank='未排名' if value['rank'] is None else str(value['rank'])
-            rows.append(f'<tr class="board"><td>{text(rank)}</td><td><a href="sectors/{text(board["id"])}.html">{text(board["name"])}</a></td><td class="{css}">{bar}{percent(change)}</td><td>{value["observed_products"]}/{value["expected_products"]} ({value["coverage"]*100:.0f}%)</td><td>{value["advancing"]}/{value["declining"]}/{value["unchanged"]}</td><td>{text(", ".join(board["symbols"]))}</td></tr>')
-        body+=f'<div class="scroll" data-window="{text(key)}"'+(' hidden' if index else '')+'><table><thead><tr><th>区间排名</th><th>板块</th><th>样本等权价格变化</th><th>覆盖</th><th>涨/跌/平</th><th>代表品种</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table></div>'
+            selected=', '.join(symbol+' ('+contracts[symbol]+')' for symbol in board['symbols'])
+            rows.append(f'<tr class="board"><td>{text(rank)}</td><td><a href="sectors/{text(board["id"])}.html">{text(board["name"])}</a></td><td class="{css}">{bar}{percent(change)}</td><td>{value["observed_products"]}/{value["expected_products"]} ({value["coverage"]*100:.0f}%)</td><td>{value["advancing"]}/{value["declining"]}/{value["unchanged"]}</td><td>{text(selected)}</td></tr>')
+        body+=f'<div class="scroll" data-window="{text(key)}"'+(' hidden' if index else '')+'><table><thead><tr><th>区间排名</th><th>板块</th><th>样本等权价格变化</th><th>覆盖</th><th>涨/跌/平</th><th>代表品种与合约</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table></div>'
     body+='</section><section><h2>先查数据缺口</h2><ul>'
     warnings=[f"{item['symbol']}：{alert}" for item in result['products'] for alert in item['attention']]
+    unverified=sum(item.get('bars_without_available_at',0) for item in result['products'])
+    if result['data_kind']=='imported_observations' and unverified:
+        warnings.append(f'{unverified} 根价格观测未提供 available_at；仅按收盘时刻筛选，历史版本需另核对。')
     if not warnings:
         warnings=['本次未触发日线陈旧或缺失检查。来源真实性、交易日历与交割规则仍按目标市场核对。']
     body+=''.join('<li>'+text(value)+'</li>' for value in warnings)+'</ul></section>'
@@ -63,10 +71,10 @@ def sector_html(board,result):
     members=[item for item in result['products'] if item['sector']==board['id']]
     body='<section><h2>先查这些资料</h2><ul>'+''.join('<li>'+text(item)+'</li>' for item in board['drivers'])+'</ul><h2>下一次检查</h2><ul>'+''.join('<li>'+text(item)+'</li>' for item in board['next_checks'])+'</ul></section>'
     window_names=list(result['windows'])
-    body+='<section><h2>品种比较</h2><div class="scroll"><table><thead><tr><th>品种 / 固定合约</th><th>收盘 / 单位</th>'+''.join('<th>'+text(result['windows'][key]['label'])+'</th>' for key in window_names)+'<th>ATR14</th><th>日增仓</th><th>量/前5日均量</th></tr></thead><tbody>'
+    body+='<section><h2>品种比较</h2><div class="scroll"><table><thead><tr><th>品种 / 固定合约</th><th>收盘 / 单位</th>'+''.join('<th>'+text(result['windows'][key]['label'])+'</th>' for key in window_names)+'<th>ATR14</th><th>较前次观测增仓</th><th>前次观测日</th><th>量/前5根均量</th></tr></thead><tbody>'
     for item in members:
-        body+=f'<tr><td>{text(item["symbol"])} / {text(item["contract"])}</td><td>{numeric(item["latest_close"])} / {text(item["unit"])}</td>'+''.join('<td>'+percent(item['windows'][key]['price_return'])+'</td>' for key in window_names)+f'<td>{numeric(item["atr14_simple"])}</td><td>{numeric(item["flow"]["open_interest_change"])}</td><td>{numeric(item["flow"]["volume_vs_prior5_mean"])}</td></tr>'
-    body+='</tbody></table></div><p>成交量和持仓量按手数记录。价涨增仓是共同变化的描述，不能据此确定谁在加多或加空。</p></section>'
+        body+=f'<tr><td>{text(item["symbol"])} / {text(item["contract"])}</td><td>{numeric(item["latest_close"])} / {text(item["unit"])}</td>'+''.join('<td>'+percent(item['windows'][key]['price_return'])+'</td>' for key in window_names)+f'<td>{numeric(item["atr14_simple"])}</td><td>{numeric(item["flow"]["open_interest_change"])}</td><td>{text(item["flow"].get("previous_observation_trade_date") or "—")}</td><td>{numeric(item["flow"]["volume_vs_prior5_mean"])}</td></tr>'
+    body+='</tbody></table></div><p>增仓与前一条有效日线比较，表中保留其交易日；缺日线时，差值可能跨多日。量比采用之前5条观测。量仓是手数，不据此确定谁在加多或加空。</p></section>'
     body+='<section><h2>截止时刻已公布的产业数据</h2>'
     if not board['evidence']:
         body+='<p>本次没有导入这个板块的产业数据。价格表现之外的解释需要补资料。</p>'
@@ -87,11 +95,18 @@ def sector_html(board,result):
             if value['reference_window']:
                 reference=value['reference_window']
                 state={None:'未设置验证期限','expired':'已过期','due_now':'正好到期','within_window':'窗口内'}[reference['window_state']]
-                body+='<p>参照后已收盘 '+str(reference['completed_bars_after_reference'])+' 根；窗口 '+str(reference['window_bars'])+' 根；'+state+'。</p>'
+                window='未设置' if reference['window_bars'] is None else str(reference['window_bars'])+' 根'
+                body+='<p>参照后已收盘 '+str(reference['completed_bars_after_reference'])+' 根；窗口 '+window+'；'+state+'。</p>'
     body+='</section>'
+    events={'boundary_reclaimed':'收盘回到边界内','later_retest_held':'后续测试守住边界','structure_invalidated':'结构触及失效位'}
+    for item in members:
+        for setup in item.get('setups',[]):
+            body+='<section><h2>'+text(item['symbol'])+'：'+text(setup['name'])+'</h2><p>'+text(STATE_LABELS[setup['state']])+'</p>'
+            body+='<p>声明 '+text(setup['declared_at'])+'；参照 '+text(setup['anchor_time'])+'；验证 '+str(setup['validation_bars'])+' 根 '+text(setup['timeframe'])+'。边界 '+numeric(setup['level'])+'，失效位 '+numeric(setup['invalidation_level'])+'。</p><ul>'
+            body+=''.join('<li>'+text(events[event['event']])+'：'+text(event['close_time'])+'，参照后第 '+str(event['bars_after_anchor'])+' 根。</li>' for event in setup['observed_events'])+'</ul><p>这些是按预先填写条件得到的观察，不代表已验证的交易优势或保证止损成交。</p></section>'
     for curve in result['curves']:
         if any(item['symbol']==curve['symbol'] for item in members):
-            body+='<section><h2>'+text(curve['symbol'])+' 跨月快照</h2><p>'+text(CURVE_LABELS[curve['shape']])+'；近月−远月 '+numeric(curve['near_minus_far'])+' '+text(curve['unit'])+'；报价跨度 '+numeric(curve['quote_span_seconds'])+' 秒</p><pre>'+text(json.dumps(curve['quotes'],ensure_ascii=False,indent=2))+'</pre></section>'
+            body+='<section><h2>'+text(curve['symbol'])+' 跨月快照</h2><p>'+text(CURVE_LABELS[curve['shape']])+'；近月−远月 '+numeric(curve['near_minus_far'])+' '+text(curve['unit'])+'；报价跨度 '+numeric(curve['quote_span_seconds'])+' 秒；最旧报价距截止 '+numeric(curve['oldest_quote_age_hours'])+' 小时</p><pre>'+text(json.dumps(curve['quotes'],ensure_ascii=False,indent=2))+'</pre></section>'
     body+='<details><summary>本板块的完整计算</summary><pre>'+text(json.dumps({'sector':board,'products':members},ensure_ascii=False,indent=2))+'</pre></details>'
     return page(board['name'],body,result,'<a href="../index.html">← 返回板块总览</a> · <a href="../bundle.json">JSON</a>')
 
@@ -101,13 +116,15 @@ def markdown(result):
            f"本次配置 {result['configured_product_count']} 个代表品种；板块排名覆盖率门槛 {result['minimum_sector_coverage']*100:g}%。",'']
     for key,window in result['windows'].items():
         lines += ['## '+window['label']+'：'+window['start_date']+' → '+result['trade_date'],'','| 板块 | 排名 | 样本等权价格变化 | 覆盖 | 涨/跌/平 |','|---|---:|---:|---|---|']
-        boards=sorted(result['sectors'],key=lambda board:(board['windows'][key]['rank'] is None,board['windows'][key]['rank'] or 0,board['id']))
+        boards=sorted([board for board in result['sectors'] if board['symbols']],key=lambda board:(board['windows'][key]['rank'] is None,board['windows'][key]['rank'] or 0,board['id']))
         for board in boards:
             value=board['windows'][key]
             label=board['name'].replace('|','\\|').replace('\n',' ')
             lines.append(f"| {label} | {value['rank'] if value['rank'] is not None else '未排名'} | {percent(value['sample_equal_weight_price_return'])} | {value['observed_products']}/{value['expected_products']} | {value['advancing']}/{value['declining']}/{value['unchanged']} |")
     lines+=['','## 逐板块检查','']
     for board in result['sectors']:
+        if not board['symbols']:
+            continue
         lines += ['### '+board['name'],'','代表品种：'+(', '.join(board['symbols']) or '本次未配置')+'。','']
         lines += ['- '+value for value in board['drivers']]
         lines += ['- 下次检查：'+value for value in board['next_checks']]

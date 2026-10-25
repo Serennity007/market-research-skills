@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "status": "complete",
+  "data_kind": "imported_observations",
+  "configured_products": 3,
+  "sha256": {
+    "bundle.json": "2dfec4f17facb222e4351d514f941a4072c7c3d9486f3d3554e0435dff9dfe0a",
+    "config.snapshot.json": "c6b51f470d495a64e32e86faaa43759c25d9f9bd07ecca77c5c7149b9744d3eb",
+    "index.html": "ef8832d3203beb31feb31879fbddb1115eb6208329b51a8b51e41335e6a2f6bd",
+    "inputs/catalog.json": "def3a934313605a234cf316370f0aa4842f390e3876f2b34776b6ccbb676543e",
+    "inputs/panel.csv": "38b902e37a38faf63bd4666172663f24896a4948ed628edbba53fe082bb9f37e",
+    "products.csv": "d2c803de7d371eee765527cf0c07e3828be3d8388c93c32627b20a35e6fa9b7c",
+    "REPORT.md": "7a8cc8840cf507e76084f58b1c52a4afcb7dcfa3f86e6a59468ba20a953cf1ca",
+    "sector_returns.csv": "3c6973a2d0ba63746464a6501d21d429ffea3c805ea25162354aadb9519f9dfa",
+    "sectors/chemicals.html": "8b82e78507a83b81d6220f93b3ddb950e9e87d2687fea65faef0ffba555eb501",
+    "sectors/energy.html": "6aa71c234918e20bf7fb5ee58e9254196895d8c18333649e9d3a308fa00a6800",
+    "sectors/equity-index.html": "84d6d0f2f5d3a7ea555480cbd28d6ccf66ddd28349b175b9d0548d9bf0a50a81",
+    "sectors/ferrous.html": "0740d2b6311ebbd67cebef26c0b65e0f80c79121d4d152a1ed9bae7481e1615b",
+    "sectors/grains-livestock.html": "7c4a01e9a4223f91624cf5aa2ad1e5e80a17a3e7f03e1e07bd613fcdea63e4f8",
+    "sectors/nonferrous.html": "361625bdf3179f2afe47dc47a050727fc88258d23140b62ed444af65179fe3ba",
+    "sectors/oilseeds.html": "0809f1e7ea922edc7cce1ce7520dd46a95a6c37b3fe266bf9c6c2d3b7eef5caf",
+    "sectors/precious-metals.html": "19deff38613c8fc42e474a6b70b2a14f48187cd4503f4a6af94f2604495b2ef3",
+    "sectors/rates.html": "a35a431562a9a30a79bf08fc748beb29ae80d73de3131b93ddc009a4ac739308",
+    "sectors/shipping.html": "657f75dffb6b442d363f53d63fb7535e0711d967b036a1cda5e30b5f5ee8b75b",
+    "sectors/softs.html": "9faf34a48613b47c545e87d8bd91e6df9e721e9e1ba4fae503e6c701a1bce323"
+  }
+}

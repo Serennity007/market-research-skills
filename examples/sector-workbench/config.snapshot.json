@@ -38,7 +38,20 @@
           "reference_time": "2024-01-06T00:00:00Z",
           "window_bars": 12
         }
-      }
+      },
+      "setups": [
+        {
+          "name": "模拟支撑收复后再测试",
+          "timeframe": "M30",
+          "side": "support_reclaim",
+          "anchor_time": "2024-01-08T01:00:00Z",
+          "declared_at": "2024-01-08T01:00:00Z",
+          "level": 100,
+          "invalidation_level": 97,
+          "retest_tolerance": 0.5,
+          "validation_bars": 3
+        }
+      ]
     },
     {
       "symbol": "AG",

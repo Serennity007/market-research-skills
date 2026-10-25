@@ -1,0 +1,397 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>贵金属</title><style>*{box-sizing:border-box}body{margin:0;background:#0a111b;color:#dfe8f5;font:15px/1.7 system-ui,"Microsoft YaHei",sans-serif}main{max-width:1260px;margin:auto;padding:30px 20px}h1{font-size:clamp(28px,5vw,40px);margin:12px 0}h2{font-size:22px}a{color:#79dfc6}p,.muted{color:#a8b7ca}.tag{font:12px monospace;color:#79dfc6;letter-spacing:2px}.summary{display:flex;gap:16px;flex-wrap:wrap;margin:22px 0}.summary article,section,details{padding:20px;background:#121e2d;border:1px solid #2b3c53;border-radius:10px;margin-bottom:18px}.summary article{flex:1;min-width:180px}.summary strong{display:block;font-size:30px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;white-space:nowrap}th,td{padding:11px 12px;border-bottom:1px solid #29394e;text-align:left}th{color:#a8b7ca;font-size:13px}tbody tr:hover{background:#192b3c}.positive{color:#79dfc6}.negative{color:#ef9b97}.thin{color:#a8b7ca}.bar{display:inline-block;vertical-align:middle;height:7px;border-radius:4px;margin-right:8px}.up{background:#79dfc6}.down{background:#ef9b97}input,select{background:#101c2b;border:1px solid #40556e;border-radius:7px;color:#e6eef8;padding:10px;margin:4px 10px 12px 0;max-width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-height:600px;overflow:auto}li{margin:7px 0}.pill{display:inline-block;margin:4px;padding:6px 12px;border:1px solid #39516d;border-radius:6px}footer{color:#a8b7ca;margin:22px 0;font-size:13px}[hidden]{display:none!important}@media print{body{background:white;color:#111}main{max-width:none}section,.summary article,details{background:white;border:1px solid #bbb}a,p,.muted,th,footer{color:#333}input,select,details{display:none}.scroll{overflow:visible}table{white-space:normal;font-size:10px}}</style><main><header><div class="tag">涛涛的期货研究 / 板块分析</div><h1>贵金属</h1><p>模拟练习数据 · 交易日 2024-01-10 · 截止 2024-01-10T08:00:00+00:00</p><a href="../index.html">← 返回板块总览</a> · <a href="../bundle.json">JSON</a></header><section><h2>先查这些资料</h2><ul><li>实际利率、美元与金银比使用相同可知日期，分别记录数据口径。</li><li>核对央行、基金和实物需求统计的公布时滞。</li><li>H4 边界与 H1/M30 触发分开，保留价格与宏观分歧。</li></ul><h2>下一次检查</h2><ul><li>重新检查支撑收复或突破失败是否延续。</li><li>对照新的利率与资金需求数据，给出原判断的反证。</li></ul></section><section><h2>品种比较</h2><div class="scroll"><table><thead><tr><th>品种 / 固定合约</th><th>收盘 / 单位</th><th>固定锚点区间</th><th>ATR14</th><th>较前次观测增仓</th><th>前次观测日</th><th>量/前5根均量</th></tr></thead><tbody><tr><td>AU / AU_DEMO</td><td>79.7781 / demo_points</td><td>-11.46%</td><td>1.6834</td><td>5</td><td>2024-01-09</td><td>1.0288</td></tr><tr><td>AG / AG_DEMO</td><td>88.9399 / demo_points</td><td>-5.87%</td><td>1.5285</td><td>5</td><td>2024-01-09</td><td>1.0286</td></tr></tbody></table></div><p>增仓与前一条有效日线比较，表中保留其交易日；缺日线时，差值可能跨多日。量比采用之前5条观测。量仓是手数，不据此确定谁在加多或加空。</p></section><section><h2>截止时刻已公布的产业数据</h2><p><strong>DEMO_观察指标</strong>：100 demo_units<br>观测 2024-01-05T07:00:00+00:00；公布 2024-01-08T08:00:00+00:00<br>来源：synthetic://exercise</p></section><section><h2>多周期与关键位</h2><h3>AU</h3><p>D1：均线向下排列；MACD 负柱 / 绝对值扩张；末根 2024-01-10T07:00:00+00:00</p><p>H1：均线向上排列；MACD 正柱 / 绝对值缩小；末根 2024-01-08T15:00:00+00:00</p><p>H4：均线向下排列；MACD 负柱 / 绝对值缩小；末根 2024-01-09T00:00:00+00:00</p><p>支撑 100：跌破后的收盘已收回支撑。</p><p>参照后已收盘 18 根；窗口 12 根；已过期。</p><p>M30：均线历史不足；MACD 历史不足；末根 2024-01-10T01:00:00+00:00</p><h3>AG</h3><p>D1：均线向下排列；MACD 正柱 / 绝对值扩张；末根 2024-01-10T07:00:00+00:00</p></section><section><h2>AU：模拟支撑收复后再测试</h2><p>已触及事先声明的失效位</p><p>声明 2024-01-08T01:00:00+00:00；参照 2024-01-08T01:00:00+00:00；验证 3 根 M30。边界 100，失效位 97。</p><ul><li>收盘回到边界内：2024-01-08T01:30:00+00:00，参照后第 1 根。</li><li>后续测试守住边界：2024-01-08T02:00:00+00:00，参照后第 2 根。</li><li>结构触及失效位：2024-01-10T01:00:00+00:00，参照后第 4 根。</li></ul><p>这些是按预先填写条件得到的观察，不代表已验证的交易优势或保证止损成交。</p></section><details><summary>本板块的完整计算</summary><pre>{
+  &quot;sector&quot;: {
+    &quot;id&quot;: &quot;precious-metals&quot;,
+    &quot;name&quot;: &quot;贵金属&quot;,
+    &quot;windows&quot;: {
+      &quot;month&quot;: {
+        &quot;expected_products&quot;: 2,
+        &quot;observed_products&quot;: 2,
+        &quot;coverage&quot;: 1.0,
+        &quot;eligible_for_ranking&quot;: true,
+        &quot;sample_equal_weight_price_return&quot;: -0.08664291680654235,
+        &quot;advancing&quot;: 0,
+        &quot;declining&quot;: 2,
+        &quot;unchanged&quot;: 0,
+        &quot;rank&quot;: 11
+      }
+    },
+    &quot;symbols&quot;: [
+      &quot;AU&quot;,
+      &quot;AG&quot;
+    ],
+    &quot;drivers&quot;: [
+      &quot;实际利率、美元与金银比使用相同可知日期，分别记录数据口径。&quot;,
+      &quot;核对央行、基金和实物需求统计的公布时滞。&quot;,
+      &quot;H4 边界与 H1/M30 触发分开，保留价格与宏观分歧。&quot;
+    ],
+    &quot;next_checks&quot;: [
+      &quot;重新检查支撑收复或突破失败是否延续。&quot;,
+      &quot;对照新的利率与资金需求数据，给出原判断的反证。&quot;
+    ],
+    &quot;evidence&quot;: [
+      {
+        &quot;sector&quot;: &quot;precious-metals&quot;,
+        &quot;metric&quot;: &quot;DEMO_观察指标&quot;,
+        &quot;observed_at&quot;: &quot;2024-01-05T07:00:00+00:00&quot;,
+        &quot;published_at&quot;: &quot;2024-01-08T08:00:00+00:00&quot;,
+        &quot;value&quot;: 100.0,
+        &quot;unit&quot;: &quot;demo_units&quot;,
+        &quot;source&quot;: &quot;synthetic://exercise&quot;
+      }
+    ],
+    &quot;reference&quot;: &quot;references/sectors/precious-metals.md&quot;
+  },
+  &quot;products&quot;: [
+    {
+      &quot;symbol&quot;: &quot;AU&quot;,
+      &quot;name&quot;: &quot;黄金&quot;,
+      &quot;sector&quot;: &quot;precious-metals&quot;,
+      &quot;exchange&quot;: &quot;SHFE&quot;,
+      &quot;contract&quot;: &quot;AU_DEMO&quot;,
+      &quot;currency&quot;: &quot;CNY&quot;,
+      &quot;unit&quot;: &quot;demo_points&quot;,
+      &quot;volume_unit&quot;: &quot;contracts&quot;,
+      &quot;latest_close&quot;: 79.778087,
+      &quot;quote_age_hours&quot;: 1.0,
+      &quot;daily_count&quot;: 43,
+      &quot;windows&quot;: {
+        &quot;month&quot;: {
+          &quot;start_date&quot;: &quot;2023-12-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-10&quot;,
+          &quot;start_price&quot;: 90.101026,
+          &quot;end_price&quot;: 79.778087,
+          &quot;price_return&quot;: -0.11457071532126617,
+          &quot;unavailable_reason&quot;: null
+        }
+      },
+      &quot;atr14_simple&quot;: 1.6833579285714262,
+      &quot;atr14_over_absolute_close&quot;: 0.021100505061890318,
+      &quot;flow&quot;: {
+        &quot;volume&quot;: 1430,
+        &quot;open_interest&quot;: 2882,
+        &quot;open_interest_change&quot;: 5,
+        &quot;volume_vs_prior5_mean&quot;: 1.0287769784172662,
+        &quot;previous_observation_trade_date&quot;: &quot;2024-01-09&quot;,
+        &quot;price_change_since_previous_observation&quot;: -0.805839000000006,
+        &quot;price_oi_observation&quot;: {
+          &quot;price&quot;: &quot;down&quot;,
+          &quot;open_interest&quot;: &quot;up&quot;
+        }
+      },
+      &quot;structures&quot;: {
+        &quot;D1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;AU_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;D1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-10T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;1d7f6b0a65868a5edf7e8d09f6f2f27f1f1c4dcb851b6c475d2e9136691cae5f&quot;,
+          &quot;completed_bar_count&quot;: 43,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-10T07:00:00+00:00&quot;,
+            &quot;open&quot;: 80.583926,
+            &quot;high&quot;: 81.083926,
+            &quot;low&quot;: 79.278087,
+            &quot;close&quot;: 79.778087
+          },
+          &quot;observation_age_seconds&quot;: 3600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 80.81998800000001,
+            &quot;ma10&quot;: 81.91524150000001,
+            &quot;ma20&quot;: 84.36919530000002
+          },
+          &quot;ma_ordering&quot;: &quot;descending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: -3.0441306493225113,
+            &quot;dea&quot;: -2.943843566338351,
+            &quot;histogram&quot;: -0.20057416596832045,
+            &quot;histogram_previous&quot;: -0.19612794996532124,
+            &quot;sign&quot;: &quot;negative&quot;,
+            &quot;absolute_magnitude&quot;: &quot;expanding&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        },
+        &quot;H4&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;AU_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;H4&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-10T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;9592da851ea078c68acf96bbae7a7a94bbb36cd890456a81af1bce94cdcb12ff&quot;,
+          &quot;completed_bar_count&quot;: 48,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-09T00:00:00+00:00&quot;,
+            &quot;open&quot;: 98.0,
+            &quot;high&quot;: 102.5,
+            &quot;low&quot;: 97.5,
+            &quot;close&quot;: 102.0
+          },
+          &quot;observation_age_seconds&quot;: 115200.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 97.6,
+            &quot;ma10&quot;: 98.8,
+            &quot;ma20&quot;: 102.23799999999999
+          },
+          &quot;ma_ordering&quot;: &quot;descending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: -2.4893168090675317,
+            &quot;dea&quot;: -2.3260266125064257,
+            &quot;histogram&quot;: -0.326580393122212,
+            &quot;histogram_previous&quot;: -1.2421249018730176,
+            &quot;sign&quot;: &quot;negative&quot;,
+            &quot;absolute_magnitude&quot;: &quot;shrinking&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {
+            &quot;support&quot;: {
+              &quot;level&quot;: 100.0,
+              &quot;observation&quot;: &quot;reclaimed_after_closed_break&quot;
+            }
+          },
+          &quot;reference_window&quot;: {
+            &quot;reference_close_time&quot;: &quot;2024-01-06T00:00:00+00:00&quot;,
+            &quot;completed_bars_after_reference&quot;: 18,
+            &quot;includes_reference_bar&quot;: false,
+            &quot;window_bars&quot;: 12,
+            &quot;window_state&quot;: &quot;expired&quot;
+          },
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        },
+        &quot;H1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;AU_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;H1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-10T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;02150ab1765c0cfd9ff564a8264e7c896fb284512d4344849890391be905a6b4&quot;,
+          &quot;completed_bar_count&quot;: 40,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-08T15:00:00+00:00&quot;,
+            &quot;open&quot;: 104.58000000000001,
+            &quot;high&quot;: 104.98,
+            &quot;low&quot;: 104.38000000000001,
+            &quot;close&quot;: 104.68
+          },
+          &quot;observation_age_seconds&quot;: 147600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 104.44000000000001,
+            &quot;ma10&quot;: 104.14000000000001,
+            &quot;ma20&quot;: 103.53999999999999
+          },
+          &quot;ma_ordering&quot;: &quot;ascending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: 0.7664072781107905,
+            &quot;dea&quot;: 0.733746688874301,
+            &quot;histogram&quot;: 0.06532117847297902,
+            &quot;histogram_previous&quot;: 0.07007566974604273,
+            &quot;sign&quot;: &quot;positive&quot;,
+            &quot;absolute_magnitude&quot;: &quot;shrinking&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        },
+        &quot;M30&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;AU_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;M30&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-10T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;e3ab236edc8d9e7cf42d8ec3e0caf0b1b6841a9588c9507c2e99b207ef70e2c5&quot;,
+          &quot;completed_bar_count&quot;: 5,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-10T01:00:00+00:00&quot;,
+            &quot;open&quot;: 102.0,
+            &quot;high&quot;: 103.0,
+            &quot;low&quot;: 96.0,
+            &quot;close&quot;: 98.0
+          },
+          &quot;observation_age_seconds&quot;: 25200.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 99.86,
+            &quot;ma10&quot;: null,
+            &quot;ma20&quot;: null
+          },
+          &quot;ma_ordering&quot;: &quot;insufficient_history&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: false,
+            &quot;minimum_bars&quot;: 35,
+            &quot;reason&quot;: &quot;insufficient completed bars&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        }
+      },
+      &quot;attention&quot;: [
+        &quot;跨周期均线方向不一致，分别记录背景与触发。&quot;,
+        &quot;H4 参照柱窗口已过期。&quot;
+      ],
+      &quot;setups&quot;: [
+        {
+          &quot;name&quot;: &quot;模拟支撑收复后再测试&quot;,
+          &quot;timeframe&quot;: &quot;M30&quot;,
+          &quot;side&quot;: &quot;support_reclaim&quot;,
+          &quot;declared_at&quot;: &quot;2024-01-08T01:00:00+00:00&quot;,
+          &quot;anchor_time&quot;: &quot;2024-01-08T01:00:00+00:00&quot;,
+          &quot;level&quot;: 100,
+          &quot;invalidation_level&quot;: 97,
+          &quot;retest_tolerance&quot;: 0.5,
+          &quot;validation_bars&quot;: 3,
+          &quot;state&quot;: &quot;invalidated&quot;,
+          &quot;observed_events&quot;: [
+            {
+              &quot;event&quot;: &quot;boundary_reclaimed&quot;,
+              &quot;close_time&quot;: &quot;2024-01-08T01:30:00+00:00&quot;,
+              &quot;bars_after_anchor&quot;: 1
+            },
+            {
+              &quot;event&quot;: &quot;later_retest_held&quot;,
+              &quot;close_time&quot;: &quot;2024-01-08T02:00:00+00:00&quot;,
+              &quot;bars_after_anchor&quot;: 2
+            },
+            {
+              &quot;event&quot;: &quot;structure_invalidated&quot;,
+              &quot;close_time&quot;: &quot;2024-01-10T01:00:00+00:00&quot;,
+              &quot;bars_after_anchor&quot;: 4,
+              &quot;predates_declaration&quot;: false
+            }
+          ],
+          &quot;scope&quot;: &quot;Predeclared rule observations, not a buy/sell signal, validated edge or guaranteed stop fill.&quot;,
+          &quot;completed_bars_after_anchor&quot;: 4,
+          &quot;invalidation_rule&quot;: &quot;touch of low &lt;= invalidation_level&quot;
+        }
+      ],
+      &quot;bars_without_available_at&quot;: 136
+    },
+    {
+      &quot;symbol&quot;: &quot;AG&quot;,
+      &quot;name&quot;: &quot;白银&quot;,
+      &quot;sector&quot;: &quot;precious-metals&quot;,
+      &quot;exchange&quot;: &quot;SHFE&quot;,
+      &quot;contract&quot;: &quot;AG_DEMO&quot;,
+      &quot;currency&quot;: &quot;CNY&quot;,
+      &quot;unit&quot;: &quot;demo_points&quot;,
+      &quot;volume_unit&quot;: &quot;contracts&quot;,
+      &quot;latest_close&quot;: 88.939948,
+      &quot;quote_age_hours&quot;: 1.0,
+      &quot;daily_count&quot;: 43,
+      &quot;windows&quot;: {
+        &quot;month&quot;: {
+          &quot;start_date&quot;: &quot;2023-12-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-10&quot;,
+          &quot;start_price&quot;: 94.487811,
+          &quot;end_price&quot;: 88.939948,
+          &quot;price_return&quot;: -0.058715118291818524,
+          &quot;unavailable_reason&quot;: null
+        }
+      },
+      &quot;atr14_simple&quot;: 1.528477785714285,
+      &quot;atr14_over_absolute_close&quot;: 0.017185503478305216,
+      &quot;flow&quot;: {
+        &quot;volume&quot;: 1437,
+        &quot;open_interest&quot;: 3005,
+        &quot;open_interest_change&quot;: 5,
+        &quot;volume_vs_prior5_mean&quot;: 1.0286327845382963,
+        &quot;previous_observation_trade_date&quot;: &quot;2024-01-09&quot;,
+        &quot;price_change_since_previous_observation&quot;: 0.8805940000000021,
+        &quot;price_oi_observation&quot;: {
+          &quot;price&quot;: &quot;up&quot;,
+          &quot;open_interest&quot;: &quot;up&quot;
+        }
+      },
+      &quot;structures&quot;: {
+        &quot;D1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;AG_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;D1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-10T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;bb6619543787bf6c90ffc28edcd44786bade7de9675e1bc7fee842ff76da7a15&quot;,
+          &quot;completed_bar_count&quot;: 43,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-10T07:00:00+00:00&quot;,
+            &quot;open&quot;: 88.059354,
+            &quot;high&quot;: 89.439948,
+            &quot;low&quot;: 87.559354,
+            &quot;close&quot;: 88.939948
+          },
+          &quot;observation_age_seconds&quot;: 3600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 88.44907320000002,
+            &quot;ma10&quot;: 88.8586668,
+            &quot;ma20&quot;: 90.47768544999998
+          },
+          &quot;ma_ordering&quot;: &quot;descending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: -1.9308050310788758,
+            &quot;dea&quot;: -2.0052986949350897,
+            &quot;histogram&quot;: 0.14898732771242784,
+            &quot;histogram_previous&quot;: -0.037265333993771854,
+            &quot;sign&quot;: &quot;positive&quot;,
+            &quot;absolute_magnitude&quot;: &quot;expanding&quot;,
+            &quot;flip&quot;: &quot;to_positive&quot;,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        }
+      },
+      &quot;attention&quot;: [],
+      &quot;setups&quot;: [],
+      &quot;bars_without_available_at&quot;: 43
+    }
+  ]
+}</pre></details><footer>各板块采用本次配置的代表品种；表内涨跌幅是同一合约的价格变化。产业数据按公布时间筛选，原始文件与哈希随报告保存。</footer></main></html>

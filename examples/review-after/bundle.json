@@ -1,0 +1,3433 @@
+{
+  "schema_version": 1,
+  "skill": "taotao-futures-research",
+  "data_kind": "synthetic",
+  "as_of_utc": "2024-01-10T08:00:00+00:00",
+  "trade_date": "2024-01-10",
+  "windows": {
+    "month": {
+      "label": "固定锚点区间",
+      "start_date": "2023-12-08"
+    }
+  },
+  "minimum_sector_coverage": 1.0,
+  "max_bar_age_hours": 24,
+  "configured_product_count": 30,
+  "catalog_product_count": 69,
+  "catalog_sector_count": 11,
+  "configured_sector_count": 11,
+  "sectors": [
+    {
+      "id": "precious-metals",
+      "name": "贵金属",
+      "windows": {
+        "month": {
+          "expected_products": 2,
+          "observed_products": 2,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": -0.08664291680654235,
+          "advancing": 0,
+          "declining": 2,
+          "unchanged": 0,
+          "rank": 11
+        }
+      },
+      "symbols": [
+        "AU",
+        "AG"
+      ],
+      "drivers": [
+        "实际利率、美元与金银比使用相同可知日期，分别记录数据口径。",
+        "核对央行、基金和实物需求统计的公布时滞。",
+        "H4 边界与 H1/M30 触发分开，保留价格与宏观分歧。"
+      ],
+      "next_checks": [
+        "重新检查支撑收复或突破失败是否延续。",
+        "对照新的利率与资金需求数据，给出原判断的反证。"
+      ],
+      "evidence": [
+        {
+          "sector": "precious-metals",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/precious-metals.md"
+    },
+    {
+      "id": "nonferrous",
+      "name": "有色与新能源材料",
+      "windows": {
+        "month": {
+          "expected_products": 3,
+          "observed_products": 3,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": -0.07701073597217241,
+          "advancing": 0,
+          "declining": 3,
+          "unchanged": 0,
+          "rank": 10
+        }
+      },
+      "symbols": [
+        "CU",
+        "AL",
+        "LC"
+      ],
+      "drivers": [
+        "分品种检查矿端、冶炼或材料产能，记录检修、投产和进口的实际时间。",
+        "库存区分社会库存、交易所库存与注册仓单，避免重复相加。",
+        "对照加工利润、下游订单与现货升贴水；锂、硅的成本和需求链另列。"
+      ],
+      "next_checks": [
+        "核对价格变化是否伴随同口径库存或现货变化。",
+        "检修和投产计划有变化时，更新供给假设。"
+      ],
+      "evidence": [
+        {
+          "sector": "nonferrous",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/nonferrous.md"
+    },
+    {
+      "id": "ferrous",
+      "name": "黑色",
+      "windows": {
+        "month": {
+          "expected_products": 3,
+          "observed_products": 3,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": -0.03400130924854883,
+          "advancing": 0,
+          "declining": 3,
+          "unchanged": 0,
+          "rank": 9
+        }
+      },
+      "symbols": [
+        "RB",
+        "I",
+        "JM"
+      ],
+      "drivers": [
+        "把终端需求、钢厂生产、原料采购分开，核对高炉/电炉与成材库存口径。",
+        "螺纹、热卷与矿焦的加工关系需原料配比和实际价格，不能只比较绝对点位。",
+        "政策消息同时核对实施范围、日期与实际产量反应。"
+      ],
+      "next_checks": [
+        "检查去库来自需求增加还是减产。",
+        "用新产量、订单和库存信息复核钢厂利润假设。"
+      ],
+      "evidence": [
+        {
+          "sector": "ferrous",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/ferrous.md"
+    },
+    {
+      "id": "energy",
+      "name": "能源",
+      "windows": {
+        "month": {
+          "expected_products": 3,
+          "observed_products": 3,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": -0.03208406324833657,
+          "advancing": 1,
+          "declining": 2,
+          "unchanged": 0,
+          "rank": 8
+        }
+      },
+      "symbols": [
+        "SC",
+        "FU",
+        "PG"
+      ],
+      "drivers": [
+        "原油、燃料油、LPG 和沥青各自核对供给、库存、需求和运输。",
+        "区分供给损失、物流延迟与需求变化，写出替代供应和库存缓冲。",
+        "比较固定合约的期限结构，币种、品质与交割地先对齐。"
+      ],
+      "next_checks": [
+        "按统计周与公布时点复核库存。",
+        "核对绕行、设备中断或复产是否已经落实。"
+      ],
+      "evidence": [
+        {
+          "sector": "energy",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-08T07:00:00+00:00",
+          "published_at": "2024-01-10T08:00:00+00:00",
+          "value": 999.0,
+          "unit": "demo_units",
+          "source": "synthetic://future"
+        }
+      ],
+      "reference": "references/sectors/energy.md"
+    },
+    {
+      "id": "chemicals",
+      "name": "化工",
+      "windows": {
+        "month": {
+          "expected_products": 4,
+          "observed_products": 4,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": 0.003901784813129583,
+          "advancing": 2,
+          "declining": 2,
+          "unchanged": 0,
+          "rank": 7
+        }
+      },
+      "symbols": [
+        "TA",
+        "MA",
+        "SA",
+        "RU"
+      ],
+      "drivers": [
+        "按成本路径区分油、煤、天然气和其他原料，记录装置开停与加工利润。",
+        "把聚酯、烯烃、建材、橡胶和纸浆的下游需求分别检查。",
+        "玻璃—纯碱等产业关系需核对库存位置、交割品质和采购时点。"
+      ],
+      "next_checks": [
+        "检查装置变化能否解释库存，而非只重复检修消息。",
+        "核对原料成本变化是否传导到下游价格和订单。"
+      ],
+      "evidence": [
+        {
+          "sector": "chemicals",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/chemicals.md"
+    },
+    {
+      "id": "oilseeds",
+      "name": "油脂油料",
+      "windows": {
+        "month": {
+          "expected_products": 3,
+          "observed_products": 3,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": 0.034540275654111996,
+          "advancing": 2,
+          "declining": 1,
+          "unchanged": 0,
+          "rank": 6
+        }
+      },
+      "symbols": [
+        "M",
+        "Y",
+        "P"
+      ],
+      "drivers": [
+        "区分种植、天气、出口、到港与压榨的时间，保留作物年度。",
+        "油与粕分别检查库存和下游需求，不把压榨两个产出当同一方向。",
+        "进口成本须记录汇率、运费、税费和品质；跨品种比价先统一单位。"
+      ],
+      "next_checks": [
+        "核对船期、到港与压榨是否符合原先计划。",
+        "更新饲料、油脂消费和同口径库存。"
+      ],
+      "evidence": [
+        {
+          "sector": "oilseeds",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/oilseeds.md"
+    },
+    {
+      "id": "grains-livestock",
+      "name": "谷物与养殖",
+      "windows": {
+        "month": {
+          "expected_products": 4,
+          "observed_products": 4,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": 0.054462847117726365,
+          "advancing": 4,
+          "declining": 0,
+          "unchanged": 0,
+          "rank": 5
+        }
+      },
+      "symbols": [
+        "C",
+        "CS",
+        "LH",
+        "JD"
+      ],
+      "drivers": [
+        "谷物看产区、上市节奏、进口与饲用/加工需求，标明作物年度。",
+        "生猪、鸡蛋看供给周期、体重/存栏或产蛋群及消费，区分存量和流量。",
+        "加工与养殖利润需要配方、耗用和现货价格，不能由期货点位直接推算。"
+      ],
+      "next_checks": [
+        "核对供应兑现与季节消费的实际差异。",
+        "分开复盘成本变化和产品价格变化。"
+      ],
+      "evidence": [
+        {
+          "sector": "grains-livestock",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/grains-livestock.md"
+    },
+    {
+      "id": "softs",
+      "name": "软商品与特色农产",
+      "windows": {
+        "month": {
+          "expected_products": 3,
+          "observed_products": 3,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": 0.06393832987716637,
+          "advancing": 3,
+          "declining": 0,
+          "unchanged": 0,
+          "rank": 4
+        }
+      },
+      "symbols": [
+        "CF",
+        "SR",
+        "AP"
+      ],
+      "drivers": [
+        "先核对产季、产地、等级与可交割品质，再谈天气和产量。",
+        "棉纺看原料、纱线与订单，糖看产销年度、进口和库存。",
+        "苹果、红枣的仓储、品质和交割要求需与现货统计对应。"
+      ],
+      "next_checks": [
+        "检查天气或减产消息是否转成可交付供应变化。",
+        "核对新订单、销售和库存，更新原先需求判断。"
+      ],
+      "evidence": [
+        {
+          "sector": "softs",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/softs.md"
+    },
+    {
+      "id": "shipping",
+      "name": "航运",
+      "windows": {
+        "month": {
+          "expected_products": 1,
+          "observed_products": 1,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": 0.13996595190770722,
+          "advancing": 1,
+          "declining": 0,
+          "unchanged": 0,
+          "rank": 2
+        }
+      },
+      "symbols": [
+        "EC"
+      ],
+      "drivers": [
+        "把红海/苏伊士通行、绕航周转、有效运力和货量逐段核对。",
+        "区分船司报价、SCFI 与 SCFIS 欧洲航线，按公布时刻判断历史可知信息。",
+        "目标 EC 合约月、预期变化和最终结算规则另查，不用最后一期指数代替结算。"
+      ],
+      "next_checks": [
+        "更新实际通航和运力调配，而非仅看消息标题。",
+        "对照新公布运价与合约报价，检查预期差。"
+      ],
+      "evidence": [
+        {
+          "sector": "shipping",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/shipping.md"
+    },
+    {
+      "id": "equity-index",
+      "name": "股指",
+      "windows": {
+        "month": {
+          "expected_products": 2,
+          "observed_products": 2,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": 0.13495183396522425,
+          "advancing": 2,
+          "declining": 0,
+          "unchanged": 0,
+          "rank": 3
+        }
+      },
+      "symbols": [
+        "IF",
+        "IM"
+      ],
+      "drivers": [
+        "区分股指期货、现货指数和 ETF，具体月份及同一时点价格分别保存。",
+        "检查权重/等权、大小盘、行业和市场宽度，说明成分覆盖。",
+        "期现基差与套保需要分红、到期、乘数和实际风险暴露资料。"
+      ],
+      "next_checks": [
+        "核对指数上涨是否伴随成分扩散。",
+        "检查合约到期、分红和基差变化对期货表现的影响。"
+      ],
+      "evidence": [
+        {
+          "sector": "equity-index",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/equity-index.md"
+    },
+    {
+      "id": "rates",
+      "name": "国债",
+      "windows": {
+        "month": {
+          "expected_products": 2,
+          "observed_products": 2,
+          "coverage": 1.0,
+          "eligible_for_ranking": true,
+          "sample_equal_weight_price_return": 0.15487136646420674,
+          "advancing": 2,
+          "declining": 0,
+          "unchanged": 0,
+          "rank": 1
+        }
+      },
+      "symbols": [
+        "T",
+        "TL"
+      ],
+      "drivers": [
+        "核对资金面、利率曲线和宏观数据的公布时间，区分名义与实际利率。",
+        "不同期限先看久期风险与收益率变化，不能把期货涨跌幅当同等风险。",
+        "CTD、转换因子、基差和隐含回购需具体可交割券与官方合约规则。"
+      ],
+      "next_checks": [
+        "对照新的资金利率和曲线变化。",
+        "合约或可交割券改变时重新检查 CTD 与交割假设。"
+      ],
+      "evidence": [
+        {
+          "sector": "rates",
+          "metric": "DEMO_观察指标",
+          "observed_at": "2024-01-05T07:00:00+00:00",
+          "published_at": "2024-01-08T08:00:00+00:00",
+          "value": 100.0,
+          "unit": "demo_units",
+          "source": "synthetic://exercise"
+        }
+      ],
+      "reference": "references/sectors/rates.md"
+    }
+  ],
+  "products": [
+    {
+      "symbol": "AU",
+      "name": "黄金",
+      "sector": "precious-metals",
+      "exchange": "SHFE",
+      "contract": "AU_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 79.778087,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 90.101026,
+          "end_price": 79.778087,
+          "price_return": -0.11457071532126617,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.6833579285714262,
+      "atr14_over_absolute_close": 0.021100505061890318,
+      "flow": {
+        "volume": 1430,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0287769784172662,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -0.805839000000006,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "AU_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "1d7f6b0a65868a5edf7e8d09f6f2f27f1f1c4dcb851b6c475d2e9136691cae5f",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 80.583926,
+            "high": 81.083926,
+            "low": 79.278087,
+            "close": 79.778087
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 80.81998800000001,
+            "ma10": 81.91524150000001,
+            "ma20": 84.36919530000002
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -3.0441306493225113,
+            "dea": -2.943843566338351,
+            "histogram": -0.20057416596832045,
+            "histogram_previous": -0.19612794996532124,
+            "sign": "negative",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        },
+        "H4": {
+          "schema_version": 1,
+          "instrument": "AU_DEMO",
+          "declared_timeframe": "H4",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "9592da851ea078c68acf96bbae7a7a94bbb36cd890456a81af1bce94cdcb12ff",
+          "completed_bar_count": 48,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-09T00:00:00+00:00",
+            "open": 98.0,
+            "high": 102.5,
+            "low": 97.5,
+            "close": 102.0
+          },
+          "observation_age_seconds": 115200.0,
+          "moving_averages": {
+            "ma5": 97.6,
+            "ma10": 98.8,
+            "ma20": 102.23799999999999
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -2.4893168090675317,
+            "dea": -2.3260266125064257,
+            "histogram": -0.326580393122212,
+            "histogram_previous": -1.2421249018730176,
+            "sign": "negative",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {
+            "support": {
+              "level": 100.0,
+              "observation": "reclaimed_after_closed_break"
+            }
+          },
+          "reference_window": {
+            "reference_close_time": "2024-01-06T00:00:00+00:00",
+            "completed_bars_after_reference": 18,
+            "includes_reference_bar": false,
+            "window_bars": 12,
+            "window_state": "expired"
+          },
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        },
+        "H1": {
+          "schema_version": 1,
+          "instrument": "AU_DEMO",
+          "declared_timeframe": "H1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "02150ab1765c0cfd9ff564a8264e7c896fb284512d4344849890391be905a6b4",
+          "completed_bar_count": 40,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-08T15:00:00+00:00",
+            "open": 104.58000000000001,
+            "high": 104.98,
+            "low": 104.38000000000001,
+            "close": 104.68
+          },
+          "observation_age_seconds": 147600.0,
+          "moving_averages": {
+            "ma5": 104.44000000000001,
+            "ma10": 104.14000000000001,
+            "ma20": 103.53999999999999
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 0.7664072781107905,
+            "dea": 0.733746688874301,
+            "histogram": 0.06532117847297902,
+            "histogram_previous": 0.07007566974604273,
+            "sign": "positive",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        },
+        "M30": {
+          "schema_version": 1,
+          "instrument": "AU_DEMO",
+          "declared_timeframe": "M30",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "e3ab236edc8d9e7cf42d8ec3e0caf0b1b6841a9588c9507c2e99b207ef70e2c5",
+          "completed_bar_count": 5,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T01:00:00+00:00",
+            "open": 102.0,
+            "high": 103.0,
+            "low": 96.0,
+            "close": 98.0
+          },
+          "observation_age_seconds": 25200.0,
+          "moving_averages": {
+            "ma5": 99.86,
+            "ma10": null,
+            "ma20": null
+          },
+          "ma_ordering": "insufficient_history",
+          "macd": {
+            "ready": false,
+            "minimum_bars": 35,
+            "reason": "insufficient completed bars"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [
+        "跨周期均线方向不一致，分别记录背景与触发。",
+        "H4 参照柱窗口已过期。"
+      ],
+      "setups": [
+        {
+          "name": "模拟支撑收复后再测试",
+          "timeframe": "M30",
+          "side": "support_reclaim",
+          "declared_at": "2024-01-08T01:00:00+00:00",
+          "anchor_time": "2024-01-08T01:00:00+00:00",
+          "level": 100,
+          "invalidation_level": 97,
+          "retest_tolerance": 0.5,
+          "validation_bars": 3,
+          "state": "invalidated",
+          "observed_events": [
+            {
+              "event": "boundary_reclaimed",
+              "close_time": "2024-01-08T01:30:00+00:00",
+              "bars_after_anchor": 1
+            },
+            {
+              "event": "later_retest_held",
+              "close_time": "2024-01-08T02:00:00+00:00",
+              "bars_after_anchor": 2
+            },
+            {
+              "event": "structure_invalidated",
+              "close_time": "2024-01-10T01:00:00+00:00",
+              "bars_after_anchor": 4,
+              "predates_declaration": false
+            }
+          ],
+          "scope": "Predeclared rule observations, not a buy/sell signal, validated edge or guaranteed stop fill.",
+          "completed_bars_after_anchor": 4,
+          "invalidation_rule": "touch of low <= invalidation_level"
+        }
+      ],
+      "bars_without_available_at": 136
+    },
+    {
+      "symbol": "AG",
+      "name": "白银",
+      "sector": "precious-metals",
+      "exchange": "SHFE",
+      "contract": "AG_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 88.939948,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 94.487811,
+          "end_price": 88.939948,
+          "price_return": -0.058715118291818524,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.528477785714285,
+      "atr14_over_absolute_close": 0.017185503478305216,
+      "flow": {
+        "volume": 1437,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0286327845382963,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 0.8805940000000021,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "AG_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "bb6619543787bf6c90ffc28edcd44786bade7de9675e1bc7fee842ff76da7a15",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 88.059354,
+            "high": 89.439948,
+            "low": 87.559354,
+            "close": 88.939948
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 88.44907320000002,
+            "ma10": 88.8586668,
+            "ma20": 90.47768544999998
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -1.9308050310788758,
+            "dea": -2.0052986949350897,
+            "histogram": 0.14898732771242784,
+            "histogram_previous": -0.037265333993771854,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": "to_positive",
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "CU",
+      "name": "铜",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "contract": "CU_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 85.257073,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 94.098982,
+          "end_price": 85.257073,
+          "price_return": -0.09396391769679291,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.5414232857142867,
+      "atr14_over_absolute_close": 0.018079711529790456,
+      "flow": {
+        "volume": 1444,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0284900284900285,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -0.8611829999999969,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "CU_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "393a2593127e5029c6177d223238bf00b8ddf0f6f6093caedb8b7ce35f00b661",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 86.118256,
+            "high": 86.618256,
+            "low": 84.757073,
+            "close": 85.257073
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 86.33317339999999,
+            "ma10": 87.0492831,
+            "ma20": 88.79942104999998
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -2.4002663008524507,
+            "dea": -2.388198527101818,
+            "histogram": -0.024135547501265897,
+            "histogram_previous": 0.029953326150766735,
+            "sign": "negative",
+            "absolute_magnitude": "shrinking",
+            "flip": "to_negative",
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "AL",
+      "name": "铝",
+      "sector": "nonferrous",
+      "exchange": "SHFE",
+      "contract": "AL_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 94.215061,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 98.382812,
+          "end_price": 94.215061,
+          "price_return": -0.04236259276671206,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.4105570000000023,
+      "atr14_over_absolute_close": 0.014971672098158513,
+      "flow": {
+        "volume": 1451,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0283486888731397,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 0.9328220000000016,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "AL_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "b195a5dd5c94195268abd4189899c9618546ca10fecf264f9baac5cc4a4749e2",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 93.282239,
+            "high": 94.715061,
+            "low": 92.782239,
+            "close": 94.215061
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 93.8377778,
+            "ma10": 94.23935370000001,
+            "ma20": 95.01442610000001
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -1.2850044792507305,
+            "dea": -1.3534190704484286,
+            "histogram": 0.1368291823953962,
+            "histogram_previous": 0.011588341730312202,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "LC",
+      "name": "碳酸锂",
+      "sector": "nonferrous",
+      "exchange": "GFEX",
+      "contract": "LC_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 86.6068,
+      "quote_age_hours": 1.0,
+      "daily_count": 42,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 95.667011,
+          "end_price": 86.6068,
+          "price_return": -0.09470569745301227,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.5729704285714294,
+      "atr14_over_absolute_close": 0.018162204683367003,
+      "flow": {
+        "volume": 1448,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0284090909090908,
+        "previous_observation_trade_date": "2024-01-08",
+        "price_change_since_previous_observation": -0.8748159999999956,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "LC_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "9b7d642ec999468228519ebc9290a536c5deb9ee64a64361a59a66bbd2d16dcf",
+          "completed_bar_count": 42,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 87.481616,
+            "high": 87.981616,
+            "low": 86.1068,
+            "close": 86.6068
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 87.89300540000002,
+            "ma10": 89.0026712,
+            "ma20": 90.67146704999999
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -2.496336843456973,
+            "dea": -2.3850255953568205,
+            "histogram": -0.22262249620030516,
+            "histogram_previous": -0.14206896274482084,
+            "sign": "negative",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 42
+    },
+    {
+      "symbol": "RB",
+      "name": "螺纹钢",
+      "sector": "ferrous",
+      "exchange": "SHFE",
+      "contract": "RB_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 100.431637,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 102.339184,
+          "end_price": 100.431637,
+          "price_return": -0.01863945876293105,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.4142777857142843,
+      "atr14_over_absolute_close": 0.014081994757431708,
+      "flow": {
+        "volume": 1465,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0280701754385966,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 0.994372999999996,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "RB_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "46f5feb69f7c76ad42f6f0df4233c431657e99003940d2f35d5db4904b66f467",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 99.437264,
+            "high": 100.931637,
+            "low": 98.937264,
+            "close": 100.431637
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 99.848117,
+            "ma10": 100.3174468,
+            "ma20": 100.94633214999998
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -0.7957232984358171,
+            "dea": -0.7587774329999062,
+            "histogram": -0.07389173087182188,
+            "histogram_previous": -0.21887795331507265,
+            "sign": "negative",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "I",
+      "name": "铁矿石",
+      "sector": "ferrous",
+      "exchange": "DCE",
+      "contract": "I_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 92.64258,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 99.77294,
+          "end_price": 92.64258,
+          "price_return": -0.07146587040534247,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.5673017857142872,
+      "atr14_over_absolute_close": 0.016917726014477222,
+      "flow": {
+        "volume": 1472,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0279329608938548,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -0.9357839999999982,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "I_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "ce42029fe4c80561f2ffa286b0c9e0e4779dfc92002fa090ce8015c0bc439529",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 93.578364,
+            "high": 94.078364,
+            "low": 92.14258,
+            "close": 92.64258
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 93.6372878,
+            "ma10": 94.47804149999999,
+            "ma20": 96.21314249999998
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -2.0485185163716295,
+            "dea": -1.9146538909984776,
+            "histogram": -0.2677292507463038,
+            "histogram_previous": -0.2219125087663567,
+            "sign": "negative",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "JM",
+      "name": "焦煤",
+      "sector": "ferrous",
+      "exchange": "DCE",
+      "contract": "JM_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 103.337352,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 104.581728,
+          "end_price": 103.337352,
+          "price_return": -0.011898598577372965,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.3944506428571424,
+      "atr14_over_absolute_close": 0.013494158848362425,
+      "flow": {
+        "volume": 1479,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0277970813064627,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.023141999999993,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "JM_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "bc7c20e1edc8f5870bbac85dc6c4658174ed2e3e859fded6a3df4c4fd252b4db",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 102.31421,
+            "high": 103.837352,
+            "low": 101.81421,
+            "close": 103.337352
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 102.4877018,
+            "ma10": 102.4703108,
+            "ma20": 103.2495101
+          },
+          "ma_ordering": "mixed_or_flat",
+          "macd": {
+            "ready": true,
+            "dif": -0.7215412842630826,
+            "dea": -0.8047665528994968,
+            "histogram": 0.16645053727282844,
+            "histogram_previous": -0.01689618991316899,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": "to_positive",
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "SC",
+      "name": "原油",
+      "sector": "energy",
+      "exchange": "INE",
+      "contract": "SC_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 99.16129,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 104.145019,
+          "end_price": 99.16129,
+          "price_return": -0.0478537432500733,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.396416285714288,
+      "atr14_over_absolute_close": 0.014082272283007695,
+      "flow": {
+        "volume": 1486,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0276625172890732,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.0016290000000083,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "SC_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "b583cd22841052c9f2e9e31104d0d3b80a2e0386759ab597f85e8eac388f43f0",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 100.162919,
+            "high": 100.662919,
+            "low": 98.66129,
+            "close": 99.16129
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 100.10059679999999,
+            "ma10": 100.3678764,
+            "ma20": 101.333293
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -1.253048745242566,
+            "dea": -1.2488114608240213,
+            "histogram": -0.008474568837089524,
+            "histogram_previous": 0.08197213668018621,
+            "sign": "negative",
+            "absolute_magnitude": "shrinking",
+            "flip": "to_negative",
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "FU",
+      "name": "燃料油",
+      "sector": "energy",
+      "exchange": "SHFE",
+      "contract": "FU_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 109.544753,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 108.854006,
+          "end_price": 109.544753,
+          "price_return": 0.0063456277392308635,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.3421260714285725,
+      "atr14_over_absolute_close": 0.012251851728841568,
+      "flow": {
+        "volume": 1493,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0275292498279422,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.0846020000000038,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "FU_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "eea5987f84c9f26a902abf6c80199b2f56ed96f390b95f542e75e9eb8d68c45f",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 108.460151,
+            "high": 110.044753,
+            "low": 107.960151,
+            "close": 109.544753
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 108.77336640000001,
+            "ma10": 108.57406280000001,
+            "ma20": 108.30006290000001
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 0.11338258882413754,
+            "dea": -0.014013118555929713,
+            "histogram": 0.2547914147601345,
+            "histogram_previous": 0.14176677163068854,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "PG",
+      "name": "液化石油气",
+      "sector": "energy",
+      "exchange": "DCE",
+      "contract": "PG_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 99.998821,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 105.790208,
+          "end_price": 99.998821,
+          "price_return": -0.05474407423416727,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.420871214285712,
+      "atr14_over_absolute_close": 0.014208879665548376,
+      "flow": {
+        "volume": 1500,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0273972602739727,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.0100889999999936,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "PG_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "2d1b487c8762c61382fb5c8c800b6679a9089b7f8956169d01c1fea219ecc22f",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 101.00891,
+            "high": 101.50891,
+            "low": 99.498821,
+            "close": 99.998821
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 101.2145342,
+            "ma10": 101.9582874,
+            "ma20": 102.73621110000002
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -1.3405058866550235,
+            "dea": -1.22912682368381,
+            "histogram": -0.22275812594242694,
+            "histogram_previous": -0.09111333515464759,
+            "sign": "negative",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "TA",
+      "name": "PTA",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "contract": "TA_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 116.325258,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 113.045197,
+          "end_price": 116.325258,
+          "price_return": 0.02901548307266877,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.3633339285714297,
+      "atr14_over_absolute_close": 0.011720016374873887,
+      "flow": {
+        "volume": 1507,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.027266530334015,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.1517350000000022,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "TA_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "01345e5746578d1e7d8ea50848cdfe4566e99edd0be8c7a6a6ea5c5f056e82c2",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 115.173523,
+            "high": 116.825258,
+            "low": 114.673523,
+            "close": 116.325258
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 115.3930838,
+            "ma10": 115.3412805,
+            "ma20": 114.71939415
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 0.7372597622139239,
+            "dea": 0.736154025761845,
+            "histogram": 0.0022114729041577963,
+            "histogram_previous": -0.11368386218213344,
+            "sign": "positive",
+            "absolute_magnitude": "shrinking",
+            "flip": "to_positive",
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "MA",
+      "name": "甲醇",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "contract": "MA_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 107.202194,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 110.122459,
+          "end_price": 107.202194,
+          "price_return": -0.026518341730818018,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.402430142857143,
+      "atr14_over_absolute_close": 0.013082102991820698,
+      "flow": {
+        "volume": 1514,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0271370420624153,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.0828499999999934,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "MA_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "6f1cc64a281192023eb569b6d4e789e87f4da0b77c92f8c1e074066744d4ca21",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 108.285044,
+            "high": 108.785044,
+            "low": 106.702194,
+            "close": 107.202194
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 108.1142296,
+            "ma10": 108.59007340000001,
+            "ma20": 109.33386545
+          },
+          "ma_ordering": "descending",
+          "macd": {
+            "ready": true,
+            "dif": -0.7551726636238953,
+            "dea": -0.6041137759940276,
+            "histogram": -0.3021177752597355,
+            "histogram_previous": -0.20144553555879918,
+            "sign": "negative",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "SA",
+      "name": "纯碱",
+      "sector": "chemicals",
+      "exchange": "CZCE",
+      "contract": "SA_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 119.609693,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 115.36825,
+          "end_price": 119.609693,
+          "price_return": 0.036764387082234506,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.3790659285714284,
+      "atr14_over_absolute_close": 0.0115297171490226,
+      "flow": {
+        "volume": 1521,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.027008777852802,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.1842539999999957,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "SA_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "9a53429e35d74d37d35c9aa111f013c41fdfed30f43374211249bf5e9b239b0f",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 118.425439,
+            "high": 120.109693,
+            "low": 117.925439,
+            "close": 119.609693
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 118.3216884,
+            "ma10": 117.7592607,
+            "ma20": 117.4144468
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 0.8109826857126166,
+            "dea": 0.7014329961796018,
+            "histogram": 0.2190993790660296,
+            "histogram_previous": 0.04637451140414006,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "RU",
+      "name": "天然橡胶",
+      "sector": "chemicals",
+      "exchange": "SHFE",
+      "contract": "RU_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 109.722576,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 112.380877,
+          "end_price": 109.722576,
+          "price_return": -0.023654389171566925,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.3606869285714274,
+      "atr14_over_absolute_close": 0.012401157338590258,
+      "flow": {
+        "volume": 1528,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0268817204301075,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.1083089999999913,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "RU_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "d280debc36e11c40fe3702f8fba93572c740c3e9ed502bc812cdde99faf00568",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 110.830885,
+            "high": 111.330885,
+            "low": 109.222576,
+            "close": 109.722576
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 110.57315439999999,
+            "ma10": 110.57075619999998,
+            "ma20": 111.10969875
+          },
+          "ma_ordering": "mixed_or_flat",
+          "macd": {
+            "ready": true,
+            "dif": -0.5922539839393863,
+            "dea": -0.5929301945169442,
+            "histogram": 0.0013524211551156906,
+            "histogram_previous": 0.11122503248017779,
+            "sign": "positive",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "M",
+      "name": "豆粕",
+      "sector": "oilseeds",
+      "exchange": "DCE",
+      "contract": "M_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 126.963503,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 120.056449,
+          "end_price": 126.963503,
+          "price_return": 0.057531719932846004,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.5819800000000004,
+      "atr14_over_absolute_close": 0.012460116195754305,
+      "flow": {
+        "volume": 1535,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0267558528428093,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.2570639999999997,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "M_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "d58b7e489e1b11e8453794a5be2098124036746d7a273044ebbdf9318a538694",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 125.706439,
+            "high": 127.463503,
+            "low": 125.206439,
+            "close": 126.963503
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 125.6794712,
+            "ma10": 124.7029904,
+            "ma20": 123.1025427
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 1.8611217230845511,
+            "dea": 1.6443114219318207,
+            "histogram": 0.43362060230546096,
+            "histogram_previous": 0.33578069714435754,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "Y",
+      "name": "豆油",
+      "sector": "oilseeds",
+      "exchange": "DCE",
+      "contract": "Y_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 115.779024,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 116.634073,
+          "end_price": 115.779024,
+          "price_return": -0.007331039532504358,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.3899449285714272,
+      "atr14_over_absolute_close": 0.012005153270003616,
+      "flow": {
+        "volume": 1542,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0266311584553929,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.1694849999999946,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "Y_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "61064db165d584e46844e7b3ccde9a38761106589999975143ded77dd748ab11",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 116.948509,
+            "high": 117.448509,
+            "low": 115.279024,
+            "close": 115.779024
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 116.86080100000001,
+            "ma10": 117.00988009999999,
+            "ma20": 116.58580164999998
+          },
+          "ma_ordering": "mixed_or_flat",
+          "macd": {
+            "ready": true,
+            "dif": 0.17819500051767534,
+            "dea": 0.24688546641700118,
+            "histogram": -0.13738093179865168,
+            "histogram_previous": 0.057738474482028845,
+            "sign": "negative",
+            "absolute_magnitude": "expanding",
+            "flip": "to_negative",
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "P",
+      "name": "棕榈油",
+      "sector": "oilseeds",
+      "exchange": "DCE",
+      "contract": "P_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 128.315983,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 121.808932,
+          "end_price": 128.315983,
+          "price_return": 0.05342014656199434,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.4952715714285714,
+      "atr14_over_absolute_close": 0.011653042251397253,
+      "flow": {
+        "volume": 1549,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0265076209410204,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.2704549999999841,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "P_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "8ee0107e26e9df4d4e460caddae69292c7b58c91433daf419d43c101c386f13c",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 127.045528,
+            "high": 128.815983,
+            "low": 126.545528,
+            "close": 128.315983
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 127.16252119999999,
+            "ma10": 126.7619181,
+            "ma20": 125.3054324
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 1.699678426880297,
+            "dea": 1.6571496519867641,
+            "histogram": 0.08505754978706559,
+            "histogram_previous": -0.010181689635783364,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": "to_positive",
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "C",
+      "name": "玉米",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "contract": "C_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 123.670571,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 121.193746,
+          "end_price": 123.670571,
+          "price_return": 0.020436904392739708,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.3738417857142855,
+      "atr14_over_absolute_close": 0.011108882045303126,
+      "flow": {
+        "volume": 1556,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0263852242744063,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.249198000000007,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "C_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "47870fa12cb6d10d3408a73bac671e96201f08f882b720e883fda407fb715a2a",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 124.919769,
+            "high": 125.419769,
+            "low": 123.170571,
+            "close": 123.670571
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 124.4539986,
+            "ma10": 124.42405240000002,
+            "ma20": 123.85687440000004
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 0.8809550354406639,
+            "dea": 1.024131463699186,
+            "histogram": -0.28635285651704434,
+            "histogram_previous": -0.11537807753826712,
+            "sign": "negative",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "CS",
+      "name": "玉米淀粉",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "contract": "CS_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 137.972367,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 126.888743,
+          "end_price": 137.972367,
+          "price_return": 0.08734915121666842,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.6325077142857103,
+      "atr14_over_absolute_close": 0.011832135302032691,
+      "flow": {
+        "volume": 1563,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0262639527248851,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.366062999999997,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "CS_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "54518b3238b46e1053d2b7956a14a67449e0833791cc2219afbf72ca0cebfc27",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 136.606304,
+            "high": 138.472367,
+            "low": 136.106304,
+            "close": 137.972367
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 136.1558812,
+            "ma10": 134.9061764,
+            "ma20": 133.09808529999998
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 2.714543274437517,
+            "dea": 2.5533965202568303,
+            "histogram": 0.3222935083613736,
+            "histogram_previous": 0.17014266254580246,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "LH",
+      "name": "生猪",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "contract": "LH_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 126.729799,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 123.599747,
+          "end_price": 126.729799,
+          "price_return": 0.025324097143985203,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.4613347142857143,
+      "atr14_over_absolute_close": 0.011531105752686581,
+      "flow": {
+        "volume": 1570,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.026143790849673,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.2800989999999928,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "LH_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "660c2fc64e16380ff4244e394173b3cf305db7c5e0de22f5f08ab280aefff3bc",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 128.009898,
+            "high": 128.509898,
+            "low": 126.229799,
+            "close": 126.729799
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 127.34048279999999,
+            "ma10": 126.6939247,
+            "ma20": 126.02606315
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 1.0751121509804307,
+            "dea": 1.0449493499617057,
+            "histogram": 0.060325602037449855,
+            "histogram_previous": 0.22194901429959835,
+            "sign": "positive",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "JD",
+      "name": "鸡蛋",
+      "sector": "grains-livestock",
+      "exchange": "DCE",
+      "contract": "JD_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 140.110503,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 129.164909,
+          "end_price": 140.110503,
+          "price_return": 0.08474123571751213,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.7549350714285705,
+      "atr14_over_absolute_close": 0.012525364150812953,
+      "flow": {
+        "volume": 1577,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.026024723487313,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.3872329999999806,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "JD_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "41c52bea5ce15fcdab23e69947e91df4accba937c3531f903ae60cb454e7aeed",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 138.72327,
+            "high": 140.610503,
+            "low": 138.22327,
+            "close": 140.110503
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 138.44430600000004,
+            "ma10": 136.932439,
+            "ma20": 134.5303406
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 2.9544105364946915,
+            "dea": 2.666834518902175,
+            "histogram": 0.5751520351850328,
+            "histogram_previous": 0.4775397265713366,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "CF",
+      "name": "棉花",
+      "sector": "softs",
+      "exchange": "CZCE",
+      "contract": "CF_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 133.710148,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 128.238242,
+          "end_price": 133.710148,
+          "price_return": 0.04266984570795973,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.6442908571428572,
+      "atr14_over_absolute_close": 0.012297427545610503,
+      "flow": {
+        "volume": 1584,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0259067357512954,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.350607999999994,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "CF_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "13e16b8f418e4dd6a2a4c657cb7e0c88a4b128a046b2528cca69a0686e3dd395",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 135.060756,
+            "high": 135.560756,
+            "low": 133.210148,
+            "close": 133.710148
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 134.5689162,
+            "ma10": 133.9250315,
+            "ma20": 131.99546295
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 2.066627193499272,
+            "dea": 2.056716009234276,
+            "histogram": 0.019822368529991863,
+            "histogram_previous": 0.28819037980422024,
+            "sign": "positive",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "SR",
+      "name": "白糖",
+      "sector": "softs",
+      "exchange": "CZCE",
+      "contract": "SR_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 147.881002,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 133.822487,
+          "end_price": 147.881002,
+          "price_return": 0.10505345786915465,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.849575428571425,
+      "atr14_over_absolute_close": 0.012507187559977616,
+      "flow": {
+        "volume": 1591,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0257898130238556,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.4641680000000008,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "SR_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "614fd96b77e8ac869b28cdf547e5c0a2779c45caf165cec1eeac3b531d71d3f2",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 146.416834,
+            "high": 148.381002,
+            "low": 145.916834,
+            "close": 147.881002
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 146.199335,
+            "ma10": 144.93437780000005,
+            "ma20": 141.65191015
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 3.878166776087909,
+            "dea": 3.726054728328352,
+            "histogram": 0.304224095519114,
+            "histogram_previous": 0.25237846789497453,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "AP",
+      "name": "苹果",
+      "sector": "softs",
+      "exchange": "CZCE",
+      "contract": "AP_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 135.886119,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 130.147688,
+          "end_price": 135.886119,
+          "price_return": 0.04409168605438474,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.5331794285714275,
+      "atr14_over_absolute_close": 0.011282825941709524,
+      "flow": {
+        "volume": 1598,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0256739409499358,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.3725869999999816,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "AP_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "94ebcc937ffc5db48c97d3a2561f29c55c35945091070873832bf9dbca665e12",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 137.258706,
+            "high": 137.758706,
+            "low": 135.386119,
+            "close": 135.886119
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 136.6335932,
+            "ma10": 136.3083011,
+            "ma20": 134.87120449999998
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 1.8917230682188233,
+            "dea": 2.0249426340148102,
+            "histogram": -0.26643913159197385,
+            "histogram_previous": -0.042321567136144544,
+            "sign": "negative",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "EC",
+      "name": "集运欧线",
+      "sector": "shipping",
+      "exchange": "INE",
+      "contract": "EC_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 158.670054,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 139.188415,
+          "end_price": 158.670054,
+          "price_return": 0.13996595190770722,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.9895339285714309,
+      "atr14_over_absolute_close": 0.012538811693928275,
+      "flow": {
+        "volume": 1605,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.02555910543131,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.5709909999999923,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "EC_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "e2ed7c5e18856e4ae564a0002b0da2f8a9fdd63c087de61e97fe96fff0ca087c",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 157.099063,
+            "high": 159.170054,
+            "low": 156.599063,
+            "close": 158.670054
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 156.2215886,
+            "ma10": 154.11118140000002,
+            "ma20": 150.43887795000003
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 5.043145748479333,
+            "dea": 4.795282576533341,
+            "histogram": 0.4957263438919828,
+            "histogram_previous": 0.37644459433911415,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "IF",
+      "name": "沪深300",
+      "sector": "equity-index",
+      "exchange": "CFFEX",
+      "contract": "IF_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 152.778208,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 138.571387,
+          "end_price": 152.778208,
+          "price_return": 0.10252348127250843,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 1.9452016428571446,
+      "atr14_over_absolute_close": 0.01273219308120923,
+      "flow": {
+        "volume": 1612,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.025445292620865,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.543214000000006,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "IF_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "7e2411a66b983f73d9a0dda26146a0a84cc8d83ca4b063d309e95ae4b3df3560",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 154.321422,
+            "high": 154.821422,
+            "low": 152.278208,
+            "close": 152.778208
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 152.8887926,
+            "ma10": 150.98933519999997,
+            "ma20": 147.89309615000002
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 4.2327399898509555,
+            "dea": 4.09918472540525,
+            "histogram": 0.2671105288914113,
+            "histogram_previous": 0.5292326091419621,
+            "sign": "positive",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "IM",
+      "name": "中证1000",
+      "sector": "equity-index",
+      "exchange": "CFFEX",
+      "contract": "IM_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 169.040968,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 144.803698,
+          "end_price": 169.040968,
+          "price_return": 0.16738018665794008,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 2.3379432142857133,
+      "atr14_over_absolute_close": 0.013830630775172284,
+      "flow": {
+        "volume": 1619,
+        "open_interest": 2882,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.025332488917036,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.6736729999999795,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "IM_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "9e7e66c5b1f3fa900fbcee7592c11f0bba0e1c507f5b4f71f9dc72c0547a5cc1",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 167.367295,
+            "high": 169.540968,
+            "low": 166.867295,
+            "close": 169.040968
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 166.300965,
+            "ma10": 163.15213310000001,
+            "ma20": 157.87539195000002
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 6.601893254833783,
+            "dea": 6.091396678437862,
+            "histogram": 1.020993152791842,
+            "histogram_previous": 0.9655080933906213,
+            "sign": "positive",
+            "absolute_magnitude": "expanding",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "T",
+      "name": "十年期国债",
+      "sector": "rates",
+      "exchange": "CFFEX",
+      "contract": "T_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 161.296753,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 143.754529,
+          "end_price": 161.296753,
+          "price_return": 0.12202901795184484,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 2.2187056428571514,
+      "atr14_over_absolute_close": 0.013755426576114347,
+      "flow": {
+        "volume": 1626,
+        "open_interest": 3005,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.025220680958386,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": -1.6292600000000164,
+        "price_oi_observation": {
+          "price": "down",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "T_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "67c1275dedef4db0386f1c2c826e415847dda14745be9b0ea00e32953559a07a",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 162.926013,
+            "high": 163.426013,
+            "low": 160.796753,
+            "close": 161.296753
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 161.636111,
+            "ma10": 159.48208820000002,
+            "ma20": 154.72150165
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 5.560591815617244,
+            "dea": 5.3697608745904155,
+            "histogram": 0.38166188205365614,
+            "histogram_previous": 0.7750767404418966,
+            "sign": "positive",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    },
+    {
+      "symbol": "TL",
+      "name": "三十年期国债",
+      "sector": "rates",
+      "exchange": "CFFEX",
+      "contract": "TL_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "latest_close": 178.054611,
+      "quote_age_hours": 1.0,
+      "daily_count": 43,
+      "windows": {
+        "month": {
+          "start_date": "2023-12-08",
+          "end_date": "2024-01-10",
+          "start_price": 149.913745,
+          "end_price": 178.054611,
+          "price_return": 0.18771371497656864,
+          "unavailable_reason": null
+        }
+      },
+      "atr14_simple": 2.5065742857142896,
+      "atr14_over_absolute_close": 0.014077558967087293,
+      "flow": {
+        "volume": 1633,
+        "open_interest": 3128,
+        "open_interest_change": 5,
+        "volume_vs_prior5_mean": 1.0251098556183302,
+        "previous_observation_trade_date": "2024-01-09",
+        "price_change_since_previous_observation": 1.7629169999999874,
+        "price_oi_observation": {
+          "price": "up",
+          "open_interest": "up"
+        }
+      },
+      "structures": {
+        "D1": {
+          "schema_version": 1,
+          "instrument": "TL_DEMO",
+          "declared_timeframe": "D1",
+          "data_kind": "synthetic",
+          "as_of_utc": "2024-01-10T08:00:00+00:00",
+          "source_sha256": "5f279a22d7a6a594cd0fb151c227b6939c5d3c37df92b0658da83d28652b33fc",
+          "completed_bar_count": 43,
+          "excluded_after_cutoff": 0,
+          "latest_completed_bar": {
+            "close_time": "2024-01-10T07:00:00+00:00",
+            "open": 176.291694,
+            "high": 178.554611,
+            "low": 175.791694,
+            "close": 178.054611
+          },
+          "observation_age_seconds": 3600.0,
+          "moving_averages": {
+            "ma5": 175.35715480000002,
+            "ma10": 172.4083781,
+            "ma20": 165.78223150000002
+          },
+          "ma_ordering": "ascending",
+          "macd": {
+            "ready": true,
+            "dif": 7.840417472957796,
+            "dea": 7.43889359495926,
+            "histogram": 0.8030477559970723,
+            "histogram_previous": 0.8289043230277642,
+            "sign": "positive",
+            "absolute_magnitude": "shrinking",
+            "flip": null,
+            "definition": "EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed"
+          },
+          "boundary_observations": {},
+          "reference_window": null,
+          "scope": "Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.",
+          "limitations": [
+            "Input close_time is assumed to mean bar close, not bar open; provider convention must be checked",
+            "No session-calendar, missing-bar, contract-roll, unit or quote-source verification",
+            "Manual support/resistance and analog anchors are not validated predictive features",
+            "A reclaim/rejection observation does not establish a confirmed reversal or successful retest"
+          ],
+          "input_slice": "derived OHLC slice from frozen panel.csv"
+        }
+      },
+      "attention": [],
+      "setups": [],
+      "bars_without_available_at": 43
+    }
+  ],
+  "curves": [
+    {
+      "symbol": "EC",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "shape": "backwardation",
+      "near_minus_far": 50.0,
+      "quote_span_seconds": 0.0,
+      "oldest_quote_age_hours": 25.0,
+      "quotes": [
+        {
+          "symbol": "EC",
+          "contract": "EC_CURVE_2024-03",
+          "delivery_month": "2024-03",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 1200.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        },
+        {
+          "symbol": "EC",
+          "contract": "EC_CURVE_2024-04",
+          "delivery_month": "2024-04",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 1180.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        },
+        {
+          "symbol": "EC",
+          "contract": "EC_CURVE_2024-05",
+          "delivery_month": "2024-05",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 1150.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        }
+      ]
+    },
+    {
+      "symbol": "RB",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "shape": "mixed",
+      "near_minus_far": -1.0,
+      "quote_span_seconds": 0.0,
+      "oldest_quote_age_hours": 25.0,
+      "quotes": [
+        {
+          "symbol": "RB",
+          "contract": "RB_CURVE_2024-03",
+          "delivery_month": "2024-03",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 100.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        },
+        {
+          "symbol": "RB",
+          "contract": "RB_CURVE_2024-04",
+          "delivery_month": "2024-04",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 102.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        },
+        {
+          "symbol": "RB",
+          "contract": "RB_CURVE_2024-05",
+          "delivery_month": "2024-05",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 101.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        }
+      ]
+    },
+    {
+      "symbol": "SC",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "shape": "backwardation",
+      "near_minus_far": 3.0,
+      "quote_span_seconds": 0.0,
+      "oldest_quote_age_hours": 25.0,
+      "quotes": [
+        {
+          "symbol": "SC",
+          "contract": "SC_CURVE_2024-03",
+          "delivery_month": "2024-03",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 80.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        },
+        {
+          "symbol": "SC",
+          "contract": "SC_CURVE_2024-04",
+          "delivery_month": "2024-04",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 78.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        },
+        {
+          "symbol": "SC",
+          "contract": "SC_CURVE_2024-05",
+          "delivery_month": "2024-05",
+          "quote_time": "2024-01-09T07:00:00+00:00",
+          "price": 77.0,
+          "currency": "CNY",
+          "unit": "demo_points"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "panel": "c7cdf4775a0fa8cd95e4e24f0b4f3dd07893d9ee4bfc0954296768a0d7c654a4",
+    "evidence": "a9ec55c6c8ee2e657d8f245ff33f222dfd9cc858ea018235800eb9f865404344",
+    "curves": "0f10f508cbd9b9c0b2585cce71cacfd936643aef49962a5f306519463a5e92b4"
+  },
+  "excluded_panel_rows": {
+    "after_cutoff": 0,
+    "after_trade_date": 0,
+    "outside_universe_or_contract": 0,
+    "not_available_at_cutoff": 0
+  },
+  "excluded_unpublished_evidence": 0,
+  "excluded_future_curve_quotes": 0,
+  "scope": "Common-window, selected-contract price observations; no official sector index, leveraged P&L or predictive score.",
+  "limitations": [
+    "Universe and sector taxonomy are user research choices, not an exchange classification or full-market coverage",
+    "Trading dates, units, source authenticity, sessions and continuous-contract adjustments require independent checks",
+    "Volume/open interest are contract counts, not capital flows or proof of long/short ownership",
+    "ATR is a simple 14-range mean, not Wilder smoothing; no execution, margin or guaranteed stop fill"
+  ],
+  "sources": {
+    "panel": {
+      "name": "Constructed sector exercise",
+      "url": "synthetic://local"
+    },
+    "evidence": {
+      "name": "Constructed sector exercise",
+      "url": "synthetic://local"
+    },
+    "curves": {
+      "name": "Constructed sector exercise",
+      "url": "synthetic://local"
+    }
+  },
+  "catalog_sha256": "def3a934313605a234cf316370f0aa4842f390e3876f2b34776b6ccbb676543e",
+  "config_sha256": "38d1428e3d15e047caac90e01b51a0857ae04c23837b307abd79fbc2481f9097",
+  "generated_at_utc": "2026-10-25T10:16:28.784244+00:00"
+}

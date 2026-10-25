@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "data_kind": "imported_observations",
+  "as_of": "2026-10-25T10:00:16.384543+00:00",
+  "trade_date": "2026-10-23",
+  "minimum_sector_coverage": 1.0,
+  "max_bar_age_hours": 96,
+  "catalog": "inputs/catalog.json",
+  "files": {
+    "panel": "inputs/panel.csv"
+  },
+  "windows": {
+    "day": {
+      "label": "最近共同观测区间",
+      "start_date": "2026-10-22"
+    },
+    "week": {
+      "label": "共同5段观测区间",
+      "start_date": "2026-10-16"
+    },
+    "month": {
+      "label": "共同20段观测区间",
+      "start_date": "2026-09-17"
+    }
+  },
+  "universe": [
+    {
+      "symbol": "AU",
+      "contract": "AU2612",
+      "currency": "CNY",
+      "unit": "CNY_per_gram",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "RB",
+      "contract": "RB2701",
+      "currency": "CNY",
+      "unit": "CNY_per_tonne",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "M",
+      "contract": "M2701",
+      "currency": "CNY",
+      "unit": "CNY_per_tonne",
+      "volume_unit": "contracts"
+    }
+  ],
+  "sources": {
+    "panel": {
+      "name": "Sina explicit-contract daily snapshot",
+      "retrieved_at": "2026-10-25T10:00:16.384543+00:00",
+      "vintage_policy": "retrieval_snapshot",
+      "time_policy": "取数时可见的历史版本；日期配合使用者声明的日收盘时刻，排除取数当日；available_at记录取数时间。",
+      "contracts": [
+        {
+          "symbol": "AU",
+          "contract": "AU2612",
+          "url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_taotao=/InnerFuturesNewService.getDailyKLine?symbol=AU2612",
+          "retrieved_at": "2026-10-25T10:00:16.168889+00:00",
+          "raw_file": "raw/AU2612.jsonp.txt",
+          "raw_sha256": "8f55ea65c7f121c396df0ece0c9ffd71c334e4e7b5d304b921023e5b8e695479",
+          "accepted_rows": 225,
+          "first_date": "2025-11-18",
+          "last_date": "2026-10-23",
+          "excluded_rows": [],
+          "session_close_declared": "15:00:00+08:00"
+        },
+        {
+          "symbol": "RB",
+          "contract": "RB2701",
+          "url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_taotao=/InnerFuturesNewService.getDailyKLine?symbol=RB2701",
+          "retrieved_at": "2026-10-25T10:00:16.258880+00:00",
+          "raw_file": "raw/RB2701.jsonp.txt",
+          "raw_sha256": "3c066dd709df1aa4ef1221622c146c67fbf6fb888e649cdf806523c6730c7a1c",
+          "accepted_rows": 184,
+          "first_date": "2026-01-16",
+          "last_date": "2026-10-23",
+          "excluded_rows": [],
+          "session_close_declared": "15:00:00+08:00"
+        },
+        {
+          "symbol": "M",
+          "contract": "M2701",
+          "url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_taotao=/InnerFuturesNewService.getDailyKLine?symbol=M2701",
+          "retrieved_at": "2026-10-25T10:00:16.370781+00:00",
+          "raw_file": "raw/M2701.jsonp.txt",
+          "raw_sha256": "09a7226c74463efa8179ed96e95a64fbd3d3be0c5f8816ae00268dcb809bffec",
+          "accepted_rows": 183,
+          "first_date": "2026-01-19",
+          "last_date": "2026-10-23",
+          "excluded_rows": [],
+          "session_close_declared": "15:00:00+08:00"
+        }
+      ]
+    }
+  }
+}

@@ -1,1 +1,29 @@
-{"status": "complete", "files": ["index.html", "REPORT.md", "bundle.json", "sectors/precious-metals.html", "sectors/nonferrous.html", "sectors/ferrous.html", "sectors/energy.html", "sectors/chemicals.html", "sectors/oilseeds.html", "sectors/grains-livestock.html", "sectors/softs.html", "sectors/shipping.html", "sectors/equity-index.html", "sectors/rates.html", "sector_returns.csv", "products.csv", "config.snapshot.json"], "data_kind": "synthetic", "configured_products": 30}
+{
+  "schema_version": 2,
+  "status": "complete",
+  "data_kind": "synthetic",
+  "configured_products": 30,
+  "sha256": {
+    "bundle.json": "414b5ad90e3e14d80c431fe728d93711badb65a4532e4766330f49c53c459d05",
+    "config.snapshot.json": "2d4c2ce49bbe7f314e0f90d902650378a36e5cc9dcf572f2a130583f03991a70",
+    "index.html": "f1aa7a9aa6e4c79510e16a5f1ea420ec12a297f1c783c1d07b068d1915c84f4f",
+    "inputs/catalog.json": "def3a934313605a234cf316370f0aa4842f390e3876f2b34776b6ccbb676543e",
+    "inputs/curves.csv": "0f10f508cbd9b9c0b2585cce71cacfd936643aef49962a5f306519463a5e92b4",
+    "inputs/evidence.csv": "a9ec55c6c8ee2e657d8f245ff33f222dfd9cc858ea018235800eb9f865404344",
+    "inputs/panel.csv": "c7cdf4775a0fa8cd95e4e24f0b4f3dd07893d9ee4bfc0954296768a0d7c654a4",
+    "products.csv": "e947734049288a261d750a65c4aaf0d0dfc3c3871dec290e0070c0ee88ca2ad4",
+    "REPORT.md": "2c8d3034222cc171b91520c83594a14ca8f5e5104c9a4a5048ed611c90756ebc",
+    "sector_returns.csv": "bc9183c2d214e762714864e14bd93398ce4441b5ad8fdfd91c68781d15083b6a",
+    "sectors/chemicals.html": "33615348ed0410f39456e4c8603b00adaf0cff2041e7d0167d7d8c4d2d8db233",
+    "sectors/energy.html": "7943dc1434d61628f9c142eef35ad3fbcb6ba015c22c3c33bbba819b610ecd6a",
+    "sectors/equity-index.html": "bde1e7e35ae5125c37cce351924ba9ccfa7dbb040a36643874d9fc9e80aac00b",
+    "sectors/ferrous.html": "f3581edfdac477f10a039578f1f3e5ade82e84e46eeaf7357d773172849ff78b",
+    "sectors/grains-livestock.html": "d94e1672de73ac88ddb430a935ef254b355420d6794b0a8667e76aaf668330f7",
+    "sectors/nonferrous.html": "4249078242bfc2a9b98366c8f34aa09ab6bd41044ce048db652385bfd081c418",
+    "sectors/oilseeds.html": "561cf30aeb536fbf6a08ae32918352f9ac2fb89dd216fcccc773fa0ff1e01d1c",
+    "sectors/precious-metals.html": "0bbc2b8efd7ada70f5d1ffe0768ed7f5ee1367789130793f3e35283fd66b299d",
+    "sectors/rates.html": "99ca80de0860c77d2a9693d5453e8d8144721cee008cb8235fbe184e3ee55e2f",
+    "sectors/shipping.html": "55b02b961fe28829a0fb2cfb0501d923bd6f7beb8218b211964df59ea8d45e3e",
+    "sectors/softs.html": "eb7d274875fcecc9415da626662728e3640c67b31938b36c240346aa788e84a5"
+  }
+}

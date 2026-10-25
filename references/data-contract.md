@@ -44,6 +44,12 @@ timeframe 支持 MN1、W1、D1、H4、H1、M30。每品种每交易日只能有�
 
 MA5/10/20 按该周期已收盘行数计算。MACD 为 EMA12−EMA26、EMA9 信号，柱值为2×(DIF−DEA)，首价初始化，35根才标就绪。ATR14 是最后14个真实波幅的简单均值，至少15根日线，未使用 Wilder 平滑。成交量比值为当前日量/之前5根日线均量，不含当天；基准为零时留空。日增仓只记录手数变化。
 
+panel 可以另带 available_at 列：填写该版本价格何时可用，必须不早于 close_time。晚于 cutoff 的行排除。旧文件缺此列时仍接受，但在导入报告中提示历史版本未核验。取数入口使用本次下载时间，不伪装历史首次公布。
+
+量仓差值与前一条有效日线比较，flow 同时给 previous_observation_trade_date；缺行时差值可跨多日，不统称日增仓。volume_vs_prior5_mean 按前5根有效日线，窗口连续性仍需核对。
+
+setups 的字段和阶段规则见 [结构条件](../docs/rules-and-review.md)。程序评估的是手填规则的观察，不做择参优化或自动成交。
+
 ## evidence.csv（可选）
 
 `sector,metric,observed_at,published_at,value,unit,source`

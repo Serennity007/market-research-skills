@@ -38,7 +38,7 @@ AG：88.059354/88.245146−1 ≈ −0.210541%
 
 点进贵金属，AU 的 H4 片段包含跌破100后收回，H4 均线仍下降；H1 片段均线向上排列。报告分别显示。人工参照柱定在1月6日，窗口12根；已完成18根，标记过期，不移动参照来延长旧假设。
 
-三阶段回踩确认与风险条件见 [完整价格方法](../references/price-structure.md)。这次把区间边缘、突破回踩、参照柱、风险预算和反手条件都整理进总 Skill；程序自动算出的范围见数据格式，手工研究部分不冒充自动验证。
+三阶段回踩确认与风险条件见 [完整价格方法](../references/price-structure.md)。这次把区间边缘、突破回踩、参照柱、风险预算和反手条件都整理进总 Skill；程序自动算出的范围见数据格式；新增的 M30 setups 会记录后续测试和下一日触及失效位的模拟变化，规则见 [条件与复盘](rules-and-review.md)。
 
 ## 核对产业数据公布时间
 
@@ -59,3 +59,5 @@ python scripts/run_sectors.py --config 原报告目录/config.snapshot.json --ou
 复制示例配置，在 universe 选实际合约，填写价格单位和币种；选择共同交易日与区间。导入模式改成 imported_observations，为 panel/evidence/curves 中实际使用的文件补 name、retrieved_at，url 可选。
 
 例如 sources 中 panel 的名称写实际数据提供者、代码、周期与口径，不要写“真实数据”了事。时间与字段详见 [数据格式](../references/data-contract.md)。新报告产生后，对照原计划的确认、失效条件另写复盘，保留旧文件。
+
+真实日线入口与模拟练习分开，取数命令见 [公开日线说明](public-data.md)，已有实测见 [来源记录](../examples/real-source/VERIFICATION.md)。

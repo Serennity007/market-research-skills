@@ -1,0 +1,10 @@
+symbol,name,sector,exchange,contract,currency,unit,window,start_date,end_date,price_return,unavailable_reason
+AU,黄金,precious-metals,SHFE,AU2612,CNY,CNY_per_gram,day,2026-10-22,2026-10-23,-0.019399632428017233,
+AU,黄金,precious-metals,SHFE,AU2612,CNY,CNY_per_gram,week,2026-10-16,2026-10-23,-0.04153822270519625,
+AU,黄金,precious-metals,SHFE,AU2612,CNY,CNY_per_gram,month,2026-09-17,2026-10-23,-0.07555080213903742,
+RB,螺纹钢,ferrous,SHFE,RB2701,CNY,CNY_per_tonne,day,2026-10-22,2026-10-23,-0.003922850604772821,
+RB,螺纹钢,ferrous,SHFE,RB2701,CNY,CNY_per_tonne,week,2026-10-16,2026-10-23,-0.008783344176968133,
+RB,螺纹钢,ferrous,SHFE,RB2701,CNY,CNY_per_tonne,month,2026-09-17,2026-10-23,-0.024023062139654106,
+M,豆粕,oilseeds,DCE,M2701,CNY,CNY_per_tonne,day,2026-10-22,2026-10-23,0.008310249307479145,
+M,豆粕,oilseeds,DCE,M2701,CNY,CNY_per_tonne,week,2026-10-16,2026-10-23,-0.0015239256324290906,
+M,豆粕,oilseeds,DCE,M2701,CNY,CNY_per_tonne,month,2026-09-17,2026-10-23,-0.05780845556514236,

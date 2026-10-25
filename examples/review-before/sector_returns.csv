@@ -1,0 +1,12 @@
+sector,sector_name,window,start_date,end_date,expected_products,observed_products,coverage,eligible_for_ranking,sample_equal_weight_price_return,advancing,declining,unchanged,rank
+precious-metals,贵金属,month,2023-12-08,2024-01-09,2,2,1.0,True,-0.08683088174695203,0,2,0,10
+nonferrous,有色与新能源材料,month,2023-12-08,2024-01-09,3,2,0.6666666666666666,False,-0.06832809034186088,0,2,0,
+ferrous,黑色,month,2023-12-08,2024-01-09,3,3,1.0,True,-0.037374805736550644,0,3,0,9
+energy,能源,month,2023-12-08,2024-01-09,3,3,1.0,True,-0.029016778828221106,0,3,0,8
+chemicals,化工,month,2023-12-08,2024-01-09,4,4,1.0,True,0.0037122752063819264,2,2,0,7
+oilseeds,油脂油料,month,2023-12-08,2024-01-09,3,3,1.0,True,0.030915759114039505,3,0,0,6
+grains-livestock,谷物与养殖,month,2023-12-08,2024-01-09,4,4,1.0,True,0.054252449089040644,4,0,0,5
+softs,软商品与特色农产,month,2023-12-08,2024-01-09,3,3,1.0,True,0.06731742370420483,3,0,0,4
+shipping,航运,month,2023-12-08,2024-01-09,1,1,1.0,True,0.1286791576727131,1,0,0,3
+equity-index,股指,month,2023-12-08,2024-01-09,2,2,1.0,True,0.13474102356798012,2,0,0,2
+rates,国债,month,2023-12-08,2024-01-09,2,2,1.0,True,0.15465840816510457,2,0,0,1

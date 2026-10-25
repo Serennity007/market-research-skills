@@ -12,6 +12,7 @@ import uuid
 from sector_engine import analyze
 from sector_reports import overview_html,sector_html,markdown
 from market_io import timestamp
+from bundle_integrity import verify,verify_source,write_completion
 
 
 def csv_text(fields,rows):
@@ -24,6 +25,10 @@ def csv_text(fields,rows):
 
 def load(config_path):
     config_path=Path(config_path).resolve()
+    if config_path.name=='config.snapshot.json':
+        verify(config_path.parent)
+    elif config_path.name=='config.json' and (config_path.parent/'SOURCE_COMPLETE.json').exists():
+        verify_source(config_path.parent)
     config_raw=config_path.read_bytes()
     config=json.loads(config_raw.decode('utf-8-sig'))
     catalog_raw=(config_path.parent/config['catalog']).read_bytes()
@@ -80,7 +85,7 @@ def run(config_path,output):
         path.parent.mkdir(parents=True,exist_ok=True)
         with path.open('x',encoding='utf-8',newline='\n') as handle:
             handle.write(body)
-    (root/'COMPLETE.json').write_text(json.dumps({'status':'complete','files':list(artifacts),'data_kind':result['data_kind'],'configured_products':result['configured_product_count']},ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+    write_completion(root,result)
     return root
 
 

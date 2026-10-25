@@ -8,6 +8,7 @@ from statistics import mean
 
 from analyze_structure import analyze as structure
 from market_io import timestamp, number, records, kind, provenance
+from price_setups import validate as validate_setup,evaluate as evaluate_setup
 
 FRAMES={'MN1','W1','D1','H4','H1','M30'}
 
@@ -63,6 +64,12 @@ def validate_config(config,catalog):
                     number(settings[field],positive=not products[symbol].get('allow_signed',False))
             if 'window_bars' in settings and (type(settings['window_bars']) is not int or settings['window_bars']<=0):
                 raise ValueError('window_bars must be a positive integer')
+        names=set()
+        for setup in item.get('setups',[]):
+            validate_setup(setup,products[symbol].get('allow_signed',False))
+            if setup['name'] in names:
+                raise ValueError('setup names must be unique within one product')
+            names.add(setup['name'])
         universe[symbol]=item
     if not universe:
         raise ValueError('explicit nonempty universe required')
@@ -73,13 +80,19 @@ def load_panel(raw,config,products,universe):
     cutoff=timestamp(config['as_of'])
     decision=iso_day(config['trade_date'])
     groups={}
-    excluded={'after_cutoff':0,'after_trade_date':0,'outside_universe_or_contract':0}
+    excluded={'after_cutoff':0,'after_trade_date':0,'outside_universe_or_contract':0,'not_available_at_cutoff':0}
     seen=set()
     daily_days=set()
     for row in records(raw,['symbol','contract','timeframe','trade_date','close_time','open','high','low','close','volume','open_interest','currency','unit']):
         closing=timestamp(row['close_time'])
         if closing>cutoff:
             excluded['after_cutoff']+=1
+            continue
+        available=timestamp(row['available_at']) if row.get('available_at','').strip() else None
+        if available is not None and available<closing:
+            raise ValueError('bar availability cannot precede its closing time')
+        if available is not None and available>cutoff:
+            excluded['not_available_at_cutoff']+=1
             continue
         day=iso_day(row['trade_date'])
         if day>decision:
@@ -110,7 +123,7 @@ def load_panel(raw,config,products,universe):
             if value<0 or not value.is_integer():
                 raise ValueError('volume/open_interest must be nonnegative whole contract counts')
             values[key]=int(value)
-        groups.setdefault((symbol,frame),[]).append(dict(values,close_time=closing,trade_date=day))
+        groups.setdefault((symbol,frame),[]).append(dict(values,close_time=closing,trade_date=day,available_at=available))
     for bars in groups.values():
         bars.sort(key=lambda row:row['close_time'])
         if any(left['trade_date']>right['trade_date'] for left,right in zip(bars,bars[1:])):
@@ -165,6 +178,7 @@ def analyze_product(symbol,entry,product,groups,config):
         ranges=[max(row['high']-row['low'],abs(row['high']-previous['close']),abs(row['low']-previous['close'])) for previous,row in zip(daily,daily[1:])]
         atr=mean(ranges[-14:])
     flow={'volume':None,'open_interest':None,'open_interest_change':None,'volume_vs_prior5_mean':None,
+          'previous_observation_trade_date':None,'price_change_since_previous_observation':None,
           'price_oi_observation':None}
     if current:
         index=daily.index(current)
@@ -174,6 +188,8 @@ def analyze_product(symbol,entry,product,groups,config):
             price_delta=current['close']-prior['close']
             oi_delta=current['open_interest']-prior['open_interest']
             flow['open_interest_change']=oi_delta
+            flow['previous_observation_trade_date']=prior['trade_date'].isoformat()
+            flow['price_change_since_previous_observation']=price_delta
             direction=lambda x:'up' if x>0 else 'down' if x<0 else 'flat'
             flow['price_oi_observation']={'price':direction(price_delta),'open_interest':direction(oi_delta)}
         if index>=5:
@@ -183,7 +199,9 @@ def analyze_product(symbol,entry,product,groups,config):
             'contract':entry['contract'],'currency':entry['currency'],'unit':entry['unit'],'volume_unit':'contracts',
             'latest_close':None if current is None else current['close'],'quote_age_hours':age,'daily_count':len(daily),
             'windows':comparisons,'atr14_simple':atr,'atr14_over_absolute_close':atr/abs(current['close']) if atr is not None and current['close'] else None,
-            'flow':flow,'structures':structures,'attention':alerts}
+            'flow':flow,'structures':structures,'attention':alerts,
+            'setups':[evaluate_setup(plan,groups.get((symbol,plan['timeframe']),[]),config['as_of']) for plan in entry.get('setups',[])],
+            'bars_without_available_at':sum(row['available_at'] is None for (code,_),bars in groups.items() if code==symbol for row in bars)}
 
 
 def load_evidence(raw,config,sectors):
@@ -294,7 +312,8 @@ def analyze(config,catalog,panel_raw,evidence_raw=None,curves_raw=None):
         inputs['curves']=provenance(curves_raw)
     result={'schema_version':1,'skill':'taotao-futures-research','data_kind':config['data_kind'],
             'as_of_utc':timestamp(config['as_of']).isoformat(),'trade_date':config['trade_date'],'windows':config['windows'],
-            'minimum_sector_coverage':config['minimum_sector_coverage'],'configured_product_count':len(universe),
+            'minimum_sector_coverage':config['minimum_sector_coverage'],'max_bar_age_hours':config['max_bar_age_hours'],
+            'configured_product_count':len(universe),
             'catalog_product_count':len(products),'catalog_sector_count':len(sectors),
             'configured_sector_count':sum(bool(board['symbols']) for board in boards),'sectors':boards,'products':members,
             'curves':curves,'source_sha256':inputs,'excluded_panel_rows':excluded,
