@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="270" viewBox="0 0 1200 270" role="img" aria-label="Market Research Skills: gold, oil, EC and A-share indices">
 <rect width="1200" height="270" rx="14" fill="#0b101a"/><path d="M0 230H1200M930 0V270M1040 0V270M1150 0V270" stroke="#202b3d"/>
 <rect x="42" y="42" width="5" height="130" rx="2" fill="#70dbc5"/>
-<g font-family="Consolas,monospace"><text x="68" y="63" fill="#70dbc5" font-size="15" letter-spacing="3">SERENNITY007 / RESEARCH WORKBENCH</text>
-<text x="68" y="124" fill="#ecf2fa" font-size="42" font-weight="bold">MARKET RESEARCH SKILLS</text>
-<text x="68" y="164" fill="#a0aec4" font-size="19">GOLD / CRUDE OIL / EC SHIPPING / A-SHARE INDICES</text>
-<text x="68" y="238" fill="#9baac2" font-size="15">FOUR INDEPENDENT SKILLS  /  REPLAYABLE RESEARCH REPORTS</text></g>
+<g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif"><text x="68" y="63" fill="#70dbc5" font-size="15" letter-spacing="3">TAOTAO</text>
+<text x="68" y="124" fill="#ecf2fa" font-size="42" font-weight="bold">涛涛的期货研究</text>
+<text x="68" y="164" fill="#a0aec4" font-size="19">黄金 · 原油 · 欧线 EC · 大 A 股指</text>
+<text x="68" y="238" fill="#9baac2" font-size="15">可读懂、可复现的期货研究实操</text></g>
 <path d="M965 165L992 145L1024 158L1055 95L1087 113L1120 74L1165 90" fill="none" stroke="#70dbc5" stroke-width="3"/>
 </svg>

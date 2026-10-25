@@ -39,8 +39,8 @@ def run(local_root, output, manifest=DEFAULT):
                          'report':(directory.relative_to(root)/'REPORT.html').as_posix(),
                          'data_kind':bundle['data_kind'],'as_of_utc':bundle['as_of_utc']})
         cards=''.join(f'<article><h2>{escape(item["title"])}</h2><p>{escape(item["data_kind"])} · {escape(item["as_of_utc"])}</p><a href="{escape(item["report"],quote=True)}">打开研究报告 →</a></article>' for item in jobs)
-        page=f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>跨市场研究工作台</title>
-<style>body{{background:#0b101a;color:#e2eaf5;font:16px/1.7 system-ui;margin:0}}main{{max-width:1000px;margin:40px auto;padding:20px}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}}article{{background:#121d2c;border:1px solid #2c3b52;padding:24px;border-radius:10px}}a{{color:#70dbc5}}p{{color:#aab7cc}}h1{{font-size:36px}}h2{{font-size:22px}}</style><main><p>SERENNITY007 / MARKET RESEARCH</p><h1>跨市场研究工作台</h1><p>四份独立的 synthetic 模拟报告。此页只导航，不汇总成买卖评分或组合收益。</p><div class="grid">{cards}</div></main></html>'''
+        page=f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>涛涛的期货研究</title>
+<style>body{{background:#0b101a;color:#e2eaf5;font:16px/1.7 system-ui;margin:0}}main{{max-width:1000px;margin:40px auto;padding:20px}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}}article{{background:#121d2c;border:1px solid #2c3b52;padding:24px;border-radius:10px}}a{{color:#70dbc5}}p{{color:#aab7cc}}h1{{font-size:36px}}h2{{font-size:22px}}</style><main><p>涛涛的期货研究</p><h1>涛涛的期货研究</h1><p>四份模拟练习报告，输入文件与计算明细随报告保存。</p><div class="grid">{cards}</div></main></html>'''
         (root/'index.html').write_text(page,encoding='utf-8',newline='\n')
         (root/'COMPLETE.json').write_text(json.dumps({'status':'complete','reports':jobs},ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     except (ValueError,OSError,KeyError,TypeError) as exc:
