@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "profile": "gold",
+  "data_kind": "imported_observations",
+  "as_of": "2026-10-25T10:00:16.384543+00:00",
+  "instrument": {
+    "product": "AU",
+    "contract": "AU2612",
+    "currency": "CNY",
+    "unit": "CNY_per_gram"
+  },
+  "files": {
+    "bars": "inputs/bars.csv"
+  },
+  "limits": {
+    "quote_age_hours": 96,
+    "quote_skew_minutes": 5
+  },
+  "sources": {
+    "bars": {
+      "name": "Recorded Sina dated-contract daily snapshot; conservative first-seen publication bound",
+      "policy": "retrieval_snapshot",
+      "retrieved_at": "2026-10-25T10:00:16.168889+00:00",
+      "url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_taotao=/InnerFuturesNewService.getDailyKLine?symbol=AU2612",
+      "original_panel_sha256": "38b902e37a38faf63bd4666172663f24896a4948ed628edbba53fe082bb9f37e",
+      "original_response_sha256": "8f55ea65c7f121c396df0ece0c9ffd71c334e4e7b5d304b921023e5b8e695479",
+      "time_policy": "Daily close time was user-declared in the original source request. published_at here is the conservative first-seen snapshot time, not a verified original publication time. Historical revisions remain unknown."
+    }
+  }
+}

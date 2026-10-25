@@ -1,0 +1,3 @@
+product,scope,contract,delivery_date,price,currency,unit,observed_at,published_at,available_at
+CU,DEMO matching grade/location/tax/index definition; not a live quote,CU_DEMO_202512,2025-12-15,78019,CNY,CNY/tonne,2025-09-26T15:00:00+08:00,2025-09-26T15:01:00+08:00,2025-09-26T15:02:00+08:00
+CU,DEMO matching grade/location/tax/index definition; not a live quote,CU_DEMO_202603,2026-03-15,78029,CNY,CNY/tonne,2025-09-26T15:00:00+08:00,2025-09-26T15:01:00+08:00,2025-09-26T15:02:00+08:00

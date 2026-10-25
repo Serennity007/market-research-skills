@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "engine_version": "3.0.0",
+  "profile": "crude-oil",
+  "data_kind": "synthetic",
+  "as_of_utc": "2025-09-26T09:00:00+00:00",
+  "market": {
+    "product": "SC",
+    "contract": "SC_DEMO_202512",
+    "currency": "CNY",
+    "unit": "CNY/barrel",
+    "trade_date": "2025-09-26",
+    "observed_at": "2025-09-26T15:00:00+08:00",
+    "available_at": "2025-09-26T15:02:00+08:00",
+    "close": "569",
+    "observations": 20,
+    "first_trade_date": "2025-09-01",
+    "fixed_contract_change_pct": "3.454545454545454545454545500",
+    "atr14_simple": "4",
+    "previous_trade_date": "2025-09-25",
+    "previous_volume": 1180,
+    "open_interest_change": 20,
+    "calendar": {
+      "method": "explicit_sessions",
+      "latest_completed_trade_date": "2025-09-26",
+      "within_coverage": true
+    }
+  },
+  "fundamentals": [
+    {
+      "metric": "commercial_crude_inventory",
+      "value": "105",
+      "unit": "declared_demo_units",
+      "observed_at": "2025-09-26T10:00:00+08:00",
+      "available_at": "2025-09-26T12:05:00+08:00",
+      "previous_observed_at": "2024-09-26T10:00:00+08:00",
+      "change_from_previous_observation": "-5",
+      "prior_season_samples": 4,
+      "prior_only_percentile": "50.0"
+    }
+  ],
+  "basis": {
+    "status": "calculated",
+    "spot_minus_future": "5",
+    "pct_of_future": "0.8787346221441124780316344464",
+    "scope": "DEMO matching grade/location/tax/index definition; not a live quote",
+    "spot_observed_at": "2025-09-26T15:00:00+08:00",
+    "contract": "SC_DEMO_202512"
+  },
+  "curve": {
+    "status": "calculated",
+    "spreads": [
+      {
+        "near": "SC_DEMO_202512",
+        "far": "SC_DEMO_202603",
+        "near_minus_far": "-10",
+        "delivery_day_gap": 90,
+        "simple_annualized_far_premium_pct": "7.127514157391134544034368317"
+      }
+    ],
+    "limitation": "Delivery dates are explicit inputs; ratio excludes carry, financing, taxes and roll execution. It is not an arbitrage return."
+  },
+  "recipes": [],
+  "risk": {
+    "status": "calculated",
+    "spec_version": "SYNTHETIC-1",
+    "spec_source": "synthetic://not-an-exchange-rule",
+    "currency": "CNY",
+    "lots_ceiling": 11,
+    "ceilings": {
+      "risk_budget": 12,
+      "margin_budget": 175,
+      "user_cap": 100,
+      "previous_volume": 11
+    },
+    "binding_constraints": [
+      "previous_volume"
+    ],
+    "planned_loss_per_lot": "78.1330",
+    "fees_at_stop_per_lot": "8.1330",
+    "slippage_per_lot": "20",
+    "initial_margin_per_lot": "569.00",
+    "planned_loss_total": "859.4630",
+    "initial_margin_total": "6259.00",
+    "entry_minus_latest_quote": "0",
+    "stress": [
+      {
+        "name": "hypothetical gap and margin increase",
+        "price": "523.48",
+        "stress_loss": "5316.217280",
+        "remaining_equity": "994683.782720",
+        "stress_margin": "14395.7000",
+        "margin_shortfall": "0"
+      }
+    ],
+    "model": "single_unencumbered_position_no_netting",
+    "limitation": "Stop execution is not guaranteed; stress loss can exceed the risk budget. Broker add-ons, daily settlement cash flows and existing portfolio exposures require separate review."
+  },
+  "quality": {
+    "status": "configured_checks_passed",
+    "gaps": [],
+    "excluded_future_vintages": {
+      "bars": 0,
+      "fundamentals": 1,
+      "spot": 0,
+      "curve": 0
+    }
+  },
+  "sources": {
+    "bars": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "sessions": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "fundamentals": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spot": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "curve": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spec": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    }
+  },
+  "domain": {
+    "title": {
+      "en": "Crude oil",
+      "zh-CN": "原油"
+    },
+    "questions": {
+      "en": [
+        "Do not splice SC, Brent and WTI levels: grade, currency, location, freight, tax and delivery terms differ.",
+        "Read dated spreads together with inventories, refinery runs and product demand; backwardation alone does not prove a physical shortage.",
+        "Separate crude, products, strategic stocks, floating storage and transit volumes; weekly changes need comparable coverage and revisions.",
+        "Trace an outage through lost production, export loadings, transit and refinery substitution. Announced cuts and realized exports are different evidence.",
+        "Falsify a demand-led explanation if refinery throughput and product stocks deteriorate despite stronger flat prices. Signed prices disable ordinary return ratios."
+      ],
+      "zh-CN": [
+        "SC、Brent、WTI不能直接拼接价格：油种、币种、地点、运费、税费和交割条件不同。",
+        "月差须与库存、炼厂开工和成品需求一起研究；近强远弱不能单独证明实物短缺。",
+        "原油、成品油、战略库存、浮仓与在途分别统计；周变化须核对覆盖和修订。",
+        "从损失产量、装船、运输和炼厂替代逐段追踪停产；宣布减产与实际出口不是同一证据。",
+        "平价上涨但加工量和成品库存恶化时，应证伪需求拉动叙事；非正价格不使用普通收益率公式。"
+      ]
+    },
+    "next_checks": {
+      "en": [
+        "Confirm benchmark and delivery scope of every curve point.",
+        "Compare the first published inventory release with later revisions.",
+        "Update freight, outage realization and product cracks using explicit conversion recipes."
+      ],
+      "zh-CN": [
+        "核对每个曲线点的基准和交割口径。",
+        "比较库存首次公布与后续修订。",
+        "使用显式转换配方更新运费、实际停产和成品裂解口径。"
+      ]
+    },
+    "metrics": [
+      "commercial_crude_inventory",
+      "refinery_runs",
+      "product_inventory"
+    ]
+  },
+  "scope": "Descriptive research and hypothetical capacity arithmetic. No orders, prediction validation, source authentication or portfolio risk aggregation.",
+  "inputs": {
+    "bars": {
+      "sha256": "2393c619fd4d6283d5b9beafe17b834dca8edb3c554dd999234407e7a3dce84b",
+      "bytes": 3102
+    },
+    "sessions": {
+      "sha256": "db060895e4aeb5fabce5b303ee17ff43f74666467dc669ee8adeb05e4e524280",
+      "bytes": 2854
+    },
+    "fundamentals": {
+      "sha256": "7acdc5d1bc2b852f9d73154ba6b9e22a7056a79c980ae74780b2e8e5d42d371b",
+      "bytes": 1015
+    },
+    "spot": {
+      "sha256": "11ad11f160f2ff3e49742a0fe9cdc224932699cc5e4f1eb88b386a4aab65a7d5",
+      "bytes": 255
+    },
+    "curve": {
+      "sha256": "8907aa0586be15e6c100379b23ad09577f2d4390a835dd714ead7eb5108bf0fe",
+      "bytes": 486
+    },
+    "spec": {
+      "sha256": "32c00c358dbabbef89cd5c9ee41d73aec2ea838a5a3449ea5db3b2e2b87173a5",
+      "bytes": 823
+    }
+  },
+  "config_sha256": "ee7a963a489decb54492f01b6827a7ca19b395a39d24500dd5cda36f813adfbc",
+  "engine_sha256": {
+    "__init__.py": "0c4b9e4987818b69d832730e6f277c73f6d9f7c9f714697e55a70a3dd83642a6",
+    "bundle.py": "76a5f7f4cb25f072a10c1e08eaa22f0792593e7659428685f42cc680fe41272e",
+    "cli.py": "0fdda121b0c671ca0c7464c74f7261fa4ae39752ad466d6d752a0842a1b410f4",
+    "engine.py": "443e2240bb61e076f64aa80bd8fd00fa4e3fdd857d5cb71d5813fa69c5abbe34",
+    "profiles.json": "dba46a665403a4f8906ba9494043d0f20d64e0926e10af0654f13ccb155cf84f",
+    "reports.py": "5ff98152ea377f418cf37cbf33dd22ed756976450b7af8f5508c00f31018ec07",
+    "risk.py": "a9721aa9e8f4940e355fdb30c7d28c9204a989f3793456b43f7ff1b51d8f433b",
+    "validation.py": "9efa3e097a6a94e3c550be6f75a83ce556ccf7f44ce33eccab965619c704c0ae"
+  },
+  "generated_at_utc": "2026-10-25T17:11:16.847243+00:00"
+}

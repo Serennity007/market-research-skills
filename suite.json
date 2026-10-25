@@ -1,0 +1,62 @@
+{
+  "suite_version": "3.0.0",
+  "engine_version": "3.0.0",
+  "skills": [
+    {
+      "profile": "gold",
+      "skill": "gold-research-skill",
+      "version": "2.0.0",
+      "source": "https://github.com/Serennity007/gold-research-skill",
+      "example": "examples/desk-demo/gold/config.json"
+    },
+    {
+      "profile": "crude-oil",
+      "skill": "crude-oil-research-skill",
+      "version": "2.0.0",
+      "source": "https://github.com/Serennity007/crude-oil-research-skill",
+      "example": "examples/desk-demo/crude-oil/config.json"
+    },
+    {
+      "profile": "ec-shipping",
+      "skill": "ec-shipping-research-skill",
+      "version": "2.0.0",
+      "source": "https://github.com/Serennity007/ec-shipping-research-skill",
+      "example": "examples/desk-demo/ec-shipping/config.json"
+    },
+    {
+      "profile": "equity-index",
+      "skill": "a-share-index-research-skill",
+      "version": "2.0.0",
+      "source": "https://github.com/Serennity007/a-share-index-research-skill",
+      "example": "examples/desk-demo/equity-index/config.json"
+    },
+    {
+      "profile": "ferrous",
+      "skill": "ferrous-futures-research",
+      "version": "1.0.0",
+      "source": "skills/ferrous-futures-research",
+      "example": "examples/desk-demo/ferrous/config.json"
+    },
+    {
+      "profile": "nonferrous",
+      "skill": "nonferrous-futures-research",
+      "version": "1.0.0",
+      "source": "skills/nonferrous-futures-research",
+      "example": "examples/desk-demo/nonferrous/config.json"
+    },
+    {
+      "profile": "chemicals",
+      "skill": "chemicals-futures-research",
+      "version": "1.0.0",
+      "source": "skills/chemicals-futures-research",
+      "example": "examples/desk-demo/chemicals/config.json"
+    },
+    {
+      "profile": "agriculture",
+      "skill": "agri-futures-research",
+      "version": "1.0.0",
+      "source": "skills/agri-futures-research",
+      "example": "examples/desk-demo/agriculture/config.json"
+    }
+  ]
+}

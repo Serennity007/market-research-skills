@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "engine_version": "3.0.0",
+  "profile": "chemicals",
+  "data_kind": "synthetic",
+  "as_of_utc": "2025-09-26T09:00:00+00:00",
+  "market": {
+    "product": "TA",
+    "contract": "TA_DEMO_202512",
+    "currency": "CNY",
+    "unit": "CNY/tonne",
+    "trade_date": "2025-09-26",
+    "observed_at": "2025-09-26T15:00:00+08:00",
+    "available_at": "2025-09-26T15:02:00+08:00",
+    "close": "5019",
+    "observations": 20,
+    "first_trade_date": "2025-09-01",
+    "fixed_contract_change_pct": "0.3800",
+    "atr14_simple": "4",
+    "previous_trade_date": "2025-09-25",
+    "previous_volume": 1180,
+    "open_interest_change": 20,
+    "calendar": {
+      "method": "explicit_sessions",
+      "latest_completed_trade_date": "2025-09-26",
+      "within_coverage": true
+    }
+  },
+  "fundamentals": [
+    {
+      "metric": "plant_utilization",
+      "value": "105",
+      "unit": "declared_demo_units",
+      "observed_at": "2025-09-26T10:00:00+08:00",
+      "available_at": "2025-09-26T12:05:00+08:00",
+      "previous_observed_at": "2024-09-26T10:00:00+08:00",
+      "change_from_previous_observation": "-5",
+      "prior_season_samples": 4,
+      "prior_only_percentile": "50.0"
+    }
+  ],
+  "basis": {
+    "status": "calculated",
+    "spot_minus_future": "5",
+    "pct_of_future": "0.09962143853357242478581390715",
+    "scope": "DEMO matching grade/location/tax/index definition; not a live quote",
+    "spot_observed_at": "2025-09-26T15:00:00+08:00",
+    "contract": "TA_DEMO_202512"
+  },
+  "curve": {
+    "status": "calculated",
+    "spreads": [
+      {
+        "near": "TA_DEMO_202512",
+        "far": "TA_DEMO_202603",
+        "near_minus_far": "-10",
+        "delivery_day_gap": 90,
+        "simple_annualized_far_premium_pct": "0.8080405569945318899293794111"
+      }
+    ],
+    "limitation": "Delivery dates are explicit inputs; ratio excludes carry, financing, taxes and roll execution. It is not an arbitrage return."
+  },
+  "recipes": [
+    {
+      "name": "chemicals_illustrative_processing",
+      "status": "calculated",
+      "value": "1950.00",
+      "currency": "CNY",
+      "output_unit": "tonne_of_declared_output_basis",
+      "assumption": "CONSTRUCTED coefficients and costs, not plant economics / 构造收率与成本，不代表装置实际利润",
+      "terms": [
+        {
+          "price_id": "output",
+          "input_unit": "CNY/tonne",
+          "quantity_per_output": "1",
+          "quantity_unit": "tonnes_per_declared_output_basis"
+        },
+        {
+          "price_id": "feedstock",
+          "input_unit": "CNY/tonne",
+          "quantity_per_output": "-0.65",
+          "quantity_unit": "tonnes_per_declared_output_basis"
+        }
+      ],
+      "fixed_cost_per_output": "100"
+    }
+  ],
+  "risk": {
+    "status": "calculated",
+    "spec_version": "SYNTHETIC-1",
+    "spec_source": "synthetic://not-an-exchange-rule",
+    "currency": "CNY",
+    "lots_ceiling": 11,
+    "ceilings": {
+      "risk_budget": 11,
+      "margin_budget": 19,
+      "user_cap": 100,
+      "previous_volume": 11
+    },
+    "binding_constraints": [
+      "risk_budget",
+      "previous_volume"
+    ],
+    "planned_loss_per_lot": "87.0330",
+    "fees_at_stop_per_lot": "17.0330",
+    "slippage_per_lot": "20",
+    "initial_margin_per_lot": "5019.00",
+    "planned_loss_total": "957.3630",
+    "initial_margin_total": "55209.00",
+    "entry_minus_latest_quote": "0",
+    "stress": [
+      {
+        "name": "hypothetical gap and margin increase",
+        "price": "4617.48",
+        "stress_loss": "44570.201280",
+        "remaining_equity": "955429.798720",
+        "stress_margin": "126980.7000",
+        "margin_shortfall": "0"
+      }
+    ],
+    "model": "single_unencumbered_position_no_netting",
+    "limitation": "Stop execution is not guaranteed; stress loss can exceed the risk budget. Broker add-ons, daily settlement cash flows and existing portfolio exposures require separate review."
+  },
+  "quality": {
+    "status": "configured_checks_passed",
+    "gaps": [],
+    "excluded_future_vintages": {
+      "bars": 0,
+      "fundamentals": 1,
+      "spot": 0,
+      "curve": 0,
+      "prices": 0
+    }
+  },
+  "sources": {
+    "bars": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "sessions": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "fundamentals": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spot": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "curve": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spec": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "prices": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    }
+  },
+  "domain": {
+    "title": {
+      "en": "Chemical processing chains",
+      "zh-CN": "化工加工链"
+    },
+    "questions": {
+      "en": [
+        "Choose one chain first: PX/PTA/polyester, naphtha/olefins or coal/methanol. Their feedstock, co-product and capacity economics are not interchangeable.",
+        "A processing spread needs explicit conversion yield, currency, tax, freight, energy and fixed-cost scope. Declared coefficients are assumptions, not a full cash-profit statement.",
+        "Separate nameplate capacity, effective utilization and realized output. An announced maintenance schedule needs observed start, duration and restart evidence.",
+        "Reconcile upstream stocks with downstream order coverage and product inventories; avoid aggregating nested inventories as independent demand.",
+        "Falsify a margin-led restart thesis if cash constraints, feedstock availability or downstream demand prevent production despite a wider calculated spread."
+      ],
+      "zh-CN": [
+        "先选定 PX—PTA—聚酯、石脑油—烯烃或煤—甲醇中的一条链；原料、副产品和产能经济性不能混用。",
+        "加工价差显式声明收率、币种、税费、运费、能源和固定成本；系数是假设，不等于完整现金利润表。",
+        "名义产能、有效开工与实际产量分开；宣布检修要核验实际开始、持续时间和重启。",
+        "上游库存与下游订单覆盖、产品库存交叉核对；嵌套库存不重复计作独立需求。",
+        "计算价差扩大但资金、原料或下游需求阻止开工时，应证伪利润驱动重启假设。"
+      ]
+    },
+    "next_checks": {
+      "en": [
+        "Validate feedstock/yield assumptions and test a range of energy/freight costs.",
+        "Compare announced outages with realized plant output.",
+        "Check product inventory days and downstream order duration using the same survey coverage."
+      ],
+      "zh-CN": [
+        "核验原料与收率假设，并测试能源运费区间。",
+        "对照宣布停产与实际装置产量。",
+        "用相同调查覆盖核对产品库存天数与下游订单长度。"
+      ]
+    },
+    "metrics": [
+      "plant_utilization",
+      "product_inventory",
+      "downstream_orders"
+    ]
+  },
+  "scope": "Descriptive research and hypothetical capacity arithmetic. No orders, prediction validation, source authentication or portfolio risk aggregation.",
+  "inputs": {
+    "bars": {
+      "sha256": "b83eda8d986f7663531bee7b5259ef34d9bc58d392cff55e7e58243a7cfa6b75",
+      "bytes": 3162
+    },
+    "sessions": {
+      "sha256": "a14a285ab68000bb2a86de8b4e64ab529268c4ee729a35a764b4778202f0360e",
+      "bytes": 2854
+    },
+    "fundamentals": {
+      "sha256": "4317e0de7e7dfb1ddb350182ff42fa69a2d3ac911c39ee405a6388545b048a91",
+      "bytes": 961
+    },
+    "spot": {
+      "sha256": "4ef39e52c1a94b50753ff858412576cd25708a6b02bea6f357d4c48d0da615ad",
+      "bytes": 255
+    },
+    "curve": {
+      "sha256": "9c97dc57a696492535c7fe683ab3f9a58c9d17c652dfbb45175eb89d89453bdf",
+      "bytes": 486
+    },
+    "spec": {
+      "sha256": "51182e52996e07f2321abcf9328ec0260ac3892cb3b32a92350d27fd5e247f29",
+      "bytes": 822
+    },
+    "prices": {
+      "sha256": "dce708832c9d0c4deea0bac71d33a464554a94846120b372f1c4b5073264165c",
+      "bytes": 390
+    }
+  },
+  "config_sha256": "822ebae0565f902100853fbbcd570398a97923b5bd87301a490744932d74cca1",
+  "engine_sha256": {
+    "__init__.py": "0c4b9e4987818b69d832730e6f277c73f6d9f7c9f714697e55a70a3dd83642a6",
+    "bundle.py": "76a5f7f4cb25f072a10c1e08eaa22f0792593e7659428685f42cc680fe41272e",
+    "cli.py": "0fdda121b0c671ca0c7464c74f7261fa4ae39752ad466d6d752a0842a1b410f4",
+    "engine.py": "443e2240bb61e076f64aa80bd8fd00fa4e3fdd857d5cb71d5813fa69c5abbe34",
+    "profiles.json": "dba46a665403a4f8906ba9494043d0f20d64e0926e10af0654f13ccb155cf84f",
+    "reports.py": "5ff98152ea377f418cf37cbf33dd22ed756976450b7af8f5508c00f31018ec07",
+    "risk.py": "a9721aa9e8f4940e355fdb30c7d28c9204a989f3793456b43f7ff1b51d8f433b",
+    "validation.py": "9efa3e097a6a94e3c550be6f75a83ce556ccf7f44ce33eccab965619c704c0ae"
+  },
+  "generated_at_utc": "2026-10-25T17:11:18.134311+00:00"
+}

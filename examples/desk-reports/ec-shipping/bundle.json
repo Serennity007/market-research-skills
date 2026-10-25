@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "engine_version": "3.0.0",
+  "profile": "ec-shipping",
+  "data_kind": "synthetic",
+  "as_of_utc": "2025-09-26T09:00:00+00:00",
+  "market": {
+    "product": "EC",
+    "contract": "EC_DEMO_202512",
+    "currency": "CNY",
+    "unit": "index_points",
+    "trade_date": "2025-09-26",
+    "observed_at": "2025-09-26T15:00:00+08:00",
+    "available_at": "2025-09-26T15:02:00+08:00",
+    "close": "1519",
+    "observations": 20,
+    "first_trade_date": "2025-09-01",
+    "fixed_contract_change_pct": "1.266666666666666666666666700",
+    "atr14_simple": "4",
+    "previous_trade_date": "2025-09-25",
+    "previous_volume": 1180,
+    "open_interest_change": 20,
+    "calendar": {
+      "method": "explicit_sessions",
+      "latest_completed_trade_date": "2025-09-26",
+      "within_coverage": true
+    }
+  },
+  "fundamentals": [
+    {
+      "metric": "settlement_index",
+      "value": "105",
+      "unit": "declared_demo_units",
+      "observed_at": "2025-09-26T10:00:00+08:00",
+      "available_at": "2025-09-26T12:05:00+08:00",
+      "previous_observed_at": "2024-09-26T10:00:00+08:00",
+      "change_from_previous_observation": "-5",
+      "prior_season_samples": 4,
+      "prior_only_percentile": "50.0"
+    }
+  ],
+  "basis": {
+    "status": "calculated",
+    "spot_minus_future": "5",
+    "pct_of_future": "0.3291639236339697169190256748",
+    "scope": "DEMO matching grade/location/tax/index definition; not a live quote",
+    "spot_observed_at": "2025-09-26T15:00:00+08:00",
+    "contract": "EC_DEMO_202512"
+  },
+  "curve": {
+    "status": "calculated",
+    "spreads": [
+      {
+        "near": "EC_DEMO_202512",
+        "far": "EC_DEMO_202603",
+        "near_minus_far": "-10",
+        "delivery_day_gap": 90,
+        "simple_annualized_far_premium_pct": "2.669885158364421037232096939"
+      }
+    ],
+    "limitation": "Delivery dates are explicit inputs; ratio excludes carry, financing, taxes and roll execution. It is not an arbitrage return."
+  },
+  "recipes": [],
+  "risk": {
+    "status": "calculated",
+    "spec_version": "SYNTHETIC-1",
+    "spec_source": "synthetic://not-an-exchange-rule",
+    "currency": "CNY",
+    "lots_ceiling": 11,
+    "ceilings": {
+      "risk_budget": 12,
+      "margin_budget": 65,
+      "user_cap": 100,
+      "previous_volume": 11
+    },
+    "binding_constraints": [
+      "previous_volume"
+    ],
+    "planned_loss_per_lot": "80.0330",
+    "fees_at_stop_per_lot": "10.0330",
+    "slippage_per_lot": "20",
+    "initial_margin_per_lot": "1519.00",
+    "planned_loss_total": "880.3630",
+    "initial_margin_total": "16709.00",
+    "entry_minus_latest_quote": "0",
+    "stress": [
+      {
+        "name": "hypothetical gap and margin increase",
+        "price": "1397.48",
+        "stress_loss": "13696.281280",
+        "remaining_equity": "986303.718720",
+        "stress_margin": "38430.7000",
+        "margin_shortfall": "0"
+      }
+    ],
+    "model": "single_unencumbered_position_no_netting",
+    "limitation": "Stop execution is not guaranteed; stress loss can exceed the risk budget. Broker add-ons, daily settlement cash flows and existing portfolio exposures require separate review."
+  },
+  "quality": {
+    "status": "configured_checks_passed",
+    "gaps": [],
+    "excluded_future_vintages": {
+      "bars": 0,
+      "fundamentals": 1,
+      "spot": 0,
+      "curve": 0
+    }
+  },
+  "sources": {
+    "bars": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "sessions": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "fundamentals": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spot": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "curve": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spec": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    }
+  },
+  "domain": {
+    "title": {
+      "en": "Europe container freight",
+      "zh-CN": "欧线集运 EC"
+    },
+    "questions": {
+      "en": [
+        "Identify the exact published settlement-index series, covered route and release time. A spot booking quotation is not a settlement-index observation.",
+        "Compare futures points with the matching index definition and settlement window. A point premium is descriptive, not a cash-and-carry opportunity.",
+        "A rerouting scenario changes voyage duration and effective capacity only under stated fleet, speed, idle-time and demand assumptions; do not equate delay with lost cargo.",
+        "Separate announced blank sailings, realized sailings, booking demand and realized load factors. Avoid adding overlapping capacity reductions.",
+        "Falsify a disruption-led premium if effective capacity recovers or bookings weaken while futures remain elevated. Verify the latest official settlement rules separately."
+      ],
+      "zh-CN": [
+        "核对具体结算指数、航线覆盖与发布时间；即期订舱报价不是结算指数观测。",
+        "期货点数须匹配指数定义与结算窗口；点数升水只是描述，不能解释为现货持有套利机会。",
+        "绕航只在船队、航速、停泊与需求假设下改变航程和有效运力；延误不等于货量消失。",
+        "宣布停航、实际开航、订舱需求和实际装载率分开；重叠运力削减不重复相加。",
+        "运力恢复或订舱转弱而期价仍高时，应检验并证伪扰动溢价叙事；另查最新官方结算规则。"
+      ]
+    },
+    "next_checks": {
+      "en": [
+        "Verify the index provider's publication calendar and observed release vintage.",
+        "Map contract expiry and the applicable settlement observation window from official notices.",
+        "Test rerouting and demand jointly; retain the original fleet denominator."
+      ],
+      "zh-CN": [
+        "核验指数机构的发布日历与实际公布版本。",
+        "根据官方通知核对合约到期及适用的结算观察窗口。",
+        "联合检验绕航和需求变化，保留原始船队分母。"
+      ]
+    },
+    "metrics": [
+      "settlement_index",
+      "effective_capacity",
+      "load_factor"
+    ]
+  },
+  "scope": "Descriptive research and hypothetical capacity arithmetic. No orders, prediction validation, source authentication or portfolio risk aggregation.",
+  "inputs": {
+    "bars": {
+      "sha256": "fbdac85fca94fd286100d3b1cbd22f93d379317a57481bddd1092a679e166c95",
+      "bytes": 3222
+    },
+    "sessions": {
+      "sha256": "304d8734c1125e10ec85a5b0021f02b2ea9b28598e280724810dd68814b774ce",
+      "bytes": 1447
+    },
+    "fundamentals": {
+      "sha256": "f0c17567d6d2bb09ba40b4d3aacb6a189c4c3a2d85c5f59bb713758678b37461",
+      "bytes": 955
+    },
+    "spot": {
+      "sha256": "ca211e8cd6950eb54d5679b4b9b6f2bcb38465f07e74673ada03c16e041fb327",
+      "bytes": 258
+    },
+    "curve": {
+      "sha256": "2fa031c0f93775842d37b79e0e68770084626038fa66836a3f3fbf3607918418",
+      "bytes": 492
+    },
+    "spec": {
+      "sha256": "caa23772de69249993b1a649d4f1319f13da708d6f0c00b6ca1925f20f1ec72f",
+      "bytes": 825
+    }
+  },
+  "config_sha256": "97334670a491d6f504e537675b53059119771829a56f61a1f7d3228c8c665c06",
+  "engine_sha256": {
+    "__init__.py": "0c4b9e4987818b69d832730e6f277c73f6d9f7c9f714697e55a70a3dd83642a6",
+    "bundle.py": "76a5f7f4cb25f072a10c1e08eaa22f0792593e7659428685f42cc680fe41272e",
+    "cli.py": "0fdda121b0c671ca0c7464c74f7261fa4ae39752ad466d6d752a0842a1b410f4",
+    "engine.py": "443e2240bb61e076f64aa80bd8fd00fa4e3fdd857d5cb71d5813fa69c5abbe34",
+    "profiles.json": "dba46a665403a4f8906ba9494043d0f20d64e0926e10af0654f13ccb155cf84f",
+    "reports.py": "5ff98152ea377f418cf37cbf33dd22ed756976450b7af8f5508c00f31018ec07",
+    "risk.py": "a9721aa9e8f4940e355fdb30c7d28c9204a989f3793456b43f7ff1b51d8f433b",
+    "validation.py": "9efa3e097a6a94e3c550be6f75a83ce556ccf7f44ce33eccab965619c704c0ae"
+  },
+  "generated_at_utc": "2026-10-25T17:11:17.078015+00:00"
+}

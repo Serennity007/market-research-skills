@@ -7,3 +7,5 @@
 *.svg text eol=lf
 *.yaml text eol=lf
 examples/real-source/raw/** -text
+examples/desk-reports/** -text
+examples/desk-reports/**/inputs/*.csv -text -diff

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Agricultural balances and crushing Research"
+  short_description: "Publication-aware agriculture futures research and replay"
+  default_prompt: "Use $agri-futures-research to research the supplied dated futures and evidence, retaining publication clocks, contrary evidence and reproducible reports."
+policy:
+  allow_implicit_invocation: true

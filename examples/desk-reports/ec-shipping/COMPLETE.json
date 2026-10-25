@@ -1,0 +1,20 @@
+{
+  "schema_version": 3,
+  "status": "complete",
+  "files": {
+    "bundle.json": "a7fc5a039dadd6f693120a6a93e19cff36426de449924c650f1b4fc5478c2b78",
+    "config.snapshot.json": "b0381c40cd097e1084d2b0044156fe664820582e5e3307308da27e1286389ec9",
+    "index.html": "8454e7e5be9a462470c04f08cdfe3ae91f9935c35ea753004eb52535500c6ac9",
+    "inputs/bars.csv": "fbdac85fca94fd286100d3b1cbd22f93d379317a57481bddd1092a679e166c95",
+    "inputs/curve.csv": "2fa031c0f93775842d37b79e0e68770084626038fa66836a3f3fbf3607918418",
+    "inputs/fundamentals.csv": "f0c17567d6d2bb09ba40b4d3aacb6a189c4c3a2d85c5f59bb713758678b37461",
+    "inputs/sessions.csv": "304d8734c1125e10ec85a5b0021f02b2ea9b28598e280724810dd68814b774ce",
+    "inputs/spec.json": "caa23772de69249993b1a649d4f1319f13da708d6f0c00b6ca1925f20f1ec72f",
+    "inputs/spot.csv": "ca211e8cd6950eb54d5679b4b9b6f2bcb38465f07e74673ada03c16e041fb327",
+    "REPORT.en.html": "d85ea086dd45fdeba3a7f18f68cb29527e231cd3c92c98a252bcfda940409904",
+    "REPORT.en.md": "6f9676b67cd28d368cf3d852191ec383f38267b201f9745fc5db5b719b2bf928",
+    "REPORT.md": "962b08f96f6ae69d6d9cfa7b271af9dd0d85c693bf6903f9c540e8661cdeb330",
+    "REPORT.zh-CN.html": "8454e7e5be9a462470c04f08cdfe3ae91f9935c35ea753004eb52535500c6ac9",
+    "REPORT.zh-CN.md": "962b08f96f6ae69d6d9cfa7b271af9dd0d85c693bf6903f9c540e8661cdeb330"
+  }
+}

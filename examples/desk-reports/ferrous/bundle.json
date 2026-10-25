@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "engine_version": "3.0.0",
+  "profile": "ferrous",
+  "data_kind": "synthetic",
+  "as_of_utc": "2025-09-26T09:00:00+00:00",
+  "market": {
+    "product": "RB",
+    "contract": "RB_DEMO_202512",
+    "currency": "CNY",
+    "unit": "CNY/tonne",
+    "trade_date": "2025-09-26",
+    "observed_at": "2025-09-26T15:00:00+08:00",
+    "available_at": "2025-09-26T15:02:00+08:00",
+    "close": "3219",
+    "observations": 20,
+    "first_trade_date": "2025-09-01",
+    "fixed_contract_change_pct": "0.5937500",
+    "atr14_simple": "4",
+    "previous_trade_date": "2025-09-25",
+    "previous_volume": 1180,
+    "open_interest_change": 20,
+    "calendar": {
+      "method": "explicit_sessions",
+      "latest_completed_trade_date": "2025-09-26",
+      "within_coverage": true
+    }
+  },
+  "fundamentals": [
+    {
+      "metric": "hot_metal_output",
+      "value": "105",
+      "unit": "declared_demo_units",
+      "observed_at": "2025-09-26T10:00:00+08:00",
+      "available_at": "2025-09-26T12:05:00+08:00",
+      "previous_observed_at": "2024-09-26T10:00:00+08:00",
+      "change_from_previous_observation": "-5",
+      "prior_season_samples": 4,
+      "prior_only_percentile": "50.0"
+    }
+  ],
+  "basis": {
+    "status": "calculated",
+    "spot_minus_future": "5",
+    "pct_of_future": "0.1553277415346380863622242933",
+    "scope": "DEMO matching grade/location/tax/index definition; not a live quote",
+    "spot_observed_at": "2025-09-26T15:00:00+08:00",
+    "contract": "RB_DEMO_202512"
+  },
+  "curve": {
+    "status": "calculated",
+    "spreads": [
+      {
+        "near": "RB_DEMO_202512",
+        "far": "RB_DEMO_202603",
+        "near_minus_far": "-10",
+        "delivery_day_gap": 90,
+        "simple_annualized_far_premium_pct": "1.259880570225397811604708211"
+      }
+    ],
+    "limitation": "Delivery dates are explicit inputs; ratio excludes carry, financing, taxes and roll execution. It is not an arbitrage return."
+  },
+  "recipes": [
+    {
+      "name": "ferrous_illustrative_processing",
+      "status": "calculated",
+      "value": "300.0",
+      "currency": "CNY",
+      "output_unit": "tonne_of_declared_output_basis",
+      "assumption": "CONSTRUCTED coefficients and costs, not plant economics / 构造收率与成本，不代表装置实际利润",
+      "terms": [
+        {
+          "price_id": "output",
+          "input_unit": "CNY/tonne",
+          "quantity_per_output": "1",
+          "quantity_unit": "tonnes_per_declared_output_basis"
+        },
+        {
+          "price_id": "feedstock",
+          "input_unit": "CNY/tonne",
+          "quantity_per_output": "-1.2",
+          "quantity_unit": "tonnes_per_declared_output_basis"
+        }
+      ],
+      "fixed_cost_per_output": "100"
+    }
+  ],
+  "risk": {
+    "status": "calculated",
+    "spec_version": "SYNTHETIC-1",
+    "spec_source": "synthetic://not-an-exchange-rule",
+    "currency": "CNY",
+    "lots_ceiling": 11,
+    "ceilings": {
+      "risk_budget": 11,
+      "margin_budget": 31,
+      "user_cap": 100,
+      "previous_volume": 11
+    },
+    "binding_constraints": [
+      "risk_budget",
+      "previous_volume"
+    ],
+    "planned_loss_per_lot": "83.4330",
+    "fees_at_stop_per_lot": "13.4330",
+    "slippage_per_lot": "20",
+    "initial_margin_per_lot": "3219.00",
+    "planned_loss_total": "917.7630",
+    "initial_margin_total": "35409.00",
+    "entry_minus_latest_quote": "0",
+    "stress": [
+      {
+        "name": "hypothetical gap and margin increase",
+        "price": "2961.48",
+        "stress_loss": "28692.185280",
+        "remaining_equity": "971307.814720",
+        "stress_margin": "81440.7000",
+        "margin_shortfall": "0"
+      }
+    ],
+    "model": "single_unencumbered_position_no_netting",
+    "limitation": "Stop execution is not guaranteed; stress loss can exceed the risk budget. Broker add-ons, daily settlement cash flows and existing portfolio exposures require separate review."
+  },
+  "quality": {
+    "status": "configured_checks_passed",
+    "gaps": [],
+    "excluded_future_vintages": {
+      "bars": 0,
+      "fundamentals": 1,
+      "spot": 0,
+      "curve": 0,
+      "prices": 0
+    }
+  },
+  "sources": {
+    "bars": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "sessions": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "fundamentals": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spot": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "curve": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spec": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "prices": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    }
+  },
+  "domain": {
+    "title": {
+      "en": "Ferrous supply chain",
+      "zh-CN": "黑色产业链"
+    },
+    "questions": {
+      "en": [
+        "Trace ore/coal/coke to hot metal, steel output and end-use demand. Blast-furnace and electric-arc routes require different costs and supply responses.",
+        "Reconcile mill and social inventories using non-overlapping coverage. Apparent consumption needs consistent production, imports, exports and stock changes.",
+        "A steel margin recipe must declare yields, ore/coke quality, wet/dry basis, tax, energy, transport and by-products. The example is not a universal furnace formula.",
+        "Match spot basis to location, grade, delivery eligibility and warehouse date; screen warehouse warrants separately from total inventory.",
+        "Falsify a demand recovery if shipments and comparable inventory drawdowns fail to confirm it; distinguish policy announcements from actual starts and purchases."
+      ],
+      "zh-CN": [
+        "从矿、煤、焦追踪到铁水、钢材与终端需求；高炉和电炉成本、供给响应应分别处理。",
+        "钢厂与社会库存先去重再核对；表观消费需要同口径产量、进出口和库存变化。",
+        "钢厂利润配方必须声明收得率、矿焦品质、干湿基、税费、能源、运输和副产品；示例不是通用高炉公式。",
+        "现货基差匹配地区、品级、交割资格和仓储日期；仓单与总库存单独核验。",
+        "发运与可比去库不确认时，应证伪需求修复；政策宣布与实际开工采购分开。"
+      ]
+    },
+    "next_checks": {
+      "en": [
+        "Reconcile hot metal, furnace utilization and actual construction/manufacturing orders.",
+        "Audit inventory survey coverage changes and recipe sensitivities.",
+        "Check grade premiums, delivery rules and remaining contract liquidity."
+      ],
+      "zh-CN": [
+        "交叉核对铁水、炉况与建筑制造实际订单。",
+        "审计库存调查覆盖变化并对配方做敏感性分析。",
+        "核对品级升贴水、交割规则与合约剩余流动性。"
+      ]
+    },
+    "metrics": [
+      "hot_metal_output",
+      "mill_inventory",
+      "social_inventory"
+    ]
+  },
+  "scope": "Descriptive research and hypothetical capacity arithmetic. No orders, prediction validation, source authentication or portfolio risk aggregation.",
+  "inputs": {
+    "bars": {
+      "sha256": "000418032f1651d3329c9963a5656a0f0482f91606d8c11ae71146403d0db06f",
+      "bytes": 3162
+    },
+    "sessions": {
+      "sha256": "05e23ea9c07fa5e637f03cce21991c7bf7b884183a370562d8b2c3cb44e86ae0",
+      "bytes": 2854
+    },
+    "fundamentals": {
+      "sha256": "f399b543454d37be56b7a1a74ec6c137475854673ce3d0a4dfd4f2982b4009b9",
+      "bytes": 955
+    },
+    "spot": {
+      "sha256": "12902a45bfc9b4d7796028be5b198bb9ebf29b77351df6e9b20932a6c0a55db7",
+      "bytes": 255
+    },
+    "curve": {
+      "sha256": "153b29b2546b07caf94d6f62067b702d91a4dd4f89316983e31a390b6ab403c4",
+      "bytes": 486
+    },
+    "spec": {
+      "sha256": "3d3251e082c06dec98fe40cbd7ad243d6610221be8629fe195ac54881e3f91cf",
+      "bytes": 822
+    },
+    "prices": {
+      "sha256": "dce708832c9d0c4deea0bac71d33a464554a94846120b372f1c4b5073264165c",
+      "bytes": 390
+    }
+  },
+  "config_sha256": "2e32bbad3340a02c8dc65c5c0e05d6458e5823ab0266dab72596cea674a8c392",
+  "engine_sha256": {
+    "__init__.py": "0c4b9e4987818b69d832730e6f277c73f6d9f7c9f714697e55a70a3dd83642a6",
+    "bundle.py": "76a5f7f4cb25f072a10c1e08eaa22f0792593e7659428685f42cc680fe41272e",
+    "cli.py": "0fdda121b0c671ca0c7464c74f7261fa4ae39752ad466d6d752a0842a1b410f4",
+    "engine.py": "443e2240bb61e076f64aa80bd8fd00fa4e3fdd857d5cb71d5813fa69c5abbe34",
+    "profiles.json": "dba46a665403a4f8906ba9494043d0f20d64e0926e10af0654f13ccb155cf84f",
+    "reports.py": "5ff98152ea377f418cf37cbf33dd22ed756976450b7af8f5508c00f31018ec07",
+    "risk.py": "a9721aa9e8f4940e355fdb30c7d28c9204a989f3793456b43f7ff1b51d8f433b",
+    "validation.py": "9efa3e097a6a94e3c550be6f75a83ce556ccf7f44ce33eccab965619c704c0ae"
+  },
+  "generated_at_utc": "2026-10-25T17:11:17.621754+00:00"
+}

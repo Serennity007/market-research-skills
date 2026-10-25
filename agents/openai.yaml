@@ -1,4 +1,6 @@
 interface:
-  display_name: "涛涛的期货研究"
-  short_description: "按产业板块比较固定合约，结合量仓、产业数据和多周期结构写可复查的研究"
-  default_prompt: "使用 $taotao-futures-research，按板块分析我提供的期货数据，核对覆盖率与公布时间，给出品种分化、失效条件和复盘检查点，保存报告。"
+  display_name: "Futures Research Workbench"
+  short_description: "Sector comparisons and eight publication-aware futures desks"
+  default_prompt: "Use $taotao-futures-research to study the supplied dated contracts and evidence, selecting the appropriate sector or specialist desk and retaining uncertainty."
+policy:
+  allow_implicit_invocation: true

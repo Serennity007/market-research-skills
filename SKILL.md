@@ -4,7 +4,7 @@ description: 按板块分析国内期货，比较共同区间的固定合约价�
 license: MIT
 metadata:
   author: Serennity007
-  version: "2.1.0"
+  version: "3.0.0"
 ---
 
 # 涛涛的期货研究
@@ -58,3 +58,14 @@ python scripts/run_sectors.py --config examples/sector-demo/config.json --out ou
 先写观察对象和数据截止时间，接着写板块分化、品种差异、价格与产业证据的分歧。给出待确认条件、失效条件和下一次检查事件。保存旧报告，新数据另起一份。
 
 模拟数据、历史回放、纸面研究和真实成交分开标注。没有成交和成本记录，就不写实盘收益；没有当前数据，就不补造当日行情。
+
+<!-- futures-desk-v3 -->
+## Eight specialist desks / 八个专题工作台
+
+Use the versioned desk for publication-aware daily research, explicit sessions, basis/dated curves, seasonal evidence, declared processing recipes and hypothetical fee/margin stress. Read [the desk data contract](docs/desk-data-contract.md) and [capacity assumptions](docs/desk-risk-model.md) as needed. Choose one of `gold`, `crude-oil`, `ec-shipping`, `equity-index`, `ferrous`, `nonferrous`, `chemicals`, `agriculture`; read its playbook from the relevant installed specialist.
+
+```bash
+python scripts/run_desk.py run --config examples/desk-demo/ferrous/config.json --out output --lang en
+```
+
+Every run emits English/Chinese reports, frozen inputs and hashes. Use `verify` or `replay` for exact bundle checks. The original sector scan remains the entrypoint for comparing multiple products across eleven sectors; this desk adds deeper single-contract evidence and capacity analysis without replacing those sector denominators. [Suite catalog](suite.json) lists eight specialists; `registry.json` continues to list the four independently hosted repositories.

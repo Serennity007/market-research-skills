@@ -4,6 +4,21 @@
 
 # 涛涛的期货研究
 
+<!-- futures-desk-v3 -->
+## 八个专题 Skill · v3.0 研究工作台
+
+黄金、原油、欧线 EC、股指、黑色、有色、化工、农产品八个专题，共用可复核离线计算。每次运行同时输出**中英双语 HTML／Markdown**、JSON、冻结输入与哈希清单。支持公布版本、夜盘交易日、可比基差月差、仅用往年的季节分位、声明式加工配方、费用保证金容量及跳空压力情景。
+
+```bash
+python scripts/run_desk.py run --config examples/desk-demo/ferrous/config.json --out output --lang zh-CN
+python -m unittest discover -s tests -q
+```
+
+[套件与单独 Skill 下载](https://github.com/Serennity007/taotao-futures-research/releases) · [八专题目录](suite.json) · [输入约定](docs/desk-data-contract.md) · [容量模型](docs/desk-risk-model.md) · [证据政策](docs/desk-source-policy.md)
+
+需要 Python 3.10+，基础命令无第三方依赖。这是可运行的研究 Skill，不是桌面安装器或已验证收益的交易策略。新增样例及规则全部为构造数据；原十一板块命令、冻结演示及中文研究参考继续保留。
+
+
 按板块做期货分析，先看分化，再看具体品种。
 
 我把研究分成板块比较、产业数据和价格结构三步。脚本按同一起止日期比较固定合约，点进板块后再看量仓、跨月曲线、多周期和人工关键位。输入文件、运行命令和结果放在一起，方便照着算、重新跑。

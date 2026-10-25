@@ -1,0 +1,222 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'"><title>原油 · 期货研究工作台</title><style>
+    :root{color-scheme:light dark}body{font:16px/1.65 system-ui,sans-serif;margin:0;background:#f2f5fa;color:#172b41}main{max-width:1080px;margin:auto;padding:30px 22px}h1{font-size:clamp(25px,4vw,40px)}h2{margin-top:35px;border-top:2px solid #b9d7da;padding-top:18px}a{color:#096a79}table{width:100%;border-collapse:collapse;background:#fff}th,td{text-align:left;vertical-align:top;padding:10px;border:1px solid #ced9e3;white-space:pre-wrap;overflow-wrap:anywhere}th{width:38%}.scroll,pre{overflow:auto}pre{max-height:520px;font-size:12px}svg{width:100%;height:auto}figure{margin:20px 0}nav{display:flex;gap:16px;flex-wrap:wrap}@media(prefers-color-scheme:dark){body{background:#101c2c;color:#dce7f4}table{background:#16263b}a{color:#8adbd4}th,td{border-color:#3a4f64}}@media print{body,table{background:#fff;color:#111}details{display:none}tr{break-inside:avoid}}</style><main><nav><a href="REPORT.en.html">English</a><a href="REPORT.zh-CN.html">中文</a><a href="bundle.json">JSON</a><a href="REPORT.zh-CN.md">Markdown</a></nav><h1>原油 · 期货研究工作台</h1><p>synthetic · 2025-09-26T09:00:00+00:00</p><p>构造样例——观测、账户和规则参数均为假设，不能作为历史业绩。</p><p>本报告包含描述性观察、证据缺口和假设容量计算。来源声明和文件哈希不能认证市场数据；止损价不是最大亏损保证。</p><h2>质量检查</h2><p>配置的检查已通过；不表示已证明数据完整或预测有效。</p><p>公布、可用和取数是不同时间。晚于截止的数据会被排除，不回填进过去。</p><h2>固定合约观察</h2><div class='scroll'><table><tr><th scope='row'>品种</th><td>SC</td></tr><tr><th scope='row'>合约</th><td>SC_DEMO_202512</td></tr><tr><th scope='row'>币种</th><td>CNY</td></tr><tr><th scope='row'>单位</th><td>CNY/barrel</td></tr><tr><th scope='row'>交易日</th><td>2025-09-26</td></tr><tr><th scope='row'>观测时间</th><td>2025-09-26T15:00:00+08:00</td></tr><tr><th scope='row'>可用时间</th><td>2025-09-26T15:02:00+08:00</td></tr><tr><th scope='row'>收盘价</th><td>569</td></tr><tr><th scope='row'>观测数</th><td>20</td></tr><tr><th scope='row'>起始交易日</th><td>2025-09-01</td></tr><tr><th scope='row'>固定合约变化百分比</th><td>3.454545454545454545454545500</td></tr><tr><th scope='row'>简单ATR14</th><td>4</td></tr><tr><th scope='row'>前次交易日</th><td>2025-09-25</td></tr><tr><th scope='row'>前次成交量</th><td>1180</td></tr><tr><th scope='row'>持仓变化</th><td>20</td></tr></table></div><div class='scroll'><table><tr><th scope='row'>检查方式</th><td>显式交易时段表</td></tr><tr><th scope='row'>最近完整交易日</th><td>2025-09-26</td></tr><tr><th scope='row'>处于声明覆盖范围内</th><td>True</td></tr></table></div><figure><figcaption>已可用日线收盘价——横轴为 UTC 实际时间间隔</figcaption><svg viewBox='0 0 800 195' role='img' aria-label='已可用日线收盘价——横轴为 UTC 实际时间间隔'><title>已可用日线收盘价——横轴为 UTC 实际时间间隔</title><path d='M25 170H775' stroke='#8a9ab0'/><polyline points='25.00,160.00 55.00,153.16 85.00,146.32 115.00,139.47 145.00,132.63 235.00,125.79 265.00,118.95 295.00,112.11 325.00,105.26 355.00,98.42 445.00,91.58 475.00,84.74 505.00,77.89 535.00,71.05 565.00,64.21 655.00,57.37 685.00,50.53 715.00,43.68 745.00,36.84 775.00,30.00' fill='none' stroke='#167c75' stroke-width='3'/><text x='25' y='190' font-size='11'>2025-09-01T15:00:00+08:00</text><text x='775' y='190' text-anchor='end' font-size='11'>2025-09-26T15:00:00+08:00</text></svg><small>550.0 – 569.0 CNY/barrel</small></figure><h2>已公布基本面</h2><div class='scroll'><table><tr><th scope='row'>指标</th><td>commercial_crude_inventory</td></tr><tr><th scope='row'>数值</th><td>105</td></tr><tr><th scope='row'>单位</th><td>declared_demo_units</td></tr><tr><th scope='row'>观测时间</th><td>2025-09-26T10:00:00+08:00</td></tr><tr><th scope='row'>可用时间</th><td>2025-09-26T12:05:00+08:00</td></tr><tr><th scope='row'>前次观测时间</th><td>2024-09-26T10:00:00+08:00</td></tr><tr><th scope='row'>较前次观测变化</th><td>-5</td></tr><tr><th scope='row'>历史季节样本数</th><td>4</td></tr><tr><th scope='row'>仅用往年样本的分位</th><td>50.0</td></tr></table></div><h2>可比基差</h2><div class='scroll'><table><tr><th scope='row'>状态</th><td>已计算</td></tr><tr><th scope='row'>现货减期货</th><td>5</td></tr><tr><th scope='row'>占期货价格百分比</th><td>0.8787346221441124780316344464</td></tr><tr><th scope='row'>可比口径</th><td>DEMO matching grade/location/tax/index definition; not a live quote</td></tr><tr><th scope='row'>现货观测时间</th><td>2025-09-26T15:00:00+08:00</td></tr><tr><th scope='row'>合约</th><td>SC_DEMO_202512</td></tr></table></div><h2>明确交割日期的价差</h2><div class='scroll'><table><tr><th scope='row'>状态</th><td>已计算</td></tr></table></div><div class='scroll'><table><tr><th scope='row'>近月</th><td>SC_DEMO_202512</td></tr><tr><th scope='row'>远月</th><td>SC_DEMO_202603</td></tr><tr><th scope='row'>近月减远月</th><td>-10</td></tr><tr><th scope='row'>交割日间隔天数</th><td>90</td></tr><tr><th scope='row'>远月升水简单年化百分比</th><td>7.127514157391134544034368317</td></tr></table></div><p>简单年化不包含持有成本、融资、税费或换月执行，不能解释为套利收益。</p><h2>声明的加工配方</h2><p>未提供／无法计算</p><h2>假设容量与压力情景</h2><div class='scroll'><table><tr><th scope='row'>状态</th><td>已计算</td></tr><tr><th scope='row'>规则版本</th><td>SYNTHETIC-1</td></tr><tr><th scope='row'>规则来源</th><td>synthetic://not-an-exchange-rule</td></tr><tr><th scope='row'>币种</th><td>CNY</td></tr><tr><th scope='row'>手数上限</th><td>11</td></tr><tr><th scope='row'>各项上限</th><td>{
+  &quot;risk_budget&quot;: 12,
+  &quot;margin_budget&quot;: 175,
+  &quot;user_cap&quot;: 100,
+  &quot;previous_volume&quot;: 11
+}</td></tr><tr><th scope='row'>约束项</th><td>[
+  &quot;previous_volume&quot;
+]</td></tr><tr><th scope='row'>每手计划亏损</th><td>78.1330</td></tr><tr><th scope='row'>每手止损情景费用</th><td>8.1330</td></tr><tr><th scope='row'>每手滑点</th><td>20</td></tr><tr><th scope='row'>每手初始保证金</th><td>569.00</td></tr><tr><th scope='row'>计划总亏损</th><td>859.4630</td></tr><tr><th scope='row'>初始总保证金</th><td>6259.00</td></tr><tr><th scope='row'>假设入场与最新价格差</th><td>0</td></tr><tr><th scope='row'>模型</th><td>单头寸、未占用权益、无保证金抵扣</td></tr></table></div><div class='scroll'><table><tr><th scope='row'>名称</th><td>hypothetical gap and margin increase</td></tr><tr><th scope='row'>价格</th><td>523.48</td></tr><tr><th scope='row'>压力亏损</th><td>5316.217280</td></tr><tr><th scope='row'>剩余权益</th><td>994683.782720</td></tr><tr><th scope='row'>压力保证金</th><td>14395.7000</td></tr><tr><th scope='row'>保证金缺口</th><td>0</td></tr></table></div><p>手数是给定假设下的容量上限，不是下单建议。</p><p>模型仅覆盖单一、无既有占用的假设头寸；不包含组合相关性、保证金抵扣、经纪商加收和逐日结算现金路径。跳空和保证金上调可能使亏损超过预算。</p><h2>研究问题与证伪条件</h2><p>SC、Brent、WTI不能直接拼接价格：油种、币种、地点、运费、税费和交割条件不同。</p><p>月差须与库存、炼厂开工和成品需求一起研究；近强远弱不能单独证明实物短缺。</p><p>原油、成品油、战略库存、浮仓与在途分别统计；周变化须核对覆盖和修订。</p><p>从损失产量、装船、运输和炼厂替代逐段追踪停产；宣布减产与实际出口不是同一证据。</p><p>平价上涨但加工量和成品库存恶化时，应证伪需求拉动叙事；非正价格不使用普通收益率公式。</p><h2>下一步核对证据</h2><p>核对每个曲线点的基准和交割口径。</p><p>比较库存首次公布与后续修订。</p><p>使用显式转换配方更新运费、实际停产和成品裂解口径。</p><h2>来源声明</h2><div class='scroll'><table><tr><th scope='row'>来源</th><td>bars</td></tr><tr><th scope='row'>名称</th><td>Constructed example</td></tr><tr><th scope='row'>策略</th><td>构造数据</td></tr></table></div><div class='scroll'><table><tr><th scope='row'>来源</th><td>sessions</td></tr><tr><th scope='row'>名称</th><td>Constructed example</td></tr><tr><th scope='row'>策略</th><td>构造数据</td></tr></table></div><div class='scroll'><table><tr><th scope='row'>来源</th><td>fundamentals</td></tr><tr><th scope='row'>名称</th><td>Constructed example</td></tr><tr><th scope='row'>策略</th><td>构造数据</td></tr></table></div><div class='scroll'><table><tr><th scope='row'>来源</th><td>spot</td></tr><tr><th scope='row'>名称</th><td>Constructed example</td></tr><tr><th scope='row'>策略</th><td>构造数据</td></tr></table></div><div class='scroll'><table><tr><th scope='row'>来源</th><td>curve</td></tr><tr><th scope='row'>名称</th><td>Constructed example</td></tr><tr><th scope='row'>策略</th><td>构造数据</td></tr></table></div><div class='scroll'><table><tr><th scope='row'>来源</th><td>spec</td></tr><tr><th scope='row'>名称</th><td>Constructed example</td></tr><tr><th scope='row'>策略</th><td>构造数据</td></tr></table></div><details><summary>完整机器可读计算</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;engine_version&quot;: &quot;3.0.0&quot;,
+  &quot;profile&quot;: &quot;crude-oil&quot;,
+  &quot;data_kind&quot;: &quot;synthetic&quot;,
+  &quot;as_of_utc&quot;: &quot;2025-09-26T09:00:00+00:00&quot;,
+  &quot;market&quot;: {
+    &quot;product&quot;: &quot;SC&quot;,
+    &quot;contract&quot;: &quot;SC_DEMO_202512&quot;,
+    &quot;currency&quot;: &quot;CNY&quot;,
+    &quot;unit&quot;: &quot;CNY/barrel&quot;,
+    &quot;trade_date&quot;: &quot;2025-09-26&quot;,
+    &quot;observed_at&quot;: &quot;2025-09-26T15:00:00+08:00&quot;,
+    &quot;available_at&quot;: &quot;2025-09-26T15:02:00+08:00&quot;,
+    &quot;close&quot;: &quot;569&quot;,
+    &quot;observations&quot;: 20,
+    &quot;first_trade_date&quot;: &quot;2025-09-01&quot;,
+    &quot;fixed_contract_change_pct&quot;: &quot;3.454545454545454545454545500&quot;,
+    &quot;atr14_simple&quot;: &quot;4&quot;,
+    &quot;previous_trade_date&quot;: &quot;2025-09-25&quot;,
+    &quot;previous_volume&quot;: 1180,
+    &quot;open_interest_change&quot;: 20,
+    &quot;calendar&quot;: {
+      &quot;method&quot;: &quot;explicit_sessions&quot;,
+      &quot;latest_completed_trade_date&quot;: &quot;2025-09-26&quot;,
+      &quot;within_coverage&quot;: true
+    }
+  },
+  &quot;fundamentals&quot;: [
+    {
+      &quot;metric&quot;: &quot;commercial_crude_inventory&quot;,
+      &quot;value&quot;: &quot;105&quot;,
+      &quot;unit&quot;: &quot;declared_demo_units&quot;,
+      &quot;observed_at&quot;: &quot;2025-09-26T10:00:00+08:00&quot;,
+      &quot;available_at&quot;: &quot;2025-09-26T12:05:00+08:00&quot;,
+      &quot;previous_observed_at&quot;: &quot;2024-09-26T10:00:00+08:00&quot;,
+      &quot;change_from_previous_observation&quot;: &quot;-5&quot;,
+      &quot;prior_season_samples&quot;: 4,
+      &quot;prior_only_percentile&quot;: &quot;50.0&quot;
+    }
+  ],
+  &quot;basis&quot;: {
+    &quot;status&quot;: &quot;calculated&quot;,
+    &quot;spot_minus_future&quot;: &quot;5&quot;,
+    &quot;pct_of_future&quot;: &quot;0.8787346221441124780316344464&quot;,
+    &quot;scope&quot;: &quot;DEMO matching grade/location/tax/index definition; not a live quote&quot;,
+    &quot;spot_observed_at&quot;: &quot;2025-09-26T15:00:00+08:00&quot;,
+    &quot;contract&quot;: &quot;SC_DEMO_202512&quot;
+  },
+  &quot;curve&quot;: {
+    &quot;status&quot;: &quot;calculated&quot;,
+    &quot;spreads&quot;: [
+      {
+        &quot;near&quot;: &quot;SC_DEMO_202512&quot;,
+        &quot;far&quot;: &quot;SC_DEMO_202603&quot;,
+        &quot;near_minus_far&quot;: &quot;-10&quot;,
+        &quot;delivery_day_gap&quot;: 90,
+        &quot;simple_annualized_far_premium_pct&quot;: &quot;7.127514157391134544034368317&quot;
+      }
+    ],
+    &quot;limitation&quot;: &quot;Delivery dates are explicit inputs; ratio excludes carry, financing, taxes and roll execution. It is not an arbitrage return.&quot;
+  },
+  &quot;recipes&quot;: [],
+  &quot;risk&quot;: {
+    &quot;status&quot;: &quot;calculated&quot;,
+    &quot;spec_version&quot;: &quot;SYNTHETIC-1&quot;,
+    &quot;spec_source&quot;: &quot;synthetic://not-an-exchange-rule&quot;,
+    &quot;currency&quot;: &quot;CNY&quot;,
+    &quot;lots_ceiling&quot;: 11,
+    &quot;ceilings&quot;: {
+      &quot;risk_budget&quot;: 12,
+      &quot;margin_budget&quot;: 175,
+      &quot;user_cap&quot;: 100,
+      &quot;previous_volume&quot;: 11
+    },
+    &quot;binding_constraints&quot;: [
+      &quot;previous_volume&quot;
+    ],
+    &quot;planned_loss_per_lot&quot;: &quot;78.1330&quot;,
+    &quot;fees_at_stop_per_lot&quot;: &quot;8.1330&quot;,
+    &quot;slippage_per_lot&quot;: &quot;20&quot;,
+    &quot;initial_margin_per_lot&quot;: &quot;569.00&quot;,
+    &quot;planned_loss_total&quot;: &quot;859.4630&quot;,
+    &quot;initial_margin_total&quot;: &quot;6259.00&quot;,
+    &quot;entry_minus_latest_quote&quot;: &quot;0&quot;,
+    &quot;stress&quot;: [
+      {
+        &quot;name&quot;: &quot;hypothetical gap and margin increase&quot;,
+        &quot;price&quot;: &quot;523.48&quot;,
+        &quot;stress_loss&quot;: &quot;5316.217280&quot;,
+        &quot;remaining_equity&quot;: &quot;994683.782720&quot;,
+        &quot;stress_margin&quot;: &quot;14395.7000&quot;,
+        &quot;margin_shortfall&quot;: &quot;0&quot;
+      }
+    ],
+    &quot;model&quot;: &quot;single_unencumbered_position_no_netting&quot;,
+    &quot;limitation&quot;: &quot;Stop execution is not guaranteed; stress loss can exceed the risk budget. Broker add-ons, daily settlement cash flows and existing portfolio exposures require separate review.&quot;
+  },
+  &quot;quality&quot;: {
+    &quot;status&quot;: &quot;configured_checks_passed&quot;,
+    &quot;gaps&quot;: [],
+    &quot;excluded_future_vintages&quot;: {
+      &quot;bars&quot;: 0,
+      &quot;fundamentals&quot;: 1,
+      &quot;spot&quot;: 0,
+      &quot;curve&quot;: 0
+    }
+  },
+  &quot;sources&quot;: {
+    &quot;bars&quot;: {
+      &quot;name&quot;: &quot;Constructed example&quot;,
+      &quot;policy&quot;: &quot;synthetic&quot;
+    },
+    &quot;sessions&quot;: {
+      &quot;name&quot;: &quot;Constructed example&quot;,
+      &quot;policy&quot;: &quot;synthetic&quot;
+    },
+    &quot;fundamentals&quot;: {
+      &quot;name&quot;: &quot;Constructed example&quot;,
+      &quot;policy&quot;: &quot;synthetic&quot;
+    },
+    &quot;spot&quot;: {
+      &quot;name&quot;: &quot;Constructed example&quot;,
+      &quot;policy&quot;: &quot;synthetic&quot;
+    },
+    &quot;curve&quot;: {
+      &quot;name&quot;: &quot;Constructed example&quot;,
+      &quot;policy&quot;: &quot;synthetic&quot;
+    },
+    &quot;spec&quot;: {
+      &quot;name&quot;: &quot;Constructed example&quot;,
+      &quot;policy&quot;: &quot;synthetic&quot;
+    }
+  },
+  &quot;domain&quot;: {
+    &quot;title&quot;: {
+      &quot;en&quot;: &quot;Crude oil&quot;,
+      &quot;zh-CN&quot;: &quot;原油&quot;
+    },
+    &quot;questions&quot;: {
+      &quot;en&quot;: [
+        &quot;Do not splice SC, Brent and WTI levels: grade, currency, location, freight, tax and delivery terms differ.&quot;,
+        &quot;Read dated spreads together with inventories, refinery runs and product demand; backwardation alone does not prove a physical shortage.&quot;,
+        &quot;Separate crude, products, strategic stocks, floating storage and transit volumes; weekly changes need comparable coverage and revisions.&quot;,
+        &quot;Trace an outage through lost production, export loadings, transit and refinery substitution. Announced cuts and realized exports are different evidence.&quot;,
+        &quot;Falsify a demand-led explanation if refinery throughput and product stocks deteriorate despite stronger flat prices. Signed prices disable ordinary return ratios.&quot;
+      ],
+      &quot;zh-CN&quot;: [
+        &quot;SC、Brent、WTI不能直接拼接价格：油种、币种、地点、运费、税费和交割条件不同。&quot;,
+        &quot;月差须与库存、炼厂开工和成品需求一起研究；近强远弱不能单独证明实物短缺。&quot;,
+        &quot;原油、成品油、战略库存、浮仓与在途分别统计；周变化须核对覆盖和修订。&quot;,
+        &quot;从损失产量、装船、运输和炼厂替代逐段追踪停产；宣布减产与实际出口不是同一证据。&quot;,
+        &quot;平价上涨但加工量和成品库存恶化时，应证伪需求拉动叙事；非正价格不使用普通收益率公式。&quot;
+      ]
+    },
+    &quot;next_checks&quot;: {
+      &quot;en&quot;: [
+        &quot;Confirm benchmark and delivery scope of every curve point.&quot;,
+        &quot;Compare the first published inventory release with later revisions.&quot;,
+        &quot;Update freight, outage realization and product cracks using explicit conversion recipes.&quot;
+      ],
+      &quot;zh-CN&quot;: [
+        &quot;核对每个曲线点的基准和交割口径。&quot;,
+        &quot;比较库存首次公布与后续修订。&quot;,
+        &quot;使用显式转换配方更新运费、实际停产和成品裂解口径。&quot;
+      ]
+    },
+    &quot;metrics&quot;: [
+      &quot;commercial_crude_inventory&quot;,
+      &quot;refinery_runs&quot;,
+      &quot;product_inventory&quot;
+    ]
+  },
+  &quot;scope&quot;: &quot;Descriptive research and hypothetical capacity arithmetic. No orders, prediction validation, source authentication or portfolio risk aggregation.&quot;,
+  &quot;inputs&quot;: {
+    &quot;bars&quot;: {
+      &quot;sha256&quot;: &quot;2393c619fd4d6283d5b9beafe17b834dca8edb3c554dd999234407e7a3dce84b&quot;,
+      &quot;bytes&quot;: 3102
+    },
+    &quot;sessions&quot;: {
+      &quot;sha256&quot;: &quot;db060895e4aeb5fabce5b303ee17ff43f74666467dc669ee8adeb05e4e524280&quot;,
+      &quot;bytes&quot;: 2854
+    },
+    &quot;fundamentals&quot;: {
+      &quot;sha256&quot;: &quot;7acdc5d1bc2b852f9d73154ba6b9e22a7056a79c980ae74780b2e8e5d42d371b&quot;,
+      &quot;bytes&quot;: 1015
+    },
+    &quot;spot&quot;: {
+      &quot;sha256&quot;: &quot;11ad11f160f2ff3e49742a0fe9cdc224932699cc5e4f1eb88b386a4aab65a7d5&quot;,
+      &quot;bytes&quot;: 255
+    },
+    &quot;curve&quot;: {
+      &quot;sha256&quot;: &quot;8907aa0586be15e6c100379b23ad09577f2d4390a835dd714ead7eb5108bf0fe&quot;,
+      &quot;bytes&quot;: 486
+    },
+    &quot;spec&quot;: {
+      &quot;sha256&quot;: &quot;32c00c358dbabbef89cd5c9ee41d73aec2ea838a5a3449ea5db3b2e2b87173a5&quot;,
+      &quot;bytes&quot;: 823
+    }
+  },
+  &quot;config_sha256&quot;: &quot;ee7a963a489decb54492f01b6827a7ca19b395a39d24500dd5cda36f813adfbc&quot;,
+  &quot;engine_sha256&quot;: {
+    &quot;__init__.py&quot;: &quot;0c4b9e4987818b69d832730e6f277c73f6d9f7c9f714697e55a70a3dd83642a6&quot;,
+    &quot;bundle.py&quot;: &quot;76a5f7f4cb25f072a10c1e08eaa22f0792593e7659428685f42cc680fe41272e&quot;,
+    &quot;cli.py&quot;: &quot;0fdda121b0c671ca0c7464c74f7261fa4ae39752ad466d6d752a0842a1b410f4&quot;,
+    &quot;engine.py&quot;: &quot;443e2240bb61e076f64aa80bd8fd00fa4e3fdd857d5cb71d5813fa69c5abbe34&quot;,
+    &quot;profiles.json&quot;: &quot;dba46a665403a4f8906ba9494043d0f20d64e0926e10af0654f13ccb155cf84f&quot;,
+    &quot;reports.py&quot;: &quot;5ff98152ea377f418cf37cbf33dd22ed756976450b7af8f5508c00f31018ec07&quot;,
+    &quot;risk.py&quot;: &quot;a9721aa9e8f4940e355fdb30c7d28c9204a989f3793456b43f7ff1b51d8f433b&quot;,
+    &quot;validation.py&quot;: &quot;9efa3e097a6a94e3c550be6f75a83ce556ccf7f44ce33eccab965619c704c0ae&quot;
+  },
+  &quot;generated_at_utc&quot;: &quot;2026-10-25T17:11:16.847243+00:00&quot;
+}
+</pre></details></main></html>

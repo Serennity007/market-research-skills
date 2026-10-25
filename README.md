@@ -4,6 +4,21 @@
 
 # Futures Research Workbench
 
+<!-- futures-desk-v3 -->
+## Eight specialist Skills · research desk v3.0
+
+Gold, crude oil, Europe container freight, A-share index, ferrous, nonferrous, chemicals and agriculture now have focused research entrypoints and a shared, tested offline desk. Every new desk run emits **English and Chinese HTML/Markdown**, JSON, frozen inputs and SHA-256 manifests. Supports as-of revisions, explicit session calendars, comparable basis/curves, prior-only seasonality, declared processing recipes, Decimal fee/margin capacity and gap stress.
+
+```bash
+python scripts/run_desk.py run --config examples/desk-demo/ferrous/config.json --out output
+python -m unittest discover -s tests -q
+```
+
+[Installable suite and individual Skill ZIPs](https://github.com/Serennity007/taotao-futures-research/releases) · [Eight-Skill catalog](suite.json) · [Input contract](docs/desk-data-contract.md) · [Risk model](docs/desk-risk-model.md) · [Evidence policy](docs/desk-source-policy.md)
+
+Python 3.10+, no third-party dependencies for base commands. These are research Skills with runnable tools, not a desktop installer or validated trading strategy. All new fixtures use synthetic observations and fictional rules. Original eleven-sector commands, archived demonstrations and Chinese research references remain available below.
+
+
 Compare sectors first, then study individual futures contracts. The workflow separates sector comparisons, industry evidence and price structure. Scripts compare fixed contracts over matching date windows and retain the inputs, commands and outputs needed to inspect or rerun the calculation.
 
 [Language coverage](docs/LANGUAGES.md) · [Agent Skill](SKILL.md) · [MIT](LICENSE)

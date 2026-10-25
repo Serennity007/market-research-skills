@@ -11,11 +11,12 @@
       "scripts": [
         "scripts/analyze_structure.py",
         "scripts/analyze_gold_drivers.py",
-        "scripts/run_research.py"
+        "scripts/run_research.py",
+        "scripts/run_desk.py"
       ],
       "demo_data_kind": "synthetic",
       "scope": "黄金多周期结构、利率美元线索与可追溯研究复盘，支持离线数据校验",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "workbench_config": "examples/workbench.json",
       "demo_report": "examples/workbench/REPORT.md",
       "advanced_capability": "金银比、共同日期宏观对照、利率基点变化"
@@ -30,11 +31,12 @@
         "scripts/analyze_structure.py",
         "scripts/analyze_curve.py",
         "scripts/compare_curves.py",
-        "scripts/run_research.py"
+        "scripts/run_research.py",
+        "scripts/run_desk.py"
       ],
       "demo_data_kind": "synthetic",
       "scope": "原油供需、航运冲击和期限结构研究，提供离线曲线计算与情景复盘",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "workbench_config": "examples/workbench.json",
       "demo_report": "examples/workbench/REPORT.md",
       "advanced_capability": "固定合约曲线变化、新增与移除端点识别"
@@ -49,11 +51,12 @@
         "scripts/analyze_structure.py",
         "scripts/compare_settlement.py",
         "scripts/analyze_route_scenarios.py",
-        "scripts/run_research.py"
+        "scripts/run_research.py",
+        "scripts/run_desk.py"
       ],
       "demo_data_kind": "synthetic",
       "scope": "欧线 EC 航路事件、运力与结算指数研究，按真实公布时点比较期价",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "workbench_config": "examples/workbench.json",
       "demo_report": "examples/workbench/REPORT.md",
       "advanced_capability": "固定船队绕航与需求变化敏感性"
@@ -68,11 +71,12 @@
         "scripts/analyze_structure.py",
         "scripts/analyze_breadth.py",
         "scripts/compare_index_styles.py",
-        "scripts/run_research.py"
+        "scripts/run_research.py",
+        "scripts/run_desk.py"
       ],
       "demo_data_kind": "synthetic",
       "scope": "A 股指数结构、市场宽度与大小盘风格研究，区分现货指数和股指期货",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "workbench_config": "examples/workbench.json",
       "demo_report": "examples/workbench/REPORT.md",
       "advanced_capability": "四指数相对强弱与收益差对照"

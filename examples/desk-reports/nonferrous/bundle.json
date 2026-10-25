@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "engine_version": "3.0.0",
+  "profile": "nonferrous",
+  "data_kind": "synthetic",
+  "as_of_utc": "2025-09-26T09:00:00+00:00",
+  "market": {
+    "product": "CU",
+    "contract": "CU_DEMO_202512",
+    "currency": "CNY",
+    "unit": "CNY/tonne",
+    "trade_date": "2025-09-26",
+    "observed_at": "2025-09-26T15:00:00+08:00",
+    "available_at": "2025-09-26T15:02:00+08:00",
+    "close": "78019",
+    "observations": 20,
+    "first_trade_date": "2025-09-01",
+    "fixed_contract_change_pct": "0.024358974358974358974359000",
+    "atr14_simple": "4",
+    "previous_trade_date": "2025-09-25",
+    "previous_volume": 1180,
+    "open_interest_change": 20,
+    "calendar": {
+      "method": "explicit_sessions",
+      "latest_completed_trade_date": "2025-09-26",
+      "within_coverage": true
+    }
+  },
+  "fundamentals": [
+    {
+      "metric": "exchange_inventory",
+      "value": "105",
+      "unit": "declared_demo_units",
+      "observed_at": "2025-09-26T10:00:00+08:00",
+      "available_at": "2025-09-26T12:05:00+08:00",
+      "previous_observed_at": "2024-09-26T10:00:00+08:00",
+      "change_from_previous_observation": "-5",
+      "prior_season_samples": 4,
+      "prior_only_percentile": "50.0"
+    }
+  ],
+  "basis": {
+    "status": "calculated",
+    "spot_minus_future": "5",
+    "pct_of_future": "0.006408695317807200810059088171",
+    "scope": "DEMO matching grade/location/tax/index definition; not a live quote",
+    "spot_observed_at": "2025-09-26T15:00:00+08:00",
+    "contract": "CU_DEMO_202512"
+  },
+  "curve": {
+    "status": "calculated",
+    "spreads": [
+      {
+        "near": "CU_DEMO_202512",
+        "far": "CU_DEMO_202603",
+        "near_minus_far": "-10",
+        "delivery_day_gap": 90,
+        "simple_annualized_far_premium_pct": "0.051981639799991739903812700"
+      }
+    ],
+    "limitation": "Delivery dates are explicit inputs; ratio excludes carry, financing, taxes and roll execution. It is not an arbitrage return."
+  },
+  "recipes": [],
+  "risk": {
+    "status": "calculated",
+    "spec_version": "SYNTHETIC-1",
+    "spec_source": "synthetic://not-an-exchange-rule",
+    "currency": "CNY",
+    "lots_ceiling": 1,
+    "ceilings": {
+      "risk_budget": 4,
+      "margin_budget": 1,
+      "user_cap": 100,
+      "previous_volume": 11
+    },
+    "binding_constraints": [
+      "margin_budget"
+    ],
+    "planned_loss_per_lot": "233.0330",
+    "fees_at_stop_per_lot": "163.0330",
+    "slippage_per_lot": "20",
+    "initial_margin_per_lot": "78019.00",
+    "planned_loss_total": "233.0330",
+    "initial_margin_total": "78019.00",
+    "entry_minus_latest_quote": "0",
+    "stress": [
+      {
+        "name": "hypothetical gap and margin increase",
+        "price": "71777.48",
+        "stress_loss": "62591.996480",
+        "remaining_equity": "937408.003520",
+        "stress_margin": "179443.7000",
+        "margin_shortfall": "0"
+      }
+    ],
+    "model": "single_unencumbered_position_no_netting",
+    "limitation": "Stop execution is not guaranteed; stress loss can exceed the risk budget. Broker add-ons, daily settlement cash flows and existing portfolio exposures require separate review."
+  },
+  "quality": {
+    "status": "configured_checks_passed",
+    "gaps": [],
+    "excluded_future_vintages": {
+      "bars": 0,
+      "fundamentals": 1,
+      "spot": 0,
+      "curve": 0
+    }
+  },
+  "sources": {
+    "bars": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "sessions": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "fundamentals": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spot": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "curve": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    },
+    "spec": {
+      "name": "Constructed example",
+      "policy": "synthetic"
+    }
+  },
+  "domain": {
+    "title": {
+      "en": "Nonferrous metals",
+      "zh-CN": "有色金属"
+    },
+    "questions": {
+      "en": [
+        "Separate mine supply, concentrate treatment charges, smelter output and fabricated demand; tight concentrate does not immediately equal tight refined metal.",
+        "Inventory comparisons require exchange/warehouse geography, bonded status and warrant eligibility. Cancelled warrants and warehouse stock are not independent additive supplies.",
+        "An import comparison needs synchronized FX, tax, freight, grade and location. A raw domestic/overseas price ratio is not an executable import margin.",
+        "Physical premium, near/far spread and inventory draw should confirm the same location and period before inferring shortage.",
+        "Falsify a demand-led rally if downstream utilization and premia weaken; distinguish supply maintenance from permanent capacity closures."
+      ],
+      "zh-CN": [
+        "矿端、精矿加工费、冶炼产量与加工需求分开；精矿紧张不等于精炼金属立即短缺。",
+        "库存比较要匹配交易所、仓库地区、保税状态和仓单资格；注销仓单与仓库库存不是独立可加供应。",
+        "进口比较需要同步汇率、税费、运费、品级和地区；内外比价不能直接解释为可执行进口利润。",
+        "实物升水、近远月差与去库须在相同地区和时期相互确认，再讨论短缺。",
+        "下游开工和升水转弱时，应检验需求拉动上涨；检修停产与永久关停分开。"
+      ]
+    },
+    "next_checks": {
+      "en": [
+        "Reconcile exchange stocks with warrants using documented inclusion rules.",
+        "Check smelter maintenance, concentrate availability and downstream orders.",
+        "Rebuild landed-cost assumptions before interpreting cross-market spreads."
+      ],
+      "zh-CN": [
+        "按明确包含关系核对交易所库存与仓单。",
+        "核对冶炼检修、精矿可得性与下游订单。",
+        "解释跨市场价差前重建到岸成本假设。"
+      ]
+    },
+    "metrics": [
+      "exchange_inventory",
+      "physical_premium",
+      "smelter_utilization"
+    ]
+  },
+  "scope": "Descriptive research and hypothetical capacity arithmetic. No orders, prediction validation, source authentication or portfolio risk aggregation.",
+  "inputs": {
+    "bars": {
+      "sha256": "79efdfecdf6d0c8d8de22db5e3c5ea5ea734276f35e3ca94ea89fb8277c0ba24",
+      "bytes": 3242
+    },
+    "sessions": {
+      "sha256": "4e8a7f35389e71401b27eb8576d6c91c8eb670bf4518b3dbaa326a1773c39344",
+      "bytes": 2854
+    },
+    "fundamentals": {
+      "sha256": "2b42b888b04bc394e76f7e0f5d287ffa7069230160199a4b24457e1aaab710c1",
+      "bytes": 967
+    },
+    "spot": {
+      "sha256": "07f0b8c3ee7581c6c76ce1a7efc217722789fa9dd6cb9ba076072bc5843dcaa3",
+      "bytes": 256
+    },
+    "curve": {
+      "sha256": "4cf6529d6bc0db04011c934b716dfd65621460b46657a7c7f4636b9f95b164c0",
+      "bytes": 488
+    },
+    "spec": {
+      "sha256": "5904539d8e8d72931717b91bb08b16ea1ddac8b91930af3bdbd60085e8b0924d",
+      "bytes": 822
+    }
+  },
+  "config_sha256": "110afa6b8f143f8c748c8a4a412298a8728389608f2e35df35f764d716d4986c",
+  "engine_sha256": {
+    "__init__.py": "0c4b9e4987818b69d832730e6f277c73f6d9f7c9f714697e55a70a3dd83642a6",
+    "bundle.py": "76a5f7f4cb25f072a10c1e08eaa22f0792593e7659428685f42cc680fe41272e",
+    "cli.py": "0fdda121b0c671ca0c7464c74f7261fa4ae39752ad466d6d752a0842a1b410f4",
+    "engine.py": "443e2240bb61e076f64aa80bd8fd00fa4e3fdd857d5cb71d5813fa69c5abbe34",
+    "profiles.json": "dba46a665403a4f8906ba9494043d0f20d64e0926e10af0654f13ccb155cf84f",
+    "reports.py": "5ff98152ea377f418cf37cbf33dd22ed756976450b7af8f5508c00f31018ec07",
+    "risk.py": "a9721aa9e8f4940e355fdb30c7d28c9204a989f3793456b43f7ff1b51d8f433b",
+    "validation.py": "9efa3e097a6a94e3c550be6f75a83ce556ccf7f44ce33eccab965619c704c0ae"
+  },
+  "generated_at_utc": "2026-10-25T17:11:17.876914+00:00"
+}

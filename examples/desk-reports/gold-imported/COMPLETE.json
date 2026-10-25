@@ -1,0 +1,15 @@
+{
+  "schema_version": 3,
+  "status": "complete",
+  "files": {
+    "bundle.json": "fb595ce5eed363ff4e929d62244ebc0184ea8be7a9e200e96f9e07bf39d549ad",
+    "config.snapshot.json": "733f16f9aa955e566af23870dde8ec5794af3cdf3e5e0d1577fb773627d7c5ad",
+    "index.html": "8cf5e91d69deabea67df8a2bf23c2be74b52e29a95240e4f70f17009c578f48a",
+    "inputs/bars.csv": "5f3099db6da0482c1daf9c2378684641df08297aff9839960dd0264f8e34aa11",
+    "REPORT.en.html": "0bec1e3649117e2f22cf4ed2f201ad8f1d17d32ba20511152fd9657e7253a33e",
+    "REPORT.en.md": "4f5bc2e43d669aa9c2f4e5ae720d75c4a19b0a2a0cc59034415da56e19a55236",
+    "REPORT.md": "803f471d5dc83dd4578d4cec1467f276a3c012ee34a98954908668e492097a29",
+    "REPORT.zh-CN.html": "8cf5e91d69deabea67df8a2bf23c2be74b52e29a95240e4f70f17009c578f48a",
+    "REPORT.zh-CN.md": "803f471d5dc83dd4578d4cec1467f276a3c012ee34a98954908668e492097a29"
+  }
+}
