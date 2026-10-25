@@ -1,14 +1,18 @@
-![涛涛的期货研究](.github/cover.svg)
+[English](README.md) · [简体中文](README.zh-CN.md)
 
-# 涛涛的期货研究
+![Futures research](.github/cover.svg)
 
-按板块做期货分析，先看分化，再看具体品种。
+# Futures Research Workbench
 
-我把研究分成板块比较、产业数据和价格结构三步。脚本按同一起止日期比较固定合约，点进板块后再看量仓、跨月曲线、多周期和人工关键位。输入文件、运行命令和结果放在一起，方便照着算、重新跑。
+Compare sectors first, then study individual futures contracts. The workflow separates sector comparisons, industry evidence and price structure. Scripts compare fixed contracts over matching date windows and retain the inputs, commands and outputs needed to inspect or rerun the calculation.
 
-## 一个仓库就能运行
+[Language coverage](docs/LANGUAGES.md) · [Agent Skill](SKILL.md) · [MIT](LICENSE)
 
-准备 Python 3.10 及以上版本，程序只用标准库。
+This is a source / Agent Skill project. The entry guides and release notes are bilingual; the original research instructions, reference notes and generated workbench reports currently retain Chinese text.
+
+## Run the offline workbench
+
+Python 3.10+ is required. Scripts use only the standard library.
 
 ```bash
 git clone https://github.com/Serennity007/taotao-futures-research.git
@@ -16,29 +20,25 @@ cd taotao-futures-research
 python scripts/run_sectors.py --config examples/sector-demo/config.json --out output
 ```
 
-打开终端打印的 index.html。你可以切换比较区间、筛选板块或代码，再进入各板块页面。报告同时保存 Markdown、JSON、CSV 和本次输入，重复运行会保留旧记录。
+Open the printed `index.html` path. Filter sectors or product codes, change comparison windows and inspect the sector pages. Each run saves Markdown, JSON, CSV and its inputs in a new directory.
 
-先看 [已运行的模拟报告](examples/sector-workbench/REPORT.md)，或者按 [实操步骤](docs/sector-hands-on.md) 手算核对。这份练习为模拟数据；目录收录69个品种标识，演示选30个代表品种，覆盖11个研究板块。另有 [公开日线取数实测](examples/real-source/VERIFICATION.md) 和 [两次记录对照](examples/review-result/REVIEW.md)。
+Inspect the [committed synthetic report](examples/sector-workbench/REPORT.md), follow the [hands-on checks](docs/sector-hands-on.md), or view the [11-sector screenshot](.github/sector-preview.jpg). The catalog contains 69 product identifiers; the demo selects 30 representative products across 11 research sectors. This is synthetic practice data, not a trading record.
 
-[模拟板块报告截图](.github/sector-preview.jpg) 展示完整的11板块练习。
-
-## 用公开日线跑一份报告
+## Fetch an explicit set of public daily observations
 
 ```bash
 python scripts/fetch_sina.py --request examples/sina-request.json --out output/sources --analyze
 ```
 
-这个命令只请求文件里明确填写的合约，一批最多6个。取数、保存原始响应、转换字段和生成报告会按顺序完成；默认的模拟报告命令仍然离线运行。
+The command requests only contracts explicitly listed in the request file, up to six per batch. Retrieval, raw-response preservation, normalization and report generation run in sequence. The default demo remains offline.
 
-2026-10-25 实测 AU2612、RB2701、M2701，分别取得225、184、183条日线，最近共同日期为2026-10-23。它们是本次选择的固定合约，不自动称为主力。原始响应、取数时间、输入和哈希已保存，可看 [真实快照报告](examples/real-workbench/REPORT.md)。
+The recorded 2026-10-25 check retrieved 225, 184 and 183 daily observations for AU2612, RB2701 and M2701. Their latest common date was 2026-10-23. These are selected fixed contracts, not automatically identified as active front-month contracts. Raw responses, retrieval times, inputs and hashes are preserved in the [retrieval record](examples/real-source/VERIFICATION.md) and [snapshot report](examples/real-workbench/REPORT.md).
 
-这里使用的是下载时可见的历史版本。每根 K 线记录 available_at，不能把今天取到的数据回填成过去当时已知的版本。取数当日的日线会排除，日收盘时刻由请求文件声明。具体字段和源站变化的处理见 [取数说明](docs/public-data.md)。
+These are the historical versions visible at retrieval time. Every bar records `available_at`; data downloaded today must not be treated as if that version were known in the past. The retrieval day's bar is excluded, and the request declares daily closing times. See [public-data handling](docs/public-data.md).
 
-下面是本次3个固定合约的取数快照，终点为2026-10-23收盘，保留来源与版本说明：
+![Three-contract retrieval snapshot](.github/source-preview.jpg)
 
-![真实取数快照：3个固定合约](.github/source-preview.jpg)
-
-## 检查快照，再做复盘
+## Check integrity and compare records
 
 ```bash
 python scripts/bundle_integrity.py examples/sector-workbench
@@ -46,77 +46,81 @@ python scripts/bundle_integrity.py examples/real-source
 python scripts/compare_reports.py --before examples/review-before --after examples/review-after --out output/reviews
 ```
 
-新版报告校验输入、配置、页面与表格的 SHA-256。重跑冻结配置时会先校验，文件改动就报出。校验检查文件一致性，来源真实性仍需核对。
+Bundles include SHA-256 checks for inputs, configuration, pages and tables. Rerunning a frozen configuration first verifies it and rejects modified artifacts. Integrity checks establish file consistency, not source authenticity.
 
-两次记录对照按同一合约计算价格变化；换月、单位变化、窗口起点变化或样本缺失会单独说明。改过人工关键位或参照柱，也会留下条件变更记录。[模拟复盘](examples/review-result/REVIEW.md) 演示一个先满足收回/回踩观察、后来触及失效位的条件。
+Comparisons use the same contract. Contract rolls, unit changes, different window starts and missing samples are reported separately. Changes to manually declared levels or reference bars remain in the record. The [synthetic review](examples/review-result/REVIEW.md) illustrates a condition that first meets a reclaim/retest observation and later reaches its invalidation level.
 
-## 按板块查资料
+## Research sectors
 
-| 板块 | 目录中的品种标识 |
-|---|---|
-| [贵金属](references/sectors/precious-metals.md) | AU, AG |
-| [有色与新能源材料](references/sectors/nonferrous.md) | CU, AL, ZN, PB, NI, SN, AO, BC, LC, SI |
-| [黑色](references/sectors/ferrous.md) | RB, HC, I, J, JM, SF, SM, SS |
-| [能源](references/sectors/energy.md) | SC, FU, LU, PG, BU |
-| [化工](references/sectors/chemicals.md) | TA, MA, EG, EB, L, PP, V, PF, PX, SH, UR, FG, SA, RU, NR, BR, SP |
-| [油脂油料](references/sectors/oilseeds.md) | A, B, M, Y, P, OI, RM, PK |
-| [谷物与养殖](references/sectors/grains-livestock.md) | C, CS, RR, JD, LH |
-| [软商品与特色农产](references/sectors/softs.md) | CF, CY, SR, AP, CJ |
-| [航运](references/sectors/shipping.md) | EC |
-| [股指](references/sectors/equity-index.md) | IF, IH, IC, IM |
-| [国债](references/sectors/rates.md) | TS, TF, T, TL |
+| Sector | Catalog identifiers |
+| --- | --- |
+| [Precious metals](references/sectors/precious-metals.md) | AU, AG |
+| [Nonferrous and new-energy materials](references/sectors/nonferrous.md) | CU, AL, ZN, PB, NI, SN, AO, BC, LC, SI |
+| [Ferrous](references/sectors/ferrous.md) | RB, HC, I, J, JM, SF, SM, SS |
+| [Energy](references/sectors/energy.md) | SC, FU, LU, PG, BU |
+| [Chemicals](references/sectors/chemicals.md) | TA, MA, EG, EB, L, PP, V, PF, PX, SH, UR, FG, SA, RU, NR, BR, SP |
+| [Oilseeds and oils](references/sectors/oilseeds.md) | A, B, M, Y, P, OI, RM, PK |
+| [Grains and livestock](references/sectors/grains-livestock.md) | C, CS, RR, JD, LH |
+| [Soft commodities and specialty agriculture](references/sectors/softs.md) | CF, CY, SR, AP, CJ |
+| [Shipping](references/sectors/shipping.md) | EC |
+| [Equity indices](references/sectors/equity-index.md) | IF, IH, IC, IM |
+| [Rates](references/sectors/rates.md) | TS, TF, T, TL |
 
-这是我按研究用途划的分类。例如股指和国债分开，建材和橡胶放在化工大类，具体分析再拆产业链。品种目录用于匹配输入文件，当前挂牌、活跃合约与交易规则仍按交易所资料核对。
+These are research groupings rather than an official exchange taxonomy. The catalog matches input identifiers; current listings, active contracts and trading rules require exchange documentation.
 
-## 报告里看什么
+## What the reports retain
 
-- **板块比较**：共同区间的等权价格变化、上涨/下跌数量、代表品种覆盖率。缺数据就显示缺口，默认样本齐全才排名。
-- **单品种**：固定合约的价格、与前次观测的量仓变化、前5根日线均量对比、ATR14，保留前次观测日。
-- **价格结构**：日线、H4、H1/M30 的均线与 MACD，人工支撑/阻力、参照柱计数和窗口到期。
-- **产业数据**：观测期、公布时点、数值、单位和来源；截止时刻之后才公布的版本不进入旧报告。
-- **跨月曲线**：按交割月比较价差，保留报价时间差，检查币种和单位。
+- **Sector comparisons:** equal-weight price changes over a common window, advance/decline counts and representative-product coverage. Missing data remains visible; ranking normally requires complete samples.
+- **Individual products:** fixed-contract price changes, changes from the previous volume/open-interest observation, five-prior-bar volume comparisons and ATR14, including the prior observation date.
+- **Price structure:** daily and H4/H1/M30 moving averages and MACD, manually supplied support/resistance, reference bars and expiry windows.
+- **Industry evidence:** observation period, publication time, value, units and source. Versions published after the cutoff are excluded.
+- **Calendar curves:** delivery-month comparisons, quote-time differences, currency and unit checks.
 
-这些是观察与计算。每个板块页面列出下一步应查的供需、库存、成本和事件资料；当价格与解释不一致时，把分歧留下来。
+These are observations and calculations. Sector pages list supply, demand, inventory, cost and event evidence still to examine; disagreements between price and explanation remain explicit.
 
-## 这套价格方法怎么用
+## Price-structure conditions
 
-[完整方法](references/price-structure.md) 整理了大周期背景、H4 边界、H1/M30 触发，以及区间边缘、跌破收回、突破回踩、时间窗口和风险预算。
+The [method](references/price-structure.md) records larger-timeframe context, H4 boundaries, H1/M30 triggers, reclaim/retest conditions, time windows and risk-budget inputs.
 
-先写观察条件，再等收盘和后续回踩。参照柱与验证期限事先确定；到期没有发生，就在复盘里记录。可以为品种填写事先声明的 setups：参照柱、边界、再次测试容许范围、验证柱数和失效位。程序分别记录收回、后续测试、过期和失效，收回那一根不能同时算成后续回踩。条件的人工声明时间与来源仍需保留，观察满足不等于交易优势已验证。风险手数另需合约与成本资料。
+State observation conditions before evaluating closes and later retests. Declare the reference bar, verification window, tolerance and invalidation level in advance. The program distinguishes reclaims, later tests, expiry and invalidation; a reclaim bar cannot also count as its later retest. Retain the declaration time and source. A met observation condition does not establish a validated trading edge; position sizing additionally requires actual contract and cost information.
 
-[板块比较口径](references/sector-workflow.md) · [事件传导](references/event-transmission.md) · [数据与计算格式](references/data-contract.md) · [结构条件与复盘](docs/rules-and-review.md) · [官方入口](references/sources.md)
+[Comparison conventions](references/sector-workflow.md) · [Event transmission](references/event-transmission.md) · [Data contract](references/data-contract.md) · [Rules and reviews](docs/rules-and-review.md) · [Official source entry points](references/sources.md)
 
-## 换自己的数据
+## Supply your own inputs
 
-复制 `examples/sector-demo/config.json`，在 universe 里选实际合约，修改共同交易日、区间、币种和单位。将 data_kind 改为 imported_observations，为每个使用的输入文件填写来源名称和取数时间。
+Copy `examples/sector-demo/config.json`; select actual contracts in `universe` and declare common trading dates, windows, currencies and units. Set `data_kind` to `imported_observations` and record a source name and retrieval time for each file. This label identifies the input type, not its authenticity or historical version.
 
-panel.csv 提供价格、成交量和持仓量；evidence.csv 与 curves.csv 可选。具体字段和手算过程见 [实操文档](docs/sector-hands-on.md)。导入标签只是输入类型，数据来源与历史版本需要核对。
+`panel.csv` supplies prices, volume and open interest. `evidence.csv` and `curves.csv` are optional. See the [hands-on input guide](docs/sector-hands-on.md).
 
-## 作为 Skill 使用
+## Use as an Agent Skill
 
-这个仓库根目录就是总 Skill，入口是 [SKILL.md](SKILL.md)。把完整目录放进你使用工具的技能目录，保留名称 `taotao-futures-research`。
+The repository root is the Skill, with [SKILL.md](SKILL.md) as its entry. Copy the whole directory into your agent's skill location, keeping the name `taotao-futures-research`.
 
 ```text
-使用 $taotao-futures-research，按板块分析我提供的期货数据，截止时间为……。
-先检查共同区间和覆盖率，再研究板块内分化，结合已公布产业数据和多周期结构。
-保存报告，写清待确认条件、失效条件和下一次检查事件。
+Use $taotao-futures-research with my supplied data and explicit cutoff.
+Check common windows and coverage, then inspect sector dispersion,
+published industry evidence and multi-timeframe structure.
+Save the report and explain observations, missing evidence, invalidation
+conditions and the next review event in English.
 ```
 
-## 四个专题仓库
+An English response request does not automatically translate the script-generated research artifacts.
 
-[黄金](https://github.com/Serennity007/gold-research-skill) · [原油](https://github.com/Serennity007/crude-oil-research-skill) · [欧线 EC](https://github.com/Serennity007/ec-shipping-research-skill) · [大 A 股指](https://github.com/Serennity007/a-share-index-research-skill)
+## Specialist repositories
 
-它们保留各自更细的计算和例子，总 Skill 可以独立运行。原来的四报告联合演示仍可用，命令见 [旧版四报告用法](docs/four-specialists.md)。
+[Gold](https://github.com/Serennity007/gold-research-skill) · [Crude oil](https://github.com/Serennity007/crude-oil-research-skill) · [EC shipping](https://github.com/Serennity007/ec-shipping-research-skill) · [A-share indices](https://github.com/Serennity007/a-share-index-research-skill)
 
-## 检查和重跑
+Each retains specialist calculations and examples. The main workbench runs independently; the earlier four-report demo is documented in [the legacy guide](docs/four-specialists.md).
+
+## Verify and rerun
 
 ```bash
 python -m unittest discover -s tests -v
-python scripts/run_sectors.py --config 旧报告目录/config.snapshot.json --out output
+python scripts/run_sectors.py --config /path/to/previous-run/config.snapshot.json --out output
 ```
 
-把“旧报告目录”换成实际路径。输入快照不依赖原文件位置，测试检查共同日期、缺失样本、公布时间、换月隔离和报告重跑。
+Replace the example path with a real saved run. Frozen inputs do not depend on their original locations. Tests cover common dates, missing observations, publication cutoffs, contract-roll separation and reruns.
 
-[研究和复盘写法](docs/research-playbook.md) · [A 股选股与量化工具](https://github.com/Serennity007/awesome-stock-quant-skills)
+[Research notes](docs/research-playbook.md) · [Stock and quant Skill collection](https://github.com/Serennity007/awesome-stock-quant-skills)
 
-[Serennity007](https://github.com/Serennity007) · MIT
+Research and learning only. Calculations and examples do not establish future returns. [Serennity007](https://github.com/Serennity007) · MIT
