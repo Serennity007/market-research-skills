@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "owner": "Serennity007",
+  "skills": [
+    {
+      "skill": "gold-research-skill",
+      "repository": "gold-research-skill",
+      "title": "黄金研究 Skill",
+      "url": "https://github.com/Serennity007/gold-research-skill",
+      "entrypoint": "SKILL.md",
+      "scripts": [
+        "scripts/analyze_structure.py"
+      ],
+      "demo_data_kind": "synthetic",
+      "scope": "黄金多周期结构、利率美元线索与可追溯研究复盘，支持离线数据校验"
+    },
+    {
+      "skill": "crude-oil-research-skill",
+      "repository": "crude-oil-research-skill",
+      "title": "原油研究 Skill",
+      "url": "https://github.com/Serennity007/crude-oil-research-skill",
+      "entrypoint": "SKILL.md",
+      "scripts": [
+        "scripts/analyze_structure.py",
+        "scripts/analyze_curve.py"
+      ],
+      "demo_data_kind": "synthetic",
+      "scope": "原油供需、航运冲击和期限结构研究，提供离线曲线计算与情景复盘"
+    },
+    {
+      "skill": "ec-shipping-research-skill",
+      "repository": "ec-shipping-research-skill",
+      "title": "欧线 EC 研究 Skill",
+      "url": "https://github.com/Serennity007/ec-shipping-research-skill",
+      "entrypoint": "SKILL.md",
+      "scripts": [
+        "scripts/analyze_structure.py",
+        "scripts/compare_settlement.py"
+      ],
+      "demo_data_kind": "synthetic",
+      "scope": "欧线 EC 航路事件、运力与结算指数研究，按真实公布时点比较期价"
+    },
+    {
+      "skill": "a-share-index-research-skill",
+      "repository": "a-share-index-research-skill",
+      "title": "大 A 股指研究 Skill",
+      "url": "https://github.com/Serennity007/a-share-index-research-skill",
+      "entrypoint": "SKILL.md",
+      "scripts": [
+        "scripts/analyze_structure.py",
+        "scripts/analyze_breadth.py"
+      ],
+      "demo_data_kind": "synthetic",
+      "scope": "A 股指数结构、市场宽度与大小盘风格研究，区分现货指数和股指期货"
+    }
+  ]
+}
