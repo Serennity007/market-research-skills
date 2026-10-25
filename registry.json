@@ -77,5 +77,14 @@
       "demo_report": "examples/workbench/REPORT.md",
       "advanced_capability": "四指数相对强弱与收益差对照"
     }
-  ]
+  ],
+  "root_skill": {
+    "name": "taotao-futures-research",
+    "version": "2.0.0",
+    "entrypoint": "SKILL.md",
+    "script": "scripts/run_sectors.py",
+    "catalog": "catalog/sectors.json",
+    "config": "examples/sector-demo/config.json",
+    "demo_report": "examples/sector-workbench/REPORT.md"
+  }
 }

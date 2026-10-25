@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "as_of": "2024-01-09T16:00:00+08:00",
+  "trade_date": "2024-01-09",
+  "minimum_sector_coverage": 1.0,
+  "max_bar_age_hours": 24,
+  "catalog": "inputs/catalog.json",
+  "files": {
+    "panel": "inputs/panel.csv",
+    "evidence": "inputs/evidence.csv",
+    "curves": "inputs/curves.csv"
+  },
+  "windows": {
+    "day": {
+      "label": "单日",
+      "start_date": "2024-01-08"
+    },
+    "week": {
+      "label": "共同短区间",
+      "start_date": "2024-01-02"
+    },
+    "month": {
+      "label": "共同长区间",
+      "start_date": "2023-12-08"
+    }
+  },
+  "universe": [
+    {
+      "symbol": "AU",
+      "contract": "AU_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts",
+      "structure": {
+        "H4": {
+          "support": 100,
+          "reference_time": "2024-01-06T00:00:00Z",
+          "window_bars": 12
+        }
+      }
+    },
+    {
+      "symbol": "AG",
+      "contract": "AG_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "CU",
+      "contract": "CU_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "AL",
+      "contract": "AL_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "LC",
+      "contract": "LC_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "RB",
+      "contract": "RB_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "I",
+      "contract": "I_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "JM",
+      "contract": "JM_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "SC",
+      "contract": "SC_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "FU",
+      "contract": "FU_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "PG",
+      "contract": "PG_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "TA",
+      "contract": "TA_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "MA",
+      "contract": "MA_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "SA",
+      "contract": "SA_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "RU",
+      "contract": "RU_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "M",
+      "contract": "M_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "Y",
+      "contract": "Y_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "P",
+      "contract": "P_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "C",
+      "contract": "C_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "CS",
+      "contract": "CS_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "LH",
+      "contract": "LH_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "JD",
+      "contract": "JD_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "CF",
+      "contract": "CF_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "SR",
+      "contract": "SR_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "AP",
+      "contract": "AP_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "EC",
+      "contract": "EC_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "IF",
+      "contract": "IF_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "IM",
+      "contract": "IM_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "T",
+      "contract": "T_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    },
+    {
+      "symbol": "TL",
+      "contract": "TL_DEMO",
+      "currency": "CNY",
+      "unit": "demo_points",
+      "volume_unit": "contracts"
+    }
+  ]
+}

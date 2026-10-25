@@ -1,0 +1,466 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>谷物与养殖</title><style>*{box-sizing:border-box}body{margin:0;background:#0a111b;color:#dfe8f5;font:15px/1.7 system-ui,"Microsoft YaHei",sans-serif}main{max-width:1260px;margin:auto;padding:30px 20px}h1{font-size:clamp(28px,5vw,40px);margin:12px 0}h2{font-size:22px}a{color:#79dfc6}p,.muted{color:#a8b7ca}.tag{font:12px monospace;color:#79dfc6;letter-spacing:2px}.summary{display:flex;gap:16px;flex-wrap:wrap;margin:22px 0}.summary article,section,details{padding:20px;background:#121e2d;border:1px solid #2b3c53;border-radius:10px;margin-bottom:18px}.summary article{flex:1;min-width:180px}.summary strong{display:block;font-size:30px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;white-space:nowrap}th,td{padding:11px 12px;border-bottom:1px solid #29394e;text-align:left}th{color:#a8b7ca;font-size:13px}tbody tr:hover{background:#192b3c}.positive{color:#79dfc6}.negative{color:#ef9b97}.thin{color:#a8b7ca}.bar{display:inline-block;vertical-align:middle;height:7px;border-radius:4px;margin-right:8px}.up{background:#79dfc6}.down{background:#ef9b97}input,select{background:#101c2b;border:1px solid #40556e;border-radius:7px;color:#e6eef8;padding:10px;margin:4px 10px 12px 0;max-width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-height:600px;overflow:auto}li{margin:7px 0}.pill{display:inline-block;margin:4px;padding:6px 12px;border:1px solid #39516d;border-radius:6px}footer{color:#a8b7ca;margin:22px 0;font-size:13px}[hidden]{display:none!important}@media print{body{background:white;color:#111}main{max-width:none}section,.summary article,details{background:white;border:1px solid #bbb}a,p,.muted,th,footer{color:#333}input,select,details{display:none}.scroll{overflow:visible}table{white-space:normal;font-size:10px}}</style><main><header><div class="tag">涛涛的期货研究 / 板块分析</div><h1>谷物与养殖</h1><p>模拟练习数据 · 交易日 2024-01-09 · 截止 2024-01-09T08:00:00+00:00</p><a href="../index.html">← 返回板块总览</a> · <a href="../bundle.json">JSON</a></header><section><h2>先查这些资料</h2><ul><li>谷物看产区、上市节奏、进口与饲用/加工需求，标明作物年度。</li><li>生猪、鸡蛋看供给周期、体重/存栏或产蛋群及消费，区分存量和流量。</li><li>加工与养殖利润需要配方、耗用和现货价格，不能由期货点位直接推算。</li></ul><h2>下一次检查</h2><ul><li>核对供应兑现与季节消费的实际差异。</li><li>分开复盘成本变化和产品价格变化。</li></ul></section><section><h2>品种比较</h2><div class="scroll"><table><thead><tr><th>品种 / 固定合约</th><th>收盘 / 单位</th><th>单日</th><th>共同短区间</th><th>共同长区间</th><th>ATR14</th><th>日增仓</th><th>量/前5日均量</th></tr></thead><tbody><tr><td>C / C_DEMO</td><td>124.9198 / demo_points</td><td>+0.18%</td><td>+0.43%</td><td>+3.07%</td><td>1.3219</td><td>-3</td><td>1.0199</td></tr><tr><td>CS / CS_DEMO</td><td>136.6063 / demo_points</td><td>+0.46%</td><td>+1.98%</td><td>+7.66%</td><td>1.5784</td><td>0</td><td>1.0198</td></tr><tr><td>LH / LH_DEMO</td><td>128.0099 / demo_points</td><td>+0.26%</td><td>+1.38%</td><td>+3.57%</td><td>1.385</td><td>3</td><td>1.0197</td></tr><tr><td>JD / JD_DEMO</td><td>138.7233 / demo_points</td><td>+0.30%</td><td>+1.97%</td><td>+7.40%</td><td>1.6878</td><td>-3</td><td>1.0196</td></tr></tbody></table></div><p>成交量和持仓量按手数记录。价涨增仓是共同变化的描述，不能据此确定谁在加多或加空。</p></section><section><h2>截止时刻已公布的产业数据</h2><p><strong>DEMO_观察指标</strong>：100 demo_units<br>观测 2024-01-05T07:00:00+00:00；公布 2024-01-08T08:00:00+00:00<br>来源：synthetic://exercise</p></section><section><h2>多周期与关键位</h2><h3>C</h3><p>D1：均线向上排列；MACD 负柱 / 绝对值缩小；末根 2024-01-09T07:00:00+00:00</p><h3>CS</h3><p>D1：均线向上排列；MACD 正柱 / 绝对值扩张；末根 2024-01-09T07:00:00+00:00</p><h3>LH</h3><p>D1：均线向上排列；MACD 正柱 / 绝对值扩张；末根 2024-01-09T07:00:00+00:00</p><h3>JD</h3><p>D1：均线向上排列；MACD 正柱 / 绝对值缩小；末根 2024-01-09T07:00:00+00:00</p></section><details><summary>本板块的完整计算</summary><pre>{
+  &quot;sector&quot;: {
+    &quot;id&quot;: &quot;grains-livestock&quot;,
+    &quot;name&quot;: &quot;谷物与养殖&quot;,
+    &quot;windows&quot;: {
+      &quot;day&quot;: {
+        &quot;expected_products&quot;: 4,
+        &quot;observed_products&quot;: 4,
+        &quot;coverage&quot;: 1.0,
+        &quot;eligible_for_ranking&quot;: true,
+        &quot;sample_equal_weight_price_return&quot;: 0.002999755901914425,
+        &quot;advancing&quot;: 4,
+        &quot;declining&quot;: 0,
+        &quot;unchanged&quot;: 0,
+        &quot;rank&quot;: 4
+      },
+      &quot;week&quot;: {
+        &quot;expected_products&quot;: 4,
+        &quot;observed_products&quot;: 4,
+        &quot;coverage&quot;: 1.0,
+        &quot;eligible_for_ranking&quot;: true,
+        &quot;sample_equal_weight_price_return&quot;: 0.014402074518422292,
+        &quot;advancing&quot;: 4,
+        &quot;declining&quot;: 0,
+        &quot;unchanged&quot;: 0,
+        &quot;rank&quot;: 4
+      },
+      &quot;month&quot;: {
+        &quot;expected_products&quot;: 4,
+        &quot;observed_products&quot;: 4,
+        &quot;coverage&quot;: 1.0,
+        &quot;eligible_for_ranking&quot;: true,
+        &quot;sample_equal_weight_price_return&quot;: 0.054252449089040644,
+        &quot;advancing&quot;: 4,
+        &quot;declining&quot;: 0,
+        &quot;unchanged&quot;: 0,
+        &quot;rank&quot;: 5
+      }
+    },
+    &quot;symbols&quot;: [
+      &quot;C&quot;,
+      &quot;CS&quot;,
+      &quot;LH&quot;,
+      &quot;JD&quot;
+    ],
+    &quot;drivers&quot;: [
+      &quot;谷物看产区、上市节奏、进口与饲用/加工需求，标明作物年度。&quot;,
+      &quot;生猪、鸡蛋看供给周期、体重/存栏或产蛋群及消费，区分存量和流量。&quot;,
+      &quot;加工与养殖利润需要配方、耗用和现货价格，不能由期货点位直接推算。&quot;
+    ],
+    &quot;next_checks&quot;: [
+      &quot;核对供应兑现与季节消费的实际差异。&quot;,
+      &quot;分开复盘成本变化和产品价格变化。&quot;
+    ],
+    &quot;evidence&quot;: [
+      {
+        &quot;sector&quot;: &quot;grains-livestock&quot;,
+        &quot;metric&quot;: &quot;DEMO_观察指标&quot;,
+        &quot;observed_at&quot;: &quot;2024-01-05T07:00:00+00:00&quot;,
+        &quot;published_at&quot;: &quot;2024-01-08T08:00:00+00:00&quot;,
+        &quot;value&quot;: 100.0,
+        &quot;unit&quot;: &quot;demo_units&quot;,
+        &quot;source&quot;: &quot;synthetic://exercise&quot;
+      }
+    ],
+    &quot;reference&quot;: &quot;references/sectors/grains-livestock.md&quot;
+  },
+  &quot;products&quot;: [
+    {
+      &quot;symbol&quot;: &quot;C&quot;,
+      &quot;name&quot;: &quot;玉米&quot;,
+      &quot;sector&quot;: &quot;grains-livestock&quot;,
+      &quot;exchange&quot;: &quot;DCE&quot;,
+      &quot;contract&quot;: &quot;C_DEMO&quot;,
+      &quot;currency&quot;: &quot;CNY&quot;,
+      &quot;unit&quot;: &quot;demo_points&quot;,
+      &quot;volume_unit&quot;: &quot;contracts&quot;,
+      &quot;latest_close&quot;: 124.919769,
+      &quot;quote_age_hours&quot;: 1.0,
+      &quot;daily_count&quot;: 42,
+      &quot;windows&quot;: {
+        &quot;day&quot;: {
+          &quot;start_date&quot;: &quot;2024-01-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 124.69878,
+          &quot;end_price&quot;: 124.919769,
+          &quot;price_return&quot;: 0.0017721825345846653,
+          &quot;unavailable_reason&quot;: null
+        },
+        &quot;week&quot;: {
+          &quot;start_date&quot;: &quot;2024-01-02&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 124.384614,
+          &quot;end_price&quot;: 124.919769,
+          &quot;price_return&quot;: 0.004302421198171702,
+          &quot;unavailable_reason&quot;: null
+        },
+        &quot;month&quot;: {
+          &quot;start_date&quot;: &quot;2023-12-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 121.193746,
+          &quot;end_price&quot;: 124.919769,
+          &quot;price_return&quot;: 0.030744350455179426,
+          &quot;unavailable_reason&quot;: null
+        }
+      },
+      &quot;atr14_simple&quot;: 1.3218964285714279,
+      &quot;atr14_over_absolute_close&quot;: 0.010581963440641872,
+      &quot;flow&quot;: {
+        &quot;volume&quot;: 1536,
+        &quot;open_interest&quot;: 2877,
+        &quot;open_interest_change&quot;: -3,
+        &quot;volume_vs_prior5_mean&quot;: 1.0199203187250996,
+        &quot;price_oi_observation&quot;: {
+          &quot;price&quot;: &quot;up&quot;,
+          &quot;open_interest&quot;: &quot;down&quot;
+        }
+      },
+      &quot;structures&quot;: {
+        &quot;D1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;C_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;D1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-09T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;8bd9b0e53ce8f8381c7094543071a26056cb9e0110dee60dc508bf6e77bab3ad&quot;,
+          &quot;completed_bar_count&quot;: 42,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-09T07:00:00+00:00&quot;,
+            &quot;open&quot;: 124.69878,
+            &quot;high&quot;: 125.519769,
+            &quot;low&quot;: 124.09878,
+            &quot;close&quot;: 124.919769
+          },
+          &quot;observation_age_seconds&quot;: 3600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 124.59867879999999,
+            &quot;ma10&quot;: 124.4912478,
+            &quot;ma20&quot;: 123.7550324
+          },
+          &quot;ma_ordering&quot;: &quot;ascending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: 1.0022365319946829,
+            &quot;dea&quot;: 1.0599255707638164,
+            &quot;histogram&quot;: -0.11537807753826712,
+            &quot;histogram_previous&quot;: -0.11816212301390605,
+            &quot;sign&quot;: &quot;negative&quot;,
+            &quot;absolute_magnitude&quot;: &quot;shrinking&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        }
+      },
+      &quot;attention&quot;: []
+    },
+    {
+      &quot;symbol&quot;: &quot;CS&quot;,
+      &quot;name&quot;: &quot;玉米淀粉&quot;,
+      &quot;sector&quot;: &quot;grains-livestock&quot;,
+      &quot;exchange&quot;: &quot;DCE&quot;,
+      &quot;contract&quot;: &quot;CS_DEMO&quot;,
+      &quot;currency&quot;: &quot;CNY&quot;,
+      &quot;unit&quot;: &quot;demo_points&quot;,
+      &quot;volume_unit&quot;: &quot;contracts&quot;,
+      &quot;latest_close&quot;: 136.606304,
+      &quot;quote_age_hours&quot;: 1.0,
+      &quot;daily_count&quot;: 42,
+      &quot;windows&quot;: {
+        &quot;day&quot;: {
+          &quot;start_date&quot;: &quot;2024-01-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 135.977567,
+          &quot;end_price&quot;: 136.606304,
+          &quot;price_return&quot;: 0.00462382887024293,
+          &quot;unavailable_reason&quot;: null
+        },
+        &quot;week&quot;: {
+          &quot;start_date&quot;: &quot;2024-01-02&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 133.948057,
+          &quot;end_price&quot;: 136.606304,
+          &quot;price_return&quot;: 0.019845356920705326,
+          &quot;unavailable_reason&quot;: null
+        },
+        &quot;month&quot;: {
+          &quot;start_date&quot;: &quot;2023-12-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 126.888743,
+          &quot;end_price&quot;: 136.606304,
+          &quot;price_return&quot;: 0.07658331834842103,
+          &quot;unavailable_reason&quot;: null
+        }
+      },
+      &quot;atr14_simple&quot;: 1.5784013571428537,
+      &quot;atr14_over_absolute_close&quot;: 0.011554381539689806,
+      &quot;flow&quot;: {
+        &quot;volume&quot;: 1543,
+        &quot;open_interest&quot;: 3000,
+        &quot;open_interest_change&quot;: 0,
+        &quot;volume_vs_prior5_mean&quot;: 1.0198281559814937,
+        &quot;price_oi_observation&quot;: {
+          &quot;price&quot;: &quot;up&quot;,
+          &quot;open_interest&quot;: &quot;flat&quot;
+        }
+      },
+      &quot;structures&quot;: {
+        &quot;D1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;CS_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;D1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-09T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;599f4d52aed6ac6bc3e9574a3f1093a7469ce245c74d580fabe86d3b8c8ba9fe&quot;,
+          &quot;completed_bar_count&quot;: 42,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-09T07:00:00+00:00&quot;,
+            &quot;open&quot;: 135.977567,
+            &quot;high&quot;: 137.206304,
+            &quot;low&quot;: 135.377567,
+            &quot;close&quot;: 136.606304
+          },
+          &quot;observation_age_seconds&quot;: 3600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 135.43343080000002,
+            &quot;ma10&quot;: 134.39227769999997,
+            &quot;ma20&quot;: 132.62613495
+          },
+          &quot;ma_ordering&quot;: &quot;ascending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: 2.5981811629845595,
+            &quot;dea&quot;: 2.5131098317116582,
+            &quot;histogram&quot;: 0.17014266254580246,
+            &quot;histogram_previous&quot;: 0.11823424256821014,
+            &quot;sign&quot;: &quot;positive&quot;,
+            &quot;absolute_magnitude&quot;: &quot;expanding&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        }
+      },
+      &quot;attention&quot;: []
+    },
+    {
+      &quot;symbol&quot;: &quot;LH&quot;,
+      &quot;name&quot;: &quot;生猪&quot;,
+      &quot;sector&quot;: &quot;grains-livestock&quot;,
+      &quot;exchange&quot;: &quot;DCE&quot;,
+      &quot;contract&quot;: &quot;LH_DEMO&quot;,
+      &quot;currency&quot;: &quot;CNY&quot;,
+      &quot;unit&quot;: &quot;demo_points&quot;,
+      &quot;volume_unit&quot;: &quot;contracts&quot;,
+      &quot;latest_close&quot;: 128.009898,
+      &quot;quote_age_hours&quot;: 1.0,
+      &quot;daily_count&quot;: 42,
+      &quot;windows&quot;: {
+        &quot;day&quot;: {
+          &quot;start_date&quot;: &quot;2024-01-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 127.682213,
+          &quot;end_price&quot;: 128.009898,
+          &quot;price_return&quot;: 0.0025664107184606433,
+          &quot;unavailable_reason&quot;: null
+        },
+        &quot;week&quot;: {
+          &quot;start_date&quot;: &quot;2024-01-02&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 126.271506,
+          &quot;end_price&quot;: 128.009898,
+          &quot;price_return&quot;: 0.013767096434250004,
+          &quot;unavailable_reason&quot;: null
+        },
+        &quot;month&quot;: {
+          &quot;start_date&quot;: &quot;2023-12-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 123.599747,
+          &quot;end_price&quot;: 128.009898,
+          &quot;price_return&quot;: 0.035680906369492726,
+          &quot;unavailable_reason&quot;: null
+        }
+      },
+      &quot;atr14_simple&quot;: 1.385011071428572,
+      &quot;atr14_over_absolute_close&quot;: 0.010819562339066719,
+      &quot;flow&quot;: {
+        &quot;volume&quot;: 1550,
+        &quot;open_interest&quot;: 3123,
+        &quot;open_interest_change&quot;: 3,
+        &quot;volume_vs_prior5_mean&quot;: 1.019736842105263,
+        &quot;price_oi_observation&quot;: {
+          &quot;price&quot;: &quot;up&quot;,
+          &quot;open_interest&quot;: &quot;up&quot;
+        }
+      },
+      &quot;structures&quot;: {
+        &quot;D1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;LH_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;D1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-09T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;6227c2cf5f51ef57f63b9106a9f5db130f17dc5749935ba4a03120f979aebc7a&quot;,
+          &quot;completed_bar_count&quot;: 42,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-09T07:00:00+00:00&quot;,
+            &quot;open&quot;: 127.682213,
+            &quot;high&quot;: 128.609898,
+            &quot;low&quot;: 127.082213,
+            &quot;close&quot;: 128.009898
+          },
+          &quot;observation_age_seconds&quot;: 3600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 127.3142592,
+            &quot;ma10&quot;: 126.57175180000002,
+            &quot;ma20&quot;: 125.92128075000001
+          },
+          &quot;ma_ordering&quot;: &quot;ascending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: 1.1483831568568235,
+            &quot;dea&quot;: 1.0374086497070243,
+            &quot;histogram&quot;: 0.22194901429959835,
+            &quot;histogram_previous&quot;: 0.1703949474030595,
+            &quot;sign&quot;: &quot;positive&quot;,
+            &quot;absolute_magnitude&quot;: &quot;expanding&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        }
+      },
+      &quot;attention&quot;: []
+    },
+    {
+      &quot;symbol&quot;: &quot;JD&quot;,
+      &quot;name&quot;: &quot;鸡蛋&quot;,
+      &quot;sector&quot;: &quot;grains-livestock&quot;,
+      &quot;exchange&quot;: &quot;DCE&quot;,
+      &quot;contract&quot;: &quot;JD_DEMO&quot;,
+      &quot;currency&quot;: &quot;CNY&quot;,
+      &quot;unit&quot;: &quot;demo_points&quot;,
+      &quot;volume_unit&quot;: &quot;contracts&quot;,
+      &quot;latest_close&quot;: 138.72327,
+      &quot;quote_age_hours&quot;: 1.0,
+      &quot;daily_count&quot;: 42,
+      &quot;windows&quot;: {
+        &quot;day&quot;: {
+          &quot;start_date&quot;: &quot;2024-01-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 138.303298,
+          &quot;end_price&quot;: 138.72327,
+          &quot;price_return&quot;: 0.003036601484369461,
+          &quot;unavailable_reason&quot;: null
+        },
+        &quot;week&quot;: {
+          &quot;start_date&quot;: &quot;2024-01-02&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 136.044096,
+          &quot;end_price&quot;: 138.72327,
+          &quot;price_return&quot;: 0.019693423520562137,
+          &quot;unavailable_reason&quot;: null
+        },
+        &quot;month&quot;: {
+          &quot;start_date&quot;: &quot;2023-12-08&quot;,
+          &quot;end_date&quot;: &quot;2024-01-09&quot;,
+          &quot;start_price&quot;: 129.164909,
+          &quot;end_price&quot;: 138.72327,
+          &quot;price_return&quot;: 0.0740012211830694,
+          &quot;unavailable_reason&quot;: null
+        }
+      },
+      &quot;atr14_simple&quot;: 1.6877992857142854,
+      &quot;atr14_over_absolute_close&quot;: 0.012166663067517694,
+      &quot;flow&quot;: {
+        &quot;volume&quot;: 1557,
+        &quot;open_interest&quot;: 2877,
+        &quot;open_interest_change&quot;: -3,
+        &quot;volume_vs_prior5_mean&quot;: 1.0196463654223968,
+        &quot;price_oi_observation&quot;: {
+          &quot;price&quot;: &quot;up&quot;,
+          &quot;open_interest&quot;: &quot;down&quot;
+        }
+      },
+      &quot;structures&quot;: {
+        &quot;D1&quot;: {
+          &quot;schema_version&quot;: 1,
+          &quot;instrument&quot;: &quot;JD_DEMO&quot;,
+          &quot;declared_timeframe&quot;: &quot;D1&quot;,
+          &quot;data_kind&quot;: &quot;synthetic&quot;,
+          &quot;as_of_utc&quot;: &quot;2024-01-09T08:00:00+00:00&quot;,
+          &quot;source_sha256&quot;: &quot;eab963ba20cf19507580956b2f3a584910fa1467c8f95473da7662570835ed27&quot;,
+          &quot;completed_bar_count&quot;: 42,
+          &quot;excluded_after_cutoff&quot;: 0,
+          &quot;latest_completed_bar&quot;: {
+            &quot;close_time&quot;: &quot;2024-01-09T07:00:00+00:00&quot;,
+            &quot;open&quot;: 138.303298,
+            &quot;high&quot;: 139.32327,
+            &quot;low&quot;: 137.703298,
+            &quot;close&quot;: 138.72327
+          },
+          &quot;observation_age_seconds&quot;: 3600.0,
+          &quot;moving_averages&quot;: {
+            &quot;ma5&quot;: 137.75647880000002,
+            &quot;ma10&quot;: 136.2870853,
+            &quot;ma20&quot;: 134.05289304999997
+          },
+          &quot;ma_ordering&quot;: &quot;ascending&quot;,
+          &quot;macd&quot;: {
+            &quot;ready&quot;: true,
+            &quot;dif&quot;: 2.833710377789714,
+            &quot;dea&quot;: 2.594940514504046,
+            &quot;histogram&quot;: 0.4775397265713366,
+            &quot;histogram_previous&quot;: 0.4888659439115557,
+            &quot;sign&quot;: &quot;positive&quot;,
+            &quot;absolute_magnitude&quot;: &quot;shrinking&quot;,
+            &quot;flip&quot;: null,
+            &quot;definition&quot;: &quot;EMA12-EMA26; EMA9 signal; histogram=2*(DIF-DEA); first-close EMA seed&quot;
+          },
+          &quot;boundary_observations&quot;: {},
+          &quot;reference_window&quot;: null,
+          &quot;scope&quot;: &quot;Descriptive facts only; no live quotes, price target, trade instruction or win-rate estimate.&quot;,
+          &quot;limitations&quot;: [
+            &quot;Input close_time is assumed to mean bar close, not bar open; provider convention must be checked&quot;,
+            &quot;No session-calendar, missing-bar, contract-roll, unit or quote-source verification&quot;,
+            &quot;Manual support/resistance and analog anchors are not validated predictive features&quot;,
+            &quot;A reclaim/rejection observation does not establish a confirmed reversal or successful retest&quot;
+          ],
+          &quot;input_slice&quot;: &quot;derived OHLC slice from frozen panel.csv&quot;
+        }
+      },
+      &quot;attention&quot;: []
+    }
+  ]
+}</pre></details><footer>各板块采用本次配置的代表品种；表内涨跌幅是同一合约的价格变化。产业数据按公布时间筛选，原始文件与哈希随报告保存。</footer></main></html>

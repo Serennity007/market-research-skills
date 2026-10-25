@@ -1,0 +1,13 @@
+sector,metric,observed_at,published_at,value,unit,source
+precious-metals,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+nonferrous,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+ferrous,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+energy,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+chemicals,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+oilseeds,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+grains-livestock,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+softs,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+shipping,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+equity-index,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+rates,DEMO_观察指标,2024-01-05T15:00:00+08:00,2024-01-08T16:00:00+08:00,100,demo_units,synthetic://exercise
+energy,DEMO_观察指标,2024-01-08T15:00:00+08:00,2024-01-10T16:00:00+08:00,999,demo_units,synthetic://future

@@ -3,7 +3,7 @@
 <rect x="42" y="42" width="5" height="130" rx="2" fill="#70dbc5"/>
 <g font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif"><text x="68" y="63" fill="#70dbc5" font-size="15" letter-spacing="3">TAOTAO</text>
 <text x="68" y="124" fill="#ecf2fa" font-size="42" font-weight="bold">涛涛的期货研究</text>
-<text x="68" y="164" fill="#a0aec4" font-size="19">黄金 · 原油 · 欧线 EC · 大 A 股指</text>
-<text x="68" y="238" fill="#9baac2" font-size="15">可读懂、可复现的期货研究实操</text></g>
+<text x="68" y="164" fill="#a0aec4" font-size="19">贵金属 · 有色 · 黑色 · 能源化工 · 农产品 · 航运 · 金融</text>
+<text x="68" y="238" fill="#9baac2" font-size="15">按板块比较，进入品种，保存输入与复盘</text></g>
 <path d="M965 165L992 145L1024 158L1055 95L1087 113L1120 74L1165 90" fill="none" stroke="#70dbc5" stroke-width="3"/>
 </svg>
