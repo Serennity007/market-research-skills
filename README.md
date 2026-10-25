@@ -1,60 +1,84 @@
+![Market research workbench](.github/cover.svg)
+
 # Market Research Skills
 
-我的跨市场研究工具箱：**黄金、原油、欧线 EC、大 A 股指**。
+黄金、原油、欧线 EC、大 A 股指。四个独立研究 Skill，各自运行；也可以一条命令生成四份报告。
 
-四个独立仓库，每个都包含可直接读取的 Skill、研究方法、数据约定、离线计算、模拟样例和测试。本仓库只负责导航和登记，不需要把整个合集装进代理。
+**Python 3.10+ · 标准库 · 离线报告 · 输入可复查 · MIT**
 
-| 研究对象 | 独立仓库 | 主要问题 | 随带计算 |
-| --- | --- | --- | --- |
-| 黄金 | [gold-research-skill](https://github.com/Serennity007/gold-research-skill) | 利率美元与价格是否共振？关键位修复是否足够？ | 已收盘 MA/MACD、关键位观察、参考窗口 |
-| 原油 | [crude-oil-research-skill](https://github.com/Serennity007/crude-oil-research-skill) | 供需与物流冲击是否落实到库存和期限结构？ | K 线结构、同基准跨月曲线、价差与时效 |
-| 欧线 EC | [ec-shipping-research-skill](https://github.com/Serennity007/ec-shipping-research-skill) | 绕航如何传导到有效运力和已公布运价？ | K 线结构、按公布时间过滤的 SCFIS 对比 |
-| 大 A 股指 | [a-share-index-research-skill](https://github.com/Serennity007/a-share-index-research-skill) | 指数上涨是否有市场宽度支持？大小盘风格如何？ | K 线结构、成分样本宽度与成交集中度 |
+## 选一个开始
 
-## 怎么选
+| Skill | 研究重点 | 本轮新增 | 直接看运行结果 |
+|---|---|---|---|
+| [黄金](https://github.com/Serennity007/gold-research-skill) | 利率美元、金银联动、多周期结构 | 共同日期的宏观对照、金银比、实际利率 bp 变化 | [模拟报告](https://github.com/Serennity007/gold-research-skill/blob/main/examples/workbench/REPORT.md) |
+| [原油](https://github.com/Serennity007/crude-oil-research-skill) | 供需、运输冲击与期限结构 | 同一组合约的跨月价差变化，避免换月端点干扰 | [模拟报告](https://github.com/Serennity007/crude-oil-research-skill/blob/main/examples/workbench/REPORT.md) |
+| [欧线 EC](https://github.com/Serennity007/ec-shipping-research-skill) | 航路、有效运力与已公布 SCFIS | 绕航周转、受影响运力和需求变化的情景测算 | [模拟报告](https://github.com/Serennity007/ec-shipping-research-skill/blob/main/examples/workbench/REPORT.md) |
+| [大 A 股指](https://github.com/Serennity007/a-share-index-research-skill) | 指数结构、宽度与大小盘风格 | 四指数共同窗口收益、相对强弱和百分点差 | [模拟报告](https://github.com/Serennity007/a-share-index-research-skill/blob/main/examples/workbench/REPORT.md) |
 
-- 只研究黄金 → 选择黄金仓库；金银联动用于辅助，不把白银当成相同资产。
-- 研究 WTI/Brent/SC → 选择原油仓库；跨基准比较先解决币种、品质和交割差异。
-- 研究 EC → 选择欧线仓库；区分 SCFIS、SCFI 和船司报价，核对合约月份与信息可见时间。
-- 研究沪深300/上证50/中证500/中证1000与 IF/IH/IC/IM → 选择股指仓库。
-- 研究多资产事件 → 分别调用对应 Skill，共用一个截止时间，再比较相互支持和矛盾的证据。不能把对 EC 的观点自动扩展为黄金或原油方向。
+每个仓库都是一个完整 Skill，有指令、方法、数据规范、计算脚本、示例和测试；不需要安装其余项目。本仓库负责导航、机器可读登记和多报告演示入口。
 
-这些项目的重点是把研究变得可检查：信息何时可知、数据是什么、计算是否可复现、观点何时失效、复盘是否保留原记录。
+## 一次研究留下什么
 
-## 下载与使用
+输入 CSV 和带截止时间的配置，会得到：
 
-每个项目的仓库根目录就是一个完整 Skill。可以单独 clone，直接在根目录运行 README 中的 Python 命令；只需 Python 3.10+ 标准库，无需账户、API Key 或其他仓库。
+- **HTML 研究面板**：关键观测、价格折线、信号分歧、缺失证据、下次检查和可展开计算明细。
+- **Markdown + JSON**：方便写笔记，也方便其他程序读取。
+- **冻结输入 + 重跑配置**：原始字节、来源声明和 SHA-256 随报告保存，重跑不依赖原文件位置。
+- **明确完成状态**：全部导出完成才写 COMPLETE.json；重复运行保留旧快照。
+
+报告使用本地字体与图形，无外部 JS、字体或行情请求；直接下载各仓库的 HTML 样例即可在浏览器打开。GitHub 文件页只展示 HTML 源码。
+
+## 单独运行
+
+以黄金为例，其余项目命令结构相同：
 
 ```bash
 git clone https://github.com/Serennity007/gold-research-skill.git
 cd gold-research-skill
-python scripts/analyze_structure.py --csv examples/bars.csv --instrument GOLD_SYNTHETIC --timeframe H4 --as-of 2024-01-09T00:00:00Z --data-kind synthetic --support 100 --out output/first-run.json
+python scripts/run_research.py --config examples/workbench.json --out output
 python -m unittest discover -s tests -v
 ```
 
-要供代理调用，把需要的仓库完整放进该工具的技能目录，保留仓库名。例如 Codex 用户目录 `~/.codex/skills/`。不同代理的安装约定以其工具说明为准。
+终端打印 REPORT.html 路径。每个仓库的 `references/workbench.md` 解释实际数据的导入方式、来源字段与计算口径。
 
-```text
-使用 $gold-research-skill，标的 XAUUSD，截止时间……，数据来源……。
-请区分已知事实、情景假设与缺失数据，给出关键位失效条件和下次复查点。
+## 一次运行四个
+
+把五个仓库放在同一父目录，首次可这样准备：
+
+```bash
+git clone https://github.com/Serennity007/market-research-skills.git
+git clone https://github.com/Serennity007/gold-research-skill.git
+git clone https://github.com/Serennity007/crude-oil-research-skill.git
+git clone https://github.com/Serennity007/ec-shipping-research-skill.git
+git clone https://github.com/Serennity007/a-share-index-research-skill.git
+cd market-research-skills
+python scripts/run_all.py --local-root .. --out output
 ```
 
-原油、欧线、股指分别使用 `$crude-oil-research-skill`、`$ec-shipping-research-skill`、`$a-share-index-research-skill`。
+打开输出的 index.html，即可进入四份独立报告。运行器只执行已克隆仓库的 synthetic 示例，不联网下载数据、不替换安装，也不将四份报告合成交易评分。失败会保留 FAILURE.json，整次运行不会标记完成。
 
-## 验证与证据等级
+## 交给 Agent
 
-| 项目 | 当前随仓库提供 | 尚不能据此证明 |
-| --- | --- | --- |
-| 计算 | 本地运行的标准库脚本、单元测试、输入/输出 SHA-256 | 实时数据接入、交易执行能力 |
-| 示例 | 全部明确标注 synthetic 的模拟样例 | 实盘记录、历史预测成功率 |
-| 研究 | 各品种方法、官方入口、情景与复盘字段 | 策略有效性、收益或胜率 |
-| 个人回顾 | 作者提供且标明证据限制的观点 | 缺少同期原始记录的已验证战绩 |
+完整仓库根目录就是技能目录，保留仓库名即可。Codex 可放进用户技能目录 `~/.codex/skills/`，其他工具按各自约定安装。
 
-当前不内置网络取数、自动下单、实时监控和收益回测。真实数据可按各仓库约定导入，`imported_observations` 表示导入观测，不等于来源已认证。
+```text
+使用 $gold-research-skill，标的是……，截止时间是……，数据来源是……。
+运行研究工作台，说明价格与宏观证据的分歧，给出失效条件和下次检查事件。
+```
 
-## 导航自检
+[六个研究任务示例](docs/research-playbook.md) 覆盖盘前计划、事件研判、盘后复盘和跨市场对照。原油、欧线、股指的调用名分别是 `$crude-oil-research-skill`、`$ec-shipping-research-skill`、`$a-share-index-research-skill`。
 
-[registry.json](registry.json) 提供机器可读登记。以下检查不联网，适合验证目录和链接约定；带 `--local-root` 时，核对四个相邻本地仓库的技能名、入口及脚本存在性。
+## 验证范围
+
+2026-10-25 本地通过：黄金 **17**、原油 **26**、欧线 **27**、股指 **27**、导航 **7** 项测试。另实际执行四仓库联合演示，核对生成入口与报告文件。共同引擎和工作台测试在各仓库分别执行，不将总测试数量当成独立研究能力或策略有效性。
+
+测试覆盖计算算术、截止时间、公布时滞、合约对齐、部分样本、未来信息排除、输入冻结重跑、跨目录调用及 HTML 转义。示例全部标注 **synthetic 构造数据**；个人历史观点保留其原始证据等级。没有将示例包装成实盘经历、预测成功率或收益。
+
+真实数据可按规范导入，来源字段必须填写；`imported_observations` 表示导入观测，不等于数据已经被工具认证。当前不内置实时取数、自动下单和收益回测。
+
+## 导航与本地自检
+
+[registry.json](registry.json) 登记技能名、仓库地址、版本、入口、脚本和演示配置。
 
 ```bash
 python scripts/validate_registry.py
@@ -64,8 +88,6 @@ python -m unittest discover -s tests -v
 
 ## 相邻项目
 
-[awesome-stock-quant-skills](https://github.com/Serennity007/awesome-stock-quant-skills) 是已有的个股选股与量化技能合集。它与这里的大 A 股指研究定位不同，可按具体任务搭配使用。
+[awesome-stock-quant-skills](https://github.com/Serennity007/awesome-stock-quant-skills) 是已有个股选股与量化技能合集，可与股指/宏观研究配合使用。这里保留四个独立项目的边界。
 
 MIT · [Serennity007](https://github.com/Serennity007)
-
-本地验证（2026-10-25）：黄金8项、原油17项、欧线18项、股指18项、导航4项测试通过；四个 Skill 入口结构与相邻仓库登记检查通过。共同 K 线引擎的测试在各仓库分别运行，不将其表述为65种独立研究能力。
