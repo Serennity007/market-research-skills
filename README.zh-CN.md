@@ -4,6 +4,8 @@
 
 # 涛涛的期货研究
 
+[项目总导航](https://github.com/Serennity007/repo-catalog/blob/main/README.zh-CN.md) · [2026-10-30 导出维护与复验](docs/maintenance-2026-10-30.md)
+
 <!-- futures-desk-v3 -->
 ## 八个专题 Skill · v3.0 研究工作台
 

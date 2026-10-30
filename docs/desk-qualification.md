@@ -1,5 +1,7 @@
 # Research suite qualification / 研究套件验证
 
+[2026-10-30 export maintenance and five-repository recheck / 导出维护与五仓库复验](maintenance-2026-10-30.md)
+
 This release upgrades the four existing specialists and adds four focused Skills. Its acceptance conditions concern calculation correctness, evidence timing, explicit assumptions and reproducible delivery. They do **not** concern investment returns or the performance of a trading strategy.
 
 ## Tested properties
@@ -23,6 +25,8 @@ python tools/build_skill_suite.py --out output/my-new-release
 ```
 
 The builder requires the four independently cloned specialist repositories beside this hub (or `--specialists-root`). It exports eight individual specialist ZIPs, the master ZIP and a combined suite. Core source/profile bytes originate in `desk_core` in this repository; specialists' `CORE-MANIFEST.json` makes their mirrored version explicit. Do not edit a specialist's core independently without resynchronizing and requalifying the suite. Frozen reports hash their producing core and require that exact release for replay.
+
+Staging and ZIP writing exclude `.env`, `.env.*`, `.venv`, `venv`, `.git`, `node_modules`, `__pycache__`, `*.pyc`, `output` and `.DS_Store`. These filename exclusions do not scan for credentials embedded in other files.
 
 ## Evidence examples
 

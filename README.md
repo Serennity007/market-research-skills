@@ -4,6 +4,8 @@
 
 # Futures Research Workbench
 
+[Project navigator](https://github.com/Serennity007/repo-catalog) · [Maintenance check · 2026-10-30](docs/maintenance-2026-10-30.md)
+
 <!-- futures-desk-v3 -->
 ## Eight specialist Skills · research desk v3.0
 

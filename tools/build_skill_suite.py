@@ -13,7 +13,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT/"desk_core"
 NEW = {"ferrous", "nonferrous", "chemicals", "agriculture"}
-IGNORE = shutil.ignore_patterns(".git", "__pycache__", "*.pyc", "output", "node_modules", ".DS_Store")
+IGNORE = shutil.ignore_patterns(".git", "__pycache__", "*.pyc", "output", "node_modules", ".DS_Store",
+                               ".venv", "venv", ".env", ".env.*")
 
 
 def copy_core(target):
@@ -25,7 +26,10 @@ def zip_tree(root, target):
     with zipfile.ZipFile(target,"w",zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
         for file in sorted(root.rglob("*")):
             if file.is_file():
-                info = zipfile.ZipInfo(root.name+"/"+file.relative_to(root).as_posix(),(2025,1,1,0,0,0))
+                relative = file.relative_to(root)
+                if any(IGNORE("", [part]) for part in relative.parts):
+                    continue
+                info = zipfile.ZipInfo(root.name+"/"+relative.as_posix(),(2025,1,1,0,0,0))
                 info.compress_type=zipfile.ZIP_DEFLATED; info.external_attr=0o644<<16
                 archive.writestr(info,file.read_bytes())
 
@@ -60,7 +64,7 @@ def build(output, specialists_root):
         registry.append(dict(profile=key,skill=name,archive=archive.name,version="1.0.0" if key in NEW else "2.0.0"))
     master = staged/"taotao-futures-research"
     # Avoid nesting the four Skill entrypoints inside the installed master.
-    shutil.copytree(ROOT,master,ignore=shutil.ignore_patterns(".git","__pycache__","*.pyc","output","skills","node_modules"))
+    shutil.copytree(ROOT,master,ignore=lambda path,names: IGNORE(path,names) | ({"skills"} & set(names)))
     zip_tree(master,output/"taotao-futures-research-3.0.0.zip")
     zip_tree(staged,output/"futures-research-suite-3.0.0.zip")
     (output/"SUITE.json").write_text(json.dumps({"suite_version":"3.0.0","engine_version":"3.0.0","python":">=3.10","skills":registry},ensure_ascii=False,indent=2)+"\n",encoding="utf-8",newline="\n")
